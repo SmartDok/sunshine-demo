@@ -22,6 +22,10 @@
 
     <s-select v-model="country" :items="countries" label="Secondary" />
 
+    <p>
+      <s-drop-down label="Drop down" />
+    </p>
+
     <!--
       TODO
       Keyboard mapping
