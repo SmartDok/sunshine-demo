@@ -20,12 +20,20 @@
         <s-accordion-item>
           <template slot="heading">Timeføring</template>
 
-          <div class="grid">
-            <s-text-field class="grid-item--span-3" v-model="from" label="Fra" format="00:00" />
-            <s-text-field class="grid-item--span-3" v-model="to" label="Til" format="00:00" />
-            <s-text-field class="grid-item--span-3" v-model="pause" label="Pause" />
-            <s-text-field class="grid-item--span-3" inactive label="Timer" value="7,5" />
-          </div>
+          <s-grid>
+            <s-grid-item :span="3">
+              <s-text-field v-model="from" label="Fra" format="00:00" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field v-model="to" label="Til" format="00:00" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field v-model="pause" label="Pause" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field inactive label="Timer" value="7,5" />
+            </s-grid-item>
+          </s-grid>
 
           <p>
             Dette er en kommentar
@@ -36,24 +44,44 @@
           <template slot="heading">Prosjekt og aktivitet</template>
 
           <div class="grid">
-            <s-text-field class="grid-item--span-12" v-model="project" label="Prosjekt" />
+            <s-grid-item :span="12">
+              <s-text-field v-model="project" label="Prosjekt" />
+            </s-grid-item>
 
-            <s-text-field class="grid-item--span-9" v-model="subProject" label="Underprosjekt" />
-            <s-text-field class="grid-item--span-3" v-model="pause" label="Antall" />
+            <s-grid-item :span="9">
+              <s-text-field v-model="subProject" label="Underprosjekt" />
+            </s-grid-item>
 
-            <s-text-field class="grid-item--span-6" v-model="activity" label="Aktivitet" />
-            <s-text-field class="grid-item--span-6" v-model="area" label="Område" />
+            <s-grid-item :span="3">
+              <s-text-field v-model="pause" label="Antall" />
+            </s-grid-item>
+
+            <s-grid-item :span="6">
+              <s-text-field class="grid-item--span-6" v-model="activity" label="Aktivitet" />
+            </s-grid-item>
+
+            <s-grid-item :span="6">
+              <s-text-field class="grid-item--span-6" v-model="area" label="Område" />
+            </s-grid-item>
           </div>
         </s-accordion-item>
 
         <s-accordion-item>
           <template slot="heading">Lønn og tillegg</template>
 
-          <div class="grid">
-            <s-text-field class="grid-item--span-9" v-model="wage" label="Lønnsart" />
-            <s-text-field class="grid-item--span-3" v-model="pause" label="Antall" />
-            <s-text-field v-for="i in 20" class="grid-item--span-6" :key="i" :label="`Tillegg ${i}`" />
-          </div>
+          <s-grid>
+            <s-grid-item :span="9">
+              <s-text-field v-model="wage" label="Lønnsart" />
+            </s-grid-item>
+
+            <s-grid-item :span="3">
+              <s-text-field class="grid-item--span-3" v-model="pause" label="Antall" />
+            </s-grid-item>
+
+            <s-grid-item v-for="i in 20" :key="i" :span="6">
+              <s-text-field :label="`Tillegg ${i}`" />
+            </s-grid-item>
+          </s-grid>
         </s-accordion-item>
 
         <s-accordion-item>
