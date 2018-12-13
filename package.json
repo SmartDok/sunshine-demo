@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "surge -d smartdok-subshine.surge.sh dist"
+    "deploy": "surge -d smartdok-sunshine.surge.sh dist"
   },
   "dependencies": {
     "d3": "^5.7.0",
