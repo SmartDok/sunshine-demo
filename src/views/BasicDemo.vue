@@ -16,52 +16,37 @@
     <s-button small primary>Primary</s-button>&nbsp;
     <s-button small>Secondary</s-button>
 
-    <h2>Select</h2>
-
-    <s-select v-model="country" :items="countries" label="Primary" primary />&nbsp;
-
-    <s-select v-model="country" :items="countries" label="Secondary" />
-
-    <p>
-      <s-drop-down label="Drop down" />
-    </p>
-
-    <!--
-      TODO
-      Keyboard mapping
-    -->
-
     <h2>Text field</h2>
 
-    <div>
+    <p>
       <s-text-field v-model="name" label="Project name" /> <span class="value"> {{ name }}</span>
-    </div>
+    </p>
 
-    <div>
+    <p>
       <s-text-field v-model="number" phone label="Phone number" /> <span class="value"> {{ number }}</span>
-    </div>
+    </p>
 
-    <div>
+    <p>
       <s-text-field v-model="email" email label="Email" /> <span class="value"> {{ email }}</span>
-    </div>
+    </p>
 
-    <div>
+    <p>
       <s-text-field v-model="password" password label="Password" /> <span class="value"> {{ password }}</span>
-    </div>
+    </p>
 
-    <div>
+    <p>
       <s-text-field v-model="time" format="00:00" label="Expected format" /> <span class="value"> {{ time }}</span>
-    </div>
+    </p>
 
 
 
-    <div>
+    <p>
       <s-text-field label="Inactive Input" inactive />
-    </div>
+    </p>
 
-    <div>
+    <p>
       <s-text-field label="Inactive Input" value="With text" inactive />
-    </div>
+    </p>
 
 
     <!--
@@ -112,12 +97,6 @@ export default Vue.extend({
       email: '',
       password: '',
       time: '',
-      countries: [
-        {title: 'Norge'},
-        {title: 'Sverige'},
-        {title: 'England'},
-      ],
-      country: null,
       option: '1',
     };
   },
