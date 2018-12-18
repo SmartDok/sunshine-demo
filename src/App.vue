@@ -13,7 +13,9 @@
     </s-tabs>
 
     <div class="main">
-      <router-view/>
+      <transition name="navigate">
+        <router-view/>
+      </transition>
     </div>
 
     <InspectorDemo />
@@ -40,6 +42,11 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@mixin overlay {
+  position: absolute;
+  width: 100%;
+}
+
 .main-layout {
   box-sizing: border-box;
   padding: 10px 60px 25px 60px;
@@ -53,6 +60,34 @@ export default Vue.extend({
   overflow: auto;
   display: flex;
   flex-direction: column;
+  position: relative;
   // height: 100%;
 }
+
+.navigate-enter-active {
+  @include overlay();
+  animation: navigate .2s;
+  opacity: 0;
+}
+
+.navigate-leave-active {
+  @include overlay();
+  animation: fade .1s reverse;
+}
+
+@keyframes navigate {
+  from {
+    transform: translate(0, 10px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(0, -4px);
+    opacity: .5;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
 </style>
