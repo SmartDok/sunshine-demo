@@ -175,6 +175,7 @@ export default Vue.extend({
   align-items: center;
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
+  min-height: 3rem; // not sure why this is necessary
 }
 
 .container {
