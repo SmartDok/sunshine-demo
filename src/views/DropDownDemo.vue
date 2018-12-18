@@ -12,7 +12,7 @@
 
     <h2>Multi select</h2>
     <p>
-      <s-drop-down search multiple v-model="selected" label="Select countries" :items="countries" />
+      <s-drop-down search multiple :max-selected-shown="2" v-model="selected" label="Select countries" :items="countries" />
     </p>
 
     <p>

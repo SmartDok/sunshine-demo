@@ -2,8 +2,7 @@
   <div class="container">
     <div class="options">
 
-      <label>Data source:</label>&nbsp;
-      <s-select v-model="dataSource" :items="sources" label="Data source" />&nbsp;
+      <s-drop-down v-model="dataSource" :items="sources" label="Data source" />&nbsp;
 
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
@@ -172,6 +171,8 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .options {
+  display: flex;
+  align-items: center;
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
 }
