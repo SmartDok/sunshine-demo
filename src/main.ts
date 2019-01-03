@@ -5,7 +5,9 @@ import SmartDokUI from 'smartdok-sunshine';
 
 Vue.config.productionTip = false;
 
-Vue.use(SmartDokUI);
+// Casting to any here, because TypeScript apparently doesn't care about
+// webpack's module resolution rules
+Vue.use(SmartDokUI as any);
 
 new Vue({
   router,
