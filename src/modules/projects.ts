@@ -1,13 +1,12 @@
-import { ISortState, IItem, IDataSource } from 'smartdok-sunshine/src/components/types';
+import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
 const kroner = (value: any) =>
   value == null ? null : fmt.format(value);
 
 
-const source: IDataSource = {
-  title: 'Project list',
-  outline: true,
+const source = createDataModule({
   columns: [
     { key: 'name', title: 'Name', width: 300 },
     { key: 'number', title: 'Number', width: 150 },
@@ -20,11 +19,9 @@ const source: IDataSource = {
     { key: 'invoiced', title: 'Invoiced', align: 'right' },
     { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
   ],
-  count: 3,
-  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IItem[]> => {
-    if (skip > 0) return [];
 
-    return [
+  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IFetchResult> => {
+    const items = [
       {
         icon: 'fas fa-suitcase',
         data: {
@@ -175,7 +172,12 @@ const source: IDataSource = {
         },
       },
     ];
+
+    if (skip > 0) return {items: [], total: items.length};
+
+    return {items, total: items.length};
   },
-};
+
+});
 
 export default source;

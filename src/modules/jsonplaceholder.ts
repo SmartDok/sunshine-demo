@@ -1,8 +1,8 @@
-import { IItem, IDataSource } from 'smartdok-sunshine/src/components/types';
+import { IItem, IFetchResult } from 'smartdok-sunshine/src/components/types';
 import createBasicSort from './createBasicSort';
+import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
-const source: IDataSource = {
-  title: 'Users',
+const source = createDataModule({
   columns: [
     { key: 'name', title: 'Name', sortable: true },
     { key: 'username', title: 'User name', sortable: true },
@@ -16,18 +16,21 @@ const source: IDataSource = {
     { key: 'website', title: 'Website' },
     { key: 'actions', title: 'Actions', export: false },
   ],
-  count: 12,
-  fetch: createBasicSort(async (): Promise<IItem[]> => {
+
+  fetch: createBasicSort(async (): Promise<IFetchResult> => {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     const data = await res.json();
-    return data.map((u: any) => ({
+
+    const items = data.map((u: any) => ({
       data: {
         ...u,
         ...u.address,
         company: u.company.name,
       },
     }));
+
+    return {items, total: 12};
   }),
-};
+});
 
 export default source;

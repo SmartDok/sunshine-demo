@@ -1,4 +1,5 @@
-import { ISortState, IItem, IDataSource } from 'smartdok-sunshine/src/components/types';
+import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
 const BASEURL = 'https://web.trackthebox.com:5559/smartapi/';
 
@@ -63,11 +64,10 @@ const fetchProjects = async (): Promise<IItem[]> => {
   }));
 };
 
-const source: IDataSource = {
-  title: 'SmartDok',
-  fixed: true,
-  outline: true,
-  count: null,
+const source = createDataModule({
+  // fixed: true,
+  // outline: true,
+
   columns: [
     { key: 'name', title: 'Navn', width: 350 },
     { key: 'number', title: 'Number', width: 150 },
@@ -79,9 +79,10 @@ const source: IDataSource = {
     { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
   ],
 
-  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IItem[]> => {
-    if (skip > 0) return [];
-    return await fetchProjects();
+  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IFetchResult> => {
+    if (skip > 0) return {items: [], total: -1};
+    const items = await fetchProjects();
+    return {items, total: items.length};
   },
 };
 

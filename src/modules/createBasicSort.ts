@@ -1,14 +1,14 @@
-import { ISortState, IItem, FetchData } from 'smartdok-sunshine/src/components/types';
-type BasicFetch = () => Promise<IItem[]>;
+import { ISortState, IItem, FetchData, IFetchResult } from 'smartdok-sunshine/src/components/types';
+type BasicFetch = () => Promise<IFetchResult>;
 
 export default (next: BasicFetch): FetchData => (
   async (skip: number, take: number, sorting: ISortState) => {
-    if (skip > 0) return [];
+    if (skip > 0) return {items: [], total: 0};
 
-    let items: IItem[] = await next();
+    let result: IFetchResult = await next();
 
     if (sorting.key === null)
-      return items;
+      return result;
 
     const { key, reverse } = sorting;
 
@@ -28,6 +28,9 @@ export default (next: BasicFetch): FetchData => (
       }
     };
 
-    return items.slice(skip).sort(sortFunc);
+    return {
+      items: result.items.slice(skip).sort(sortFunc),
+      total: result.total,
+    };
   }
 );

@@ -1,7 +1,7 @@
-import { ISortState, IItem, IItemData, IDataSource } from 'smartdok-sunshine/src/components/types';
+import { ISortState, IItem, IItemData, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
-const source: IDataSource = {
-  title: 'Github Repos',
+const source = createDataModule({
   columns: [
     { key: 'full_name', title: 'Full name', sortable: true },
     { key: 'created_at', title: 'Created', sortable: true },
@@ -13,8 +13,8 @@ const source: IDataSource = {
     { key: 'size', title: 'Size', align: 'right' },
     { key: 'description', title: 'Description' },
   ],
-  count: null,
-  fetch: async (skip = 0, take: number, sorting: ISortState): Promise<IItem[]> => {
+
+  fetch: async (skip = 0, take: number, sorting: ISortState): Promise<IFetchResult> => {
     if (skip % take !== 0)
       console.warn(`Expected skip (${skip}) to be a multiple of take (${take})`);
     let direction = sorting.reverse ? 'desc' : 'asc';
@@ -26,8 +26,11 @@ const source: IDataSource = {
     const res = await fetch(`https://api.github.com/users/vuejs/repos?${query}`);
     const repos = await res.json() as IItemData[];
 
-    return repos.map(data => ({data}));
+    return {
+      items: repos.map(data => ({data})),
+      total: -1,
+    };
   },
-};
+});
 
 export default source;

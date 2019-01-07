@@ -2,7 +2,7 @@
   <div class="container">
     <div class="options">
 
-      <s-drop-down v-model="dataSource" :items="sources" label="Data source" />&nbsp;
+      <s-drop-down v-model="dataSource" :items="$store.state.sources" label="Data source" />&nbsp;
 
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
@@ -11,10 +11,10 @@
     </div>
 
     <s-data-table
-      :columns="dataSource.columns"
+      :columns="columns"
       :items="items"
-      :outline="dataSource.outline"
-      :fixed="dataSource.fixed"
+      :outline="outline"
+      :fixed="fixed"
       :total="total"
       :skip="skip"
       :draggable="draggable"
@@ -59,9 +59,10 @@ import {
   ISortState,
   IColumn,
   IItem,
+  IDataTableState,
 } from 'smartdok-sunshine/src/components/types';
 
-import DataSources from './data';
+// import DataSources from './data';
 
 export default Vue.extend({
   name: 'TableDemo',
@@ -69,13 +70,12 @@ export default Vue.extend({
   data() {
     return {
       menuOpen: false,
-      dataSource: DataSources[0],
+      dataSource: this.$store.state.sources[0],
       draggable: true,
       condensed: false,
       stickyColumn: false,
-      sources: DataSources,
-      items: [] as IItem[],
-      total: null as number | null,
+      // items: [] as IItem[],
+      // total: null as number | null,
       skip: 0,
       isLoading: false,
       sorting: {
@@ -85,64 +85,47 @@ export default Vue.extend({
     };
   },
 
+  computed: {
+    namespace(): string {
+      return this.dataSource.namespace;
+    },
+
+    outline(): boolean {
+      return this.dataSource.outline || false;
+    },
+
+    fixed(): boolean {
+      return this.dataSource.fixed || false;
+    },
+
+    columns(): IColumn[] {
+      return this.getState('columns');
+    },
+
+    items(): IItem[] {
+      return this.getState('items');
+    },
+
+    total(): number {
+      return this.getState('total');
+    },
+  },
+
   methods: {
+    getState(key: string): any {
+      return this.$store.getters[`${this.namespace}/${key}`];
+    },
+
+    dispatchAction(name: string, payload: any) {
+      this.$store.dispatch(`${this.namespace}/${name}`, payload);
+    },
+
     async load() {
-      this.isLoading = true;
-      this.items = await this.dataSource.fetch(0, 50, this.sorting);
-      this.skip = 0;
-      this.total = this.dataSource.count;
-      this.isLoading = false;
+      this.dispatchAction('fetchItems', {firstRow: 0, lastRow: 50, clear: true, sorting: this.sorting});
     },
 
     async onVisibleRows(args: any) {
-      type Range = [number, number];
-
-      let items = args.clear ? [] : this.items;
-
-      let has: Range = [this.skip, this.skip + items.length];
-      let needs: Range = [args.firstRow, args.lastRow + 1];
-
-      if (has[0] <= needs[0] && has[1] >= needs[1])
-        return;
-
-      const chunkSize = 50;
-
-      let needChunks = [Math.floor(needs[0] / chunkSize) * chunkSize, Math.ceil(needs[1] / chunkSize) * chunkSize];
-
-      let prepend: Range | null = null;
-      let append: Range | null = null;
-      if (needs[0] < has[0]) {
-        prepend = [needChunks[0], has[0]];
-      }
-      if (needs[1] > has[1]) {
-        append = [has[1], needChunks[1]];
-      }
-
-      console.log('has', has[0], has[1]);
-      console.log('needs', needs[0], needs[1]);
-      if (prepend !== null) console.log('prepend', prepend[0], prepend[1]);
-      if (append !== null) console.log('append', append[0], append[1]);
-
-      this.isLoading = true;
-
-      if (prepend !== null) {
-        let skip = prepend[0];
-        let take = prepend[1] - prepend[0];
-        let newItems = await this.dataSource.fetch(skip, take, this.sorting);
-        this.skip = skip;
-        this.items = newItems.concat(items);
-      }
-
-      if (append !== null) {
-        let skip = append[0];
-        let take = append[1] - append[0];
-        // skip = Math.max(skip, this.skip + this.items.length);
-        let newItems = await this.dataSource.fetch(skip, take, this.sorting);
-        this.items = items.concat(newItems);
-      }
-
-      this.total = this.dataSource.count;
-      this.isLoading = false;
+      this.dispatchAction('fetchItems', args);
     },
 
     onSort(sorting: ISortState) {
@@ -160,7 +143,7 @@ export default Vue.extend({
     dataSource: {
       handler() {
         // this.sorting = {key: null, reverse: false};
-        this.items = [];
+        // this.items = [];
         this.load();
       },
       immediate: true,

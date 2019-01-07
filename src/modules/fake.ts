@@ -1,4 +1,5 @@
-import { ISortState, IItem, IDataSource } from 'smartdok-sunshine/src/components/types';
+import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
@@ -31,8 +32,7 @@ const data = {
     'ambrose.net'],
 };
 
-export default (title: string, count: number | null = null): IDataSource => ({
-  title,
+export default (count: number | null = null) => createDataModule({
   columns: [
     { key: 'id', title: '#' },
     { key: 'number', title: 'Number' },
@@ -47,9 +47,7 @@ export default (title: string, count: number | null = null): IDataSource => ({
     { key: 'website', title: 'Website' },
   ],
 
-  count,
-
-  fetch: async (skip = 0, take = 0, sorting: ISortState): Promise<IItem[]> => {
+  fetch: async (skip = 0, take = 0, sorting: ISortState): Promise<IFetchResult> => {
     const items: IItem[] = [];
 
     for (let i = 0; i < take; i++) {
@@ -73,6 +71,9 @@ export default (title: string, count: number | null = null): IDataSource => ({
       };
     }
 
-    return items;
+    return {
+      items,
+      total: count,
+    };
   },
 });
