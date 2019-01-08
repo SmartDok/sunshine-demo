@@ -26,9 +26,11 @@ const source = createDataModule({
     const res = await fetch(`https://api.github.com/users/vuejs/repos?${query}`);
     const repos = await res.json() as IItemData[];
 
+    const total = (repos.length < take) ? (skip + repos.length) : null;
+
     return {
       items: repos.map(data => ({data})),
-      total: -1,
+      total,
     };
   },
 });

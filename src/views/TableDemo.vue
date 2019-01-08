@@ -11,6 +11,8 @@
     </div>
 
     <s-data-table
+      :key="namespace"
+      :module="namespace"
       :columns="columns"
       :items="items"
       :outline="outline"
@@ -120,11 +122,11 @@ export default Vue.extend({
       this.$store.dispatch(`${this.namespace}/${name}`, payload);
     },
 
-    async load() {
-      this.dispatchAction('fetchItems', {firstRow: 0, lastRow: 50, clear: true, sorting: this.sorting});
+    load() {
+      this.dispatchAction('fetchItems', {firstRow: 0, lastRow: 49, clear: true, sorting: this.sorting});
     },
 
-    async onVisibleRows(args: any) {
+    onVisibleRows(args: any) {
       this.dispatchAction('fetchItems', args);
     },
 
