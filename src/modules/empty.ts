@@ -1,5 +1,4 @@
-import { IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
+import { createDataModule, IFetchResult } from 'smartdok-sunshine';
 
 const source = createDataModule({
   columns: [

@@ -1,4 +1,4 @@
-import { ISortState, IItem, FetchData, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { ISortState, IItem, FetchData, IFetchResult } from 'smartdok-sunshine';
 type BasicFetch = () => Promise<IFetchResult>;
 
 export default (next: BasicFetch): FetchData => (

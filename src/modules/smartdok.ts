@@ -1,5 +1,4 @@
-import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
+import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
 
 const BASEURL = 'https://web.trackthebox.com:5559/smartapi/';
 
@@ -17,7 +16,7 @@ const getJSON = async <T = any>(path: string): Promise<T> => {
   }
 };
 
-const fetchAreas = async (subProjectId: number): Promise<IItem> => {
+const fetchAreas = async (subProjectId: string): Promise<IItem[]> => {
   let areas = await getJSON(`Areas/GetAll?subProjectId=${subProjectId}`);
 
   return areas.map((data: any) => ({
@@ -29,13 +28,12 @@ const fetchAreas = async (subProjectId: number): Promise<IItem> => {
   }));
 };
 
-const fetchSubProjects = async (projectId: number): Promise<IItem> => {
+const fetchSubProjects = async (projectId: string): Promise<IItem[]> => {
   let subProjects = await getJSON(`SubProjects/GetSubProjects?projectId=${projectId}`);
 
-  let areas = await Promise.all(subProjects.map((data: any) => fetchAreas(data.Id)));
-
-  return subProjects.map((data: any, i: number) => ({
-    children: areas[i],
+  return subProjects.map((data: any) => ({
+    key: data.Id,
+    totalChildren: -1,
     icon: 'far fa-folder',
     data: {
       name: data.Name,
@@ -47,10 +45,9 @@ const fetchSubProjects = async (projectId: number): Promise<IItem> => {
 const fetchProjects = async (): Promise<IItem[]> => {
   let projects = await getJSON('project/GetProjectList');
 
-  let subProjects = await Promise.all(projects.map((data: any) => fetchSubProjects(data.ProjectId)));
-
-  return projects.map((data: any, i: number) => ({
-    children: subProjects[i],
+  return projects.map((data: any) => ({
+    key: data.ProjectId,
+    totalChildren: -1,
     icon: 'fas fa-suitcase',
     data: {
       name: data.ProjectName,
@@ -65,9 +62,6 @@ const fetchProjects = async (): Promise<IItem[]> => {
 };
 
 const source = createDataModule({
-  // fixed: true,
-  // outline: true,
-
   columns: [
     { key: 'name', title: 'Navn', width: 350 },
     { key: 'number', title: 'Number', width: 150 },
@@ -84,6 +78,21 @@ const source = createDataModule({
     const items = await fetchProjects();
     return {items, total: items.length};
   },
-};
+
+  fetchChildren: async (keyPath: string[]): Promise<IFetchResult> => {
+    let items: IItem[] = [];
+
+    if (keyPath.length === 1) {
+      items = await fetchSubProjects(keyPath[0]);
+    } else if (keyPath.length === 2) {
+      items = await fetchAreas(keyPath[1]);
+    }
+
+    return {
+      items,
+      total: items.length,
+    };
+  },
+});
 
 export default source;

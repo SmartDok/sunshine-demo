@@ -1,5 +1,4 @@
-import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
+import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',

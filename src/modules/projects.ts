@@ -1,5 +1,4 @@
-import { ISortState, IItem, IDataSource, IFetchResult } from 'smartdok-sunshine/src/components/types';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
+import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
 const kroner = (value: any) =>

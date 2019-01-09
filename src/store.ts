@@ -1,18 +1,20 @@
-import Vuex, { Module } from 'vuex';
+import Vuex from 'vuex';
 import Vue from 'vue';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
 import projects from './modules/projects';
 import jsonplaceholder from './modules/jsonplaceholder';
 import github from './modules/github';
 import fake from './modules/fake';
 import empty from './modules/empty';
+import smartdok from './modules/smartdok';
 
 Vue.use(Vuex);
 
+const compact = <T>(array: T[]): T[] => array.filter(e => e);
+
 const store = new Vuex.Store({
   state: {
-    sources: [
+    sources: compact([
       { title: 'Projects', namespace: 'projects', fixed: false, outline: true },
       { title: 'Users', namespace: 'jsonplaceholder' },
       { title: 'Github', namespace: 'github' },
@@ -20,8 +22,13 @@ const store = new Vuex.Store({
       { namespace: 'fake75', title: '75 rows' },
       { namespace: 'fake999', title: '999 rows' },
       { namespace: 'fake1M', title: '1000000 rows' },
+      (
+        // Show "SmartDok" source only if Token exists
+        localStorage.getItem('SmartApiToken') &&
+        { namespace: 'smartdok', title: 'SmartDok Project Tree', fixed: true, outline: true }
+      ),
       { namespace: 'empty', title: 'Empty' },
-    ],
+    ]),
   },
 
   modules: {
@@ -33,6 +40,8 @@ const store = new Vuex.Store({
     fake75: fake(75),
     fake999: fake(999),
     fake1M: fake(1000000),
+
+    smartdok,
 
     empty,
   },

@@ -1,6 +1,5 @@
-import { IItem, IFetchResult } from 'smartdok-sunshine/src/components/types';
+import { createDataModule, IFetchResult } from 'smartdok-sunshine';
 import createBasicSort from './createBasicSort';
-import { createDataModule } from 'smartdok-sunshine/src/vuex';
 
 const source = createDataModule({
   columns: [
