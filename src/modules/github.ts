@@ -29,7 +29,7 @@ const source = createDataModule({
     const total = (repos.length < take) ? (skip + repos.length) : null;
 
     return {
-      items: repos.map(data => ({data})),
+      items: repos.map(data => ({key: data.id, data})),
       total,
     };
   },

@@ -55,6 +55,7 @@ export default (count: number | null = null) => createDataModule({
       if (count && id >= count) break;
 
       items[i] = {
+        key: `${id}`,
         data: {
           id: id + 1,
           number: id * 100 + id + 1,

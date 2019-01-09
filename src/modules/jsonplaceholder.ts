@@ -22,6 +22,7 @@ const source = createDataModule({
     const data = await res.json();
 
     const items = data.map((u: any) => ({
+      key: u.id,
       data: {
         ...u,
         ...u.address,
