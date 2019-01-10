@@ -16,7 +16,7 @@ const data: {[key: string]: IItem[]} = {
   '': [
     {
       key: '5124',
-      totalChildren: -1,
+      totalChildren: 1,
       icon: 'fas fa-suitcase',
       data: {
         name: 'First project',
@@ -34,7 +34,7 @@ const data: {[key: string]: IItem[]} = {
 
     {
       key: '5598',
-      totalChildren: -1,
+      totalChildren: 1,
       icon: 'fas fa-suitcase',
       data: {
         name: 'Second project',
@@ -73,7 +73,7 @@ const data: {[key: string]: IItem[]} = {
   '5124': [
     {
       key: '5124-1',
-      totalChildren: -1,
+      totalChildren: 1,
       icon: 'far fa-folder',
       data: {
         name: 'Underprosjekt 1',
@@ -91,7 +91,7 @@ const data: {[key: string]: IItem[]} = {
 
     {
       key: '5124-2',
-      totalChildren: -1,
+      totalChildren: 1,
       icon: 'far fa-folder',
       data: {
         name: 'Underprosjekt 2',

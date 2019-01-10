@@ -13,17 +13,11 @@
     <s-data-table
       :key="namespace"
       :module="namespace"
-      :columns="columns"
-      :items="items"
       :outline="outline"
       :fixed="fixed"
-      :total="total"
-      :skip="skip"
       :draggable="draggable"
       :condensed="condensed"
       :sticky-column="stickyColumn"
-      @visible-rows="onVisibleRows"
-      @sort="onSort"
     >
 
       <!-- Override cell to show email address as link -->
@@ -59,27 +53,18 @@
 import Vue from 'vue';
 import {
   ISortState,
-  IColumn,
   IItem,
-  IDataTableState,
-} from 'smartdok-sunshine/src/components/types';
-
-// import DataSources from './data';
+} from 'smartdok-sunshine';
 
 export default Vue.extend({
   name: 'TableDemo',
 
   data() {
     return {
-      menuOpen: false,
       dataSource: this.$store.state.sources[0],
       draggable: true,
       condensed: false,
       stickyColumn: false,
-      // items: [] as IItem[],
-      // total: null as number | null,
-      skip: 0,
-      isLoading: false,
       sorting: {
         key: null,
         reverse: false,
@@ -99,56 +84,15 @@ export default Vue.extend({
     fixed(): boolean {
       return this.dataSource.fixed || false;
     },
-
-    columns(): IColumn[] {
-      return this.getState('columns');
-    },
-
-    items(): IItem[] {
-      return this.getState('items');
-    },
-
-    total(): number {
-      return this.getState('total');
-    },
   },
 
   methods: {
-    getState(key: string): any {
-      return this.$store.getters[`${this.namespace}/${key}`];
-    },
-
     dispatchAction(name: string, payload: any) {
       this.$store.dispatch(`${this.namespace}/${name}`, payload);
     },
 
-    load() {
-      this.dispatchAction('fetchItems', {firstRow: 0, lastRow: 49, clear: true, sorting: this.sorting});
-    },
-
-    onVisibleRows(args: any) {
-      this.dispatchAction('fetchItems', args);
-    },
-
-    onSort(sorting: ISortState) {
-      this.sorting = sorting;
-      this.isLoading = true;
-      this.load();
-    },
-
     onEdit(item: IItem) {
       console.log('edit', item);
-    },
-  },
-
-  watch: {
-    dataSource: {
-      handler() {
-        // this.sorting = {key: null, reverse: false};
-        // this.items = [];
-        this.load();
-      },
-      immediate: true,
     },
   },
 });
