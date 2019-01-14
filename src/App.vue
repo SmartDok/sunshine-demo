@@ -10,6 +10,7 @@
       <s-tab to="/table">DataTable</s-tab>
       <s-tab to="/chart">DataChart</s-tab>
       <s-tab to="/calendar">Calendar</s-tab>
+      <s-tab to="/datepicker">Datepicker</s-tab>
     </s-tabs>
 
     <div class="main">
