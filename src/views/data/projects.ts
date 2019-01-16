@@ -26,7 +26,7 @@ const source: IDataSource = {
 
     return [
       {
-        icon: 'fas fa-suitcase',
+        icon: 'Briefcase-1',
         data: {
           name: 'First project',
           number: '5124',
@@ -42,7 +42,7 @@ const source: IDataSource = {
 
         children: [
           {
-            icon: 'far fa-folder',
+            icon: 'Folder-1',
             data: {
               name: 'Underprosjekt 1',
               number: '5124-1',
@@ -58,7 +58,7 @@ const source: IDataSource = {
 
             children: [
               {
-                icon: 'far fa-circle',
+                icon: 'Focus-Center',
                 data: {
                   name: 'Område 1',
                   number: '5124-1100',
@@ -74,7 +74,7 @@ const source: IDataSource = {
               },
 
               {
-                icon: 'far fa-circle',
+                icon: 'Focus-Center',
                 data: {
                   name: 'Område 2',
                   number: '5124-1200',
@@ -91,7 +91,7 @@ const source: IDataSource = {
             ],
           },
           {
-            icon: 'far fa-folder',
+            icon: 'Folder-1',
             data: {
               name: 'Underprosjekt 2',
               number: '5124-1',
@@ -107,7 +107,7 @@ const source: IDataSource = {
 
             children: [
               {
-                icon: 'far fa-circle',
+                icon: 'Focus-Center',
                 data: {
                   name: 'Område 3',
                   number: '5124-1200',
@@ -127,7 +127,7 @@ const source: IDataSource = {
       },
 
       {
-        icon: 'fas fa-suitcase',
+        icon: 'Briefcase-1',
         data: {
           name: 'Second project',
           number: '5598',
@@ -143,7 +143,7 @@ const source: IDataSource = {
 
         children: [
           {
-            icon: 'far fa-folder',
+            icon: 'Folder-1',
             data: {
               name: 'Underprosjektnavn',
               number: '5124-1',
@@ -160,7 +160,7 @@ const source: IDataSource = {
       },
 
       {
-        icon: 'fas fa-suitcase',
+        icon: 'Briefcase-1',
         data: {
           name: 'Third project',
           number: '2934',
