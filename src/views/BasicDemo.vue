@@ -60,6 +60,12 @@
     <div>
       <s-checkbox v-model="checked">Checkbox</s-checkbox>
     </div>
+
+    <div>
+      <s-checkbox v-model="multi">Multi-state</s-checkbox>&nbsp;
+      <s-button small @click="multi = null">Reset</s-button>
+    </div>
+
     <div>
       <s-checkbox inactive>Inactive</s-checkbox>
     </div>
@@ -91,6 +97,7 @@ export default Vue.extend({
   data() {
     return {
       checked: false,
+      multi: null as boolean | null,
       text: '-',
       name: '',
       number: '',
