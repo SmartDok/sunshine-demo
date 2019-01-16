@@ -20,7 +20,7 @@ const fetchAreas = async (subProjectId: string): Promise<IItem[]> => {
   let areas = await getJSON(`Areas/GetAll?subProjectId=${subProjectId}`);
 
   return areas.map((data: any) => ({
-    icon: 'far fa-circle',
+    icon: 'Focus-Center',
     data: {
       name: data.Name,
       number: data.Number,
@@ -34,7 +34,7 @@ const fetchSubProjects = async (projectId: string): Promise<IItem[]> => {
   return subProjects.map((data: any) => ({
     key: data.Id,
     totalChildren: -1,
-    icon: 'far fa-folder',
+    icon: 'Folder-1',
     data: {
       name: data.Name,
       number: data.Number,
@@ -48,7 +48,7 @@ const fetchProjects = async (): Promise<IItem[]> => {
   return projects.map((data: any) => ({
     key: data.ProjectId,
     totalChildren: -1,
-    icon: 'fas fa-suitcase',
+    icon: 'Briefcase-1',
     data: {
       name: data.ProjectName,
       number: data.ProjectNumber,

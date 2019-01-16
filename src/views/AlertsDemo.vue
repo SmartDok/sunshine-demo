@@ -2,6 +2,8 @@
   <div>
     <h2>Basic alerts</h2>
 
+    <s-alert>Default alert.</s-alert>
+
     <s-alert success>Success! Data transfered successfully.</s-alert>
 
     <s-alert warning>
@@ -15,13 +17,11 @@
 
     <h2>Alert with icon or actions</h2>
 
-    <s-alert success>
-      <s-icon name="hourglass"></s-icon>
-      Your free trail has been extended with 14-days. Enjoy!
+    <s-alert icon="Calendar">
+      Your free trial has been extended with 14-days. Enjoy!
     </s-alert>
 
-    <s-alert warning>
-      <s-icon name="password"></s-icon>
+    <s-alert warning icon="Lock-User1">
       Your password has not been changed in 2 months.
 
       <template slot="buttons">

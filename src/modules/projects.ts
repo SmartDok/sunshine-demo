@@ -17,7 +17,7 @@ const data: {[key: string]: IItem[]} = {
     {
       key: '5124',
       totalChildren: 1,
-      icon: 'fas fa-suitcase',
+      icon: 'Briefcase-1',
       data: {
         name: 'First project',
         number: '5124',
@@ -35,7 +35,7 @@ const data: {[key: string]: IItem[]} = {
     {
       key: '5598',
       totalChildren: 1,
-      icon: 'fas fa-suitcase',
+      icon: 'Briefcase-1',
       data: {
         name: 'Second project',
         number: '5598',
@@ -53,7 +53,7 @@ const data: {[key: string]: IItem[]} = {
     {
       key: '2934',
       totalChildren: 0,
-      icon: 'fas fa-suitcase',
+      icon: 'Briefcase-1',
       data: {
         name: 'Third project',
         number: '2934',
@@ -74,7 +74,7 @@ const data: {[key: string]: IItem[]} = {
     {
       key: '5124-1',
       totalChildren: 1,
-      icon: 'far fa-folder',
+      icon: 'Folder-1',
       data: {
         name: 'Underprosjekt 1',
         number: '5124-1',
@@ -92,7 +92,7 @@ const data: {[key: string]: IItem[]} = {
     {
       key: '5124-2',
       totalChildren: 1,
-      icon: 'far fa-folder',
+      icon: 'Folder-1',
       data: {
         name: 'Underprosjekt 2',
         number: '5124-2',
@@ -111,7 +111,7 @@ const data: {[key: string]: IItem[]} = {
   '5598': [
     {
       key: '5124-1',
-      icon: 'far fa-folder',
+      icon: 'Folder-1',
       data: {
         name: 'Underprosjektnavn',
         number: '5124-1',
@@ -130,7 +130,7 @@ const data: {[key: string]: IItem[]} = {
   '5124:5124-1': [
     {
       key: '5124-1100',
-      icon: 'far fa-circle',
+      icon: 'Focus-Center',
       data: {
         name: 'Område 1',
         number: '5124-1100',
@@ -147,7 +147,7 @@ const data: {[key: string]: IItem[]} = {
 
     {
       key: '5124-1200',
-      icon: 'far fa-circle',
+      icon: 'Focus-Center',
       data: {
         name: 'Område 2',
         number: '5124-1200',
@@ -166,7 +166,7 @@ const data: {[key: string]: IItem[]} = {
   '5124:5124-2': [
     {
       key: '5124-1200',
-      icon: 'far fa-circle',
+      icon: 'Focus-Center',
       data: {
         name: 'Område 3',
         number: '5124-1200',

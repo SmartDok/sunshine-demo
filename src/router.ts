@@ -7,6 +7,7 @@ import AccordionDemo from '@/views/AccordionDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
+import DatepickerDemo from '@/views/DatepickerDemo.vue';
 
 Vue.use(Router);
 
@@ -48,6 +49,11 @@ export default new Router({
       path: '/calendar',
       name: 'calendar',
       component: CalendarDemo,
+    },
+    {
+      path: '/datepicker',
+      name: 'datepicker',
+      component: DatepickerDemo,
     },
   ],
 });
