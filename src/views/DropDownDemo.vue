@@ -1,57 +1,87 @@
 <template>
-  <div>
+  <div class="drop-down-demo">
     <h2>Simple select</h2>
     <p>
       <s-drop-down v-model="country" label="Select one country" :items="countries" />
     </p>
+    <div class="help">
+      <p>
+        Use arrow-keys to change value while menu is closed, or to move
+        cursor when menu is open, and <b>enter</b> to accept selected value.
+      </p>
+
+      <p>
+        Hit <b>enter</b> while closed to open menu, <b>escape</b> to close
+        the menu without changing the value.
+      </p>
+    </div>
 
     <h2>Single select w/search</h2>
     <p>
       <s-drop-down search v-model="country" label="Select one country" :items="countries" />
     </p>
+    <p class="help">
+      Type text to filter, <b>escape</b> once clears the typed text. Other keys as above.
+    </p>
 
     <h2>Multi select</h2>
     <p>
-      <s-drop-down search multiple :max-selected-shown="2" v-model="selected" label="Select countries" :items="countries" />
+      <s-drop-down multiple :max-selected-shown="8" v-model="selected" label="Select countries" :items="countries" />
     </p>
+    <div class="help">
+      <p>
+        Hit <b>space</b> to toggle selected item, <b>enter</b> to check
+        selected item (unless already checked), and close the menu.
+        <b>backspace</b> removes the last selected value.
+      </p>
 
+      <p>Arrow keys while closed opens menu.</p>
+    </div>
+
+    <h2>Multi select w/search</h2>
     <p>
-      <s-button @click="reset">Reset</s-button>
+      <s-drop-down search multiple :max-selected-shown="3" v-model="selected" label="Select countries" :items="countries" />
+    </p>
+    <p class="help">
+      Type text to filter, <b>escape</b> once clears the typed text.
+      <b>backspace</b> removes last selected value, when text is empty. Other
+      keys as above.
     </p>
 
-    <h2>Button-style select boxes (discontinued)</h2>
-
-    <s-select v-model="country" :items="countries" label="Primary" primary />&nbsp;
-    <s-select v-model="country" :items="countries" label="Secondary" />
+    <div class="actions">
+      <s-button small @click="reset">Reset</s-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
+const COUNTRIES = [
+  'Belgium',
+  'Canada',
+  'Denmark',
+  'France',
+  'Germany',
+  'Iceland',
+  'Ireland',
+  'Italy',
+  'Mexico',
+  'Norway',
+  'Portugal',
+  'Russia',
+  'Spain',
+  'Sweden',
+  'USA',
+  'United Kingdom',
+];
+
 export default Vue.extend({
   name: 'DropDownDemo',
 
   data() {
     return {
-      countries: [
-        {title: 'Belgium'},
-        {title: 'Canada'},
-        {title: 'Denmark'},
-        {title: 'France'},
-        {title: 'Germany'},
-        {title: 'Iceland'},
-        {title: 'Ireland'},
-        {title: 'Italy'},
-        {title: 'Mexico'},
-        {title: 'Norway'},
-        {title: 'Portugal'},
-        {title: 'Russia'},
-        {title: 'Spain'},
-        {title: 'Sweden'},
-        {title: 'USA'},
-        {title: 'United Kingdom'},
-      ],
+      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), title: c })),
       selected: [],
       country: null,
     };
@@ -65,3 +95,21 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import 'smartdok-sunshine/src/style/tools.scss';
+
+.drop-down-demo {
+  width: 500px;
+}
+
+.actions {
+  margin-top: 48px;
+}
+
+.help {
+  @include paragraph-font;
+  color: $grayer;
+}
+</style>
+
