@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="options">
-
       <s-drop-down v-model="dataSource" :items="$store.state.sources" label="Data source" />&nbsp;
+
+      <div class="flex-grow" />
 
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
-
     </div>
 
     <s-data-table
@@ -105,6 +105,14 @@ export default Vue.extend({
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
   min-height: 3rem; // not sure why this is necessary
+
+  .s-drop-down {
+    min-width: 300px;
+  }
+
+  .s-checkbox {
+    margin-left: 1rem;
+  }
 }
 
 .container {
