@@ -1,4 +1,4 @@
-import { createDataModule, IFetchResult } from 'smartdok-sunshine';
+import { createDataModule, ILoadResult } from 'smartdok-sunshine';
 import createBasicSort from './createBasicSort';
 
 const source = createDataModule({
@@ -21,7 +21,7 @@ const source = createDataModule({
   },
 
   actions: {
-    fetch: createBasicSort(async (): Promise<IFetchResult> => {
+    loadItems: createBasicSort(async (): Promise<ILoadResult> => {
       const res = await fetch('https://jsonplaceholder.typicode.com/users');
       const data = await res.json();
 
@@ -34,7 +34,7 @@ const source = createDataModule({
         },
       }));
 
-      return {items, total: 12};
+      return {items, total: 10};
     }),
   },
 });

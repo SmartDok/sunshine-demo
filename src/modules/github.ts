@@ -1,4 +1,4 @@
-import { createDataModule, ISortState, IItemData, IFetchResult, IColumn, IFetchPayload } from 'smartdok-sunshine';
+import { createDataModule, ISortState, IItemData, ILoadResult, IColumn, ILoadItemsPayload } from 'smartdok-sunshine';
 
 const source = createDataModule({
   getters: {
@@ -18,7 +18,7 @@ const source = createDataModule({
   },
 
   actions: {
-    fetch: async ({getters}, {skip, take}: IFetchPayload): Promise<IFetchResult> => {
+    loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {
       if (skip % take !== 0)
         console.warn(`Expected skip (${skip}) to be a multiple of take (${take})`);
 

@@ -1,4 +1,4 @@
-import { createDataModule, ISortState, IItem, IFetchResult, IFetchPayload } from 'smartdok-sunshine';
+import { createDataModule, ISortState, IItem, ILoadResult, ILoadItemsPayload, ILoadSubItemsPayload } from 'smartdok-sunshine';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
 const kroner = (value: any) =>
@@ -202,13 +202,13 @@ const source = createDataModule({
   },
 
   actions: {
-    fetch: async ({getters}, {skip, take}: IFetchPayload) => {
+    loadItems: async ({}, {skip}: ILoadItemsPayload) => {
       const items = data[''];
       if (skip > 0) return {items: [], total: items.length};
       return {items, total: items.length};
     },
 
-    fetchChildren: async ({getters}, {keyPath}) => {
+    loadSubItems: async ({}, {keyPath}: ILoadSubItemsPayload) => {
       await delay(500);
 
       const items = data[keyPath.join(':')];

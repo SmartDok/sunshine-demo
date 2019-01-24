@@ -1,4 +1,4 @@
-import { createDataModule, IItem, IFetchResult, IFetchPayload } from 'smartdok-sunshine';
+import { createDataModule, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
@@ -51,7 +51,7 @@ export default (count: number | null = null) => createDataModule({
   },
 
   actions: {
-    fetch: async ({getters}, {skip, take}: IFetchPayload): Promise<IFetchResult> => {
+    loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {
       const items: IItem[] = [];
 
       for (let i = 0; i < take; i++) {

@@ -1,4 +1,11 @@
-import { createDataModule, ISortState, IItem, IFetchResult, IColumn, IFetchPayload } from 'smartdok-sunshine';
+import {
+  createDataModule,
+  IItem,
+  ILoadResult,
+  IColumn,
+  ILoadItemsPayload,
+  ILoadSubItemsPayload,
+} from 'smartdok-sunshine';
 
 const BASEURL = 'https://web.trackthebox.com:5559/smartapi/';
 
@@ -78,13 +85,13 @@ const source = createDataModule({
   },
 
   actions: {
-    fetch: async ({getters}, {skip, take}: IFetchPayload): Promise<IFetchResult> => {
+    loadItems: async ({}, {skip}: ILoadItemsPayload): Promise<ILoadResult> => {
       if (skip > 0) return {items: [], total: -1};
       const items = await fetchProjects();
       return {items, total: items.length};
     },
 
-    fetchChildren: async ({}, {keyPath}): Promise<IFetchResult> => {
+    loadSubItems: async ({}, {keyPath}: ILoadSubItemsPayload): Promise<ILoadResult> => {
       let items: IItem[] = [];
 
       if (keyPath.length === 1) {

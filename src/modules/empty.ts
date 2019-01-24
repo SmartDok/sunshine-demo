@@ -1,4 +1,4 @@
-import { createDataModule, IFetchResult, IColumn } from 'smartdok-sunshine';
+import { createDataModule, ILoadResult, IColumn } from 'smartdok-sunshine';
 
 const source = createDataModule({
   getters: {
@@ -11,7 +11,7 @@ const source = createDataModule({
   },
 
   actions: {
-    fetch: async (): Promise<IFetchResult> => ({
+    loadItems: async (): Promise<ILoadResult> => ({
       items: [],
       total: 0,
     }),

@@ -1,11 +1,11 @@
-import { ISortState, IItem, FetchData, IFetchResult, IFetchPayload } from 'smartdok-sunshine';
-type BasicFetch = () => Promise<IFetchResult>;
+import { ISortState, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
+type BasicFetch = () => Promise<ILoadResult>;
 
 export default (next: BasicFetch) => (
-  async ({getters}: any, {skip, take}: IFetchPayload) => {
+  async ({getters}: any, {skip, take}: ILoadItemsPayload) => {
     if (skip > 0) return {items: [], total: 0};
 
-    let result: IFetchResult = await next();
+    let result: ILoadResult = await next();
 
     const sorting = getters.sorting as ISortState;
     if (sorting.key === null)
