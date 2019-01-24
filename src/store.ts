@@ -39,7 +39,7 @@ const store = new Vuex.Store({
     fakeinf: fake(),
     fake75: fake(75),
     fake999: fake(999),
-    fake1M: fake(1000000),
+    fake1M: fake(100000),
 
     smartdok,
 

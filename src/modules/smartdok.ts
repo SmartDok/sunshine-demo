@@ -1,4 +1,4 @@
-import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
+import { createDataModule, ISortState, IItem, IFetchResult, IColumn, IFetchPayload } from 'smartdok-sunshine';
 
 const BASEURL = 'https://web.trackthebox.com:5559/smartapi/';
 
@@ -62,36 +62,42 @@ const fetchProjects = async (): Promise<IItem[]> => {
 };
 
 const source = createDataModule({
-  columns: [
-    { key: 'name', title: 'Navn', width: 350 },
-    { key: 'number', title: 'Number', width: 150 },
-    { key: 'location', title: 'Oppdragssted', width: 250 },
-    { key: 'department', title: 'Avdeling' },
-    { key: 'ue_code', title: 'UE-kode' },
-    { key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100 },
-    { key: 'hours_used', title: 'Timer', align: 'right', width: 100 },
-    { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
-  ],
-
-  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IFetchResult> => {
-    if (skip > 0) return {items: [], total: -1};
-    const items = await fetchProjects();
-    return {items, total: items.length};
+  getters: {
+    columns(): IColumn[] {
+      return [
+        { key: 'name', title: 'Navn', width: 350 },
+        { key: 'number', title: 'Number', width: 150 },
+        { key: 'location', title: 'Oppdragssted', width: 250 },
+        { key: 'department', title: 'Avdeling' },
+        { key: 'ue_code', title: 'UE-kode' },
+        { key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100 },
+        { key: 'hours_used', title: 'Timer', align: 'right', width: 100 },
+        { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
+      ];
+    },
   },
 
-  fetchChildren: async (keyPath: string[]): Promise<IFetchResult> => {
-    let items: IItem[] = [];
+  actions: {
+    fetch: async ({getters}, {skip, take}: IFetchPayload): Promise<IFetchResult> => {
+      if (skip > 0) return {items: [], total: -1};
+      const items = await fetchProjects();
+      return {items, total: items.length};
+    },
 
-    if (keyPath.length === 1) {
-      items = await fetchSubProjects(keyPath[0]);
-    } else if (keyPath.length === 2) {
-      items = await fetchAreas(keyPath[1]);
-    }
+    fetchChildren: async ({}, {keyPath}): Promise<IFetchResult> => {
+      let items: IItem[] = [];
 
-    return {
-      items,
-      total: items.length,
-    };
+      if (keyPath.length === 1) {
+        items = await fetchSubProjects(keyPath[0]);
+      } else if (keyPath.length === 2) {
+        items = await fetchAreas(keyPath[1]);
+      }
+
+      return {
+        items,
+        total: items.length,
+      };
+    },
   },
 });
 

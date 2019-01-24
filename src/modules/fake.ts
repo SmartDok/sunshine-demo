@@ -1,4 +1,4 @@
-import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
+import { createDataModule, IItem, IFetchResult, IFetchPayload } from 'smartdok-sunshine';
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
@@ -32,48 +32,54 @@ const data = {
 };
 
 export default (count: number | null = null) => createDataModule({
-  columns: [
-    { key: 'id', title: '#' },
-    { key: 'number', title: 'Number' },
-    { key: 'name', title: 'Name' },
-    { key: 'company', title: 'Company' },
-    { key: 'email', title: 'Email' },
-    { key: 'suite', title: 'Suite' },
-    { key: 'street', title: 'Street' },
-    { key: 'zipcode', title: 'Zip-code' },
-    { key: 'city', title: 'City' },
-    { key: 'phone', title: 'Phone' },
-    { key: 'website', title: 'Website' },
-  ],
+  getters: {
+    columns() {
+      return [
+        { key: 'id', title: '#' },
+        { key: 'number', title: 'Number' },
+        { key: 'name', title: 'Name' },
+        { key: 'company', title: 'Company' },
+        { key: 'email', title: 'Email' },
+        { key: 'suite', title: 'Suite' },
+        { key: 'street', title: 'Street' },
+        { key: 'zipcode', title: 'Zip-code' },
+        { key: 'city', title: 'City' },
+        { key: 'phone', title: 'Phone' },
+        { key: 'website', title: 'Website' },
+      ];
+    },
+  },
 
-  fetch: async (skip = 0, take = 0, sorting: ISortState): Promise<IFetchResult> => {
-    const items: IItem[] = [];
+  actions: {
+    fetch: async ({getters}, {skip, take}: IFetchPayload): Promise<IFetchResult> => {
+      const items: IItem[] = [];
 
-    for (let i = 0; i < take; i++) {
-      let id = skip + i;
-      if (count && id >= count) break;
+      for (let i = 0; i < take; i++) {
+        let id = skip + i;
+        if (count && id >= count) break;
 
-      items[i] = {
-        key: `${id}`,
-        data: {
-          id: id + 1,
-          number: id * 100 + id + 1,
-          name: data.names[id % data.names.length],
-          company: data.companies[id * 3 % data.companies.length],
-          phone: data.phones[id * 5 % data.phones.length],
-          email: data.emails[id * 7 % data.emails.length],
-          street: data.streets[id * 11 % data.emails.length],
-          suite: data.suites[id * 13 % data.suites.length],
-          zipcode: data.zipcodes[id * 3 % data.zipcodes.length],
-          city: data.cities[id * 17 % data.suites.length],
-          website: data.websites[id * 7 % data.zipcodes.length],
-        },
+        items[i] = {
+          key: `${id}`,
+          data: {
+            id: id + 1,
+            number: id * 100 + id + 1,
+            name: data.names[id % data.names.length],
+            company: data.companies[id * 3 % data.companies.length],
+            phone: data.phones[id * 5 % data.phones.length],
+            email: data.emails[id * 7 % data.emails.length],
+            street: data.streets[id * 11 % data.emails.length],
+            suite: data.suites[id * 13 % data.suites.length],
+            zipcode: data.zipcodes[id * 3 % data.zipcodes.length],
+            city: data.cities[id * 17 % data.suites.length],
+            website: data.websites[id * 7 % data.zipcodes.length],
+          },
+        };
+      }
+
+      return {
+        items,
+        total: count,
       };
-    }
-
-    return {
-      items,
-      total: count,
-    };
+    },
   },
 });

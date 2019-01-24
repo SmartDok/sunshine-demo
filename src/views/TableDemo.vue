@@ -87,10 +87,6 @@ export default Vue.extend({
   },
 
   methods: {
-    dispatchAction(name: string, payload: any) {
-      this.$store.dispatch(`${this.namespace}/${name}`, payload);
-    },
-
     onEdit(item: IItem) {
       console.log('edit', item);
     },

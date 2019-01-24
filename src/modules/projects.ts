@@ -1,4 +1,4 @@
-import { createDataModule, ISortState, IItem, IFetchResult } from 'smartdok-sunshine';
+import { createDataModule, ISortState, IItem, IFetchResult, IFetchPayload } from 'smartdok-sunshine';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
 const kroner = (value: any) =>
@@ -184,31 +184,37 @@ const data: {[key: string]: IItem[]} = {
 };
 
 const source = createDataModule({
-  columns: [
-    { key: 'name', title: 'Name', width: 300 },
-    { key: 'number', title: 'Number', width: 150 },
-    { key: 'place', title: 'Place' },
-    { key: 'department', title: 'Department' },
-    { key: 'responsible', title: 'Responsible' },
-    { key: 'ue_code', title: 'UE-code' },
-    { key: 'calculated', title: 'Calculated', align: 'right' },
-    { key: 'hours', title: 'Hours', align: 'right' },
-    { key: 'invoiced', title: 'Invoiced', align: 'right' },
-    { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
-  ],
-
-  fetch: async (skip: number, take: number, sorting: ISortState): Promise<IFetchResult> => {
-    const items = data[''];
-    if (skip > 0) return {items: [], total: items.length};
-    return {items, total: items.length};
+  getters: {
+    columns() {
+      return [
+        { key: 'name', title: 'Name', width: 300 },
+        { key: 'number', title: 'Number', width: 150 },
+        { key: 'place', title: 'Place' },
+        { key: 'department', title: 'Department' },
+        { key: 'responsible', title: 'Responsible' },
+        { key: 'ue_code', title: 'UE-code' },
+        { key: 'calculated', title: 'Calculated', align: 'right' },
+        { key: 'hours', title: 'Hours', align: 'right' },
+        { key: 'invoiced', title: 'Invoiced', align: 'right' },
+        { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
+      ];
+    },
   },
 
-  fetchChildren: async (keyPath: string[]): Promise<IFetchResult> => {
-    await delay(500);
+  actions: {
+    fetch: async ({getters}, {skip, take}: IFetchPayload) => {
+      const items = data[''];
+      if (skip > 0) return {items: [], total: items.length};
+      return {items, total: items.length};
+    },
 
-    const items = data[keyPath.join(':')];
-    if (!items) return {items: [], total: 0};
-    return {items, total: items.length};
+    fetchChildren: async ({getters}, {keyPath}) => {
+      await delay(500);
+
+      const items = data[keyPath.join(':')];
+      if (!items) return {items: [], total: 0};
+      return {items, total: items.length};
+    },
   },
 
 });
