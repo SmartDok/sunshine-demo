@@ -22,7 +22,7 @@ const source = createDataModule({
 
   actions: {
     loadItems: createBasicSort(async (): Promise<ILoadResult> => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+      const res = await fetch('https://jsonplaceholder.typicode.com/users?_limit=1000');
       const data = await res.json();
 
       const items = data.map((u: any) => ({
@@ -34,7 +34,9 @@ const source = createDataModule({
         },
       }));
 
-      return {items, total: 10};
+      const totalHeader = res.headers.get('x-total-count') as string;
+      const total = totalHeader ? parseInt(totalHeader, 10) : items.length;
+      return {items, total};
     }),
   },
 });
