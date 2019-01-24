@@ -1,5 +1,11 @@
 import { createDataModule, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
 
+const delay = (milliseconds: number): Promise<void> => {
+  return new Promise(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
+};
+
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
     'Chelsey Dietrich', 'Mrs. Dennis Schulist', 'Kurtis Weissnat',
@@ -75,6 +81,8 @@ export default (count: number | null = null) => createDataModule({
           },
         };
       }
+
+      await delay(1000);
 
       return {
         items,
