@@ -4,6 +4,7 @@
 
     <s-tabs v-if="tabs">
       <s-tab to="/">{{ home }}</s-tab>
+      <s-tab to="/button">Button</s-tab>
       <s-tab to="/dropdown">Dropdown</s-tab>
       <s-tab to="/alerts">Alerts</s-tab>
       <s-tab to="/accordion">Accordion</s-tab>

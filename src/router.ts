@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import BasicDemo from '@/views/BasicDemo.vue';
+import ButtonDemo from '@/views/ButtonDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
@@ -19,6 +20,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: BasicDemo,
+    },
+    {
+      path: '/button',
+      name: 'button',
+      component: ButtonDemo,
     },
     {
       path: '/dropdown',
