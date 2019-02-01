@@ -1,7 +1,19 @@
 <template>
   <div>
-    <s-accordion>
+    <example :code="code" />
+  </div>
+</template>
 
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'AccordionDemo',
+
+  computed: {
+    code() {
+      return `
+    <s-accordion>
       <s-accordion-item>
         <template slot="heading">Basic settings</template>
 
@@ -43,16 +55,9 @@
         </div>
       </s-accordion-item>
     </s-accordion>
-
-    <p class="below">Some content below</p>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'AccordionDemo',
+      `;
+    },
+  },
 });
 </script>
 

@@ -1,7 +1,16 @@
 <template>
   <div class="drop-down-demo">
     <h2>Simple select</h2>
-    <example code='<s-drop-down v-model="country" label="Select one country" :items="countries" />' :data="{countries, country: null}" />
+    <example
+      :code='`\
+  <s-drop-down
+    label="Select one country"
+    v-model="country"
+    :items="countries"
+  />`'
+
+      :data="$data"
+    />
 
     <div class="help">
       <p>
@@ -17,8 +26,14 @@
 
     <h2>Single select w/search</h2>
     <example
-      code='<s-drop-down search v-model="country" label="Select one country" :items="countries" />'
-      :data="{countries, country: null}"
+      :code='`\
+  <s-drop-down
+    search
+    label="Select one country"
+    v-model="country"
+    :items="countries"
+  />`'
+      :data="$data"
     />
 
     <p class="help">
@@ -27,7 +42,14 @@
 
     <h2>Multi select</h2>
     <example
-      code='<s-drop-down multiple :max-selected-shown="8" v-model="selected" label="Select countries" :items="countries" />'
+      :code='`\
+  <s-drop-down
+    multiple
+    label="Select countries"
+    v-model="selected"
+    :items="countries"
+    :max-selected-shown="8"
+  />`'
       :data="{countries, selected: []}"
     />
 
@@ -43,7 +65,15 @@
 
     <h2>Multi select w/search</h2>
     <example
-      code='<s-drop-down search multiple :max-selected-shown="3" v-model="selected" label="Select countries" :items="countries" />'
+      :code='`\
+  <s-drop-down
+    multiple
+    search
+    label="Select countries"
+    v-model="selected"
+    :items="countries"
+    :max-selected-shown="3"
+  />`'
       :data="{countries, selected: []}"
     />
 
@@ -82,6 +112,7 @@ export default Vue.extend({
 
   data() {
     return {
+      country: null,
       countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), title: c })),
     };
   },

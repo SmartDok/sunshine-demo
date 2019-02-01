@@ -54,13 +54,16 @@ export default Vue.extend({
 
   computed: {
     jsonData(): string {
-      return JSON.stringify(this.componentData, null, 2);
+      const replacer = (key: string, value: any) => {
+        return value;
+      };
+      return JSON.stringify(this.componentData, replacer, 2);
     },
 
     component(): object {
       return {
         name: 'DynamicExampleComponent',
-        template: this.code,
+        template: `<div>${this.code}</div>`,
         data: () => this.componentData,
       };
     },

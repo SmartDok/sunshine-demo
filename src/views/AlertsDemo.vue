@@ -1,7 +1,24 @@
 <template>
   <div>
     <h2>Basic alerts</h2>
+    <example :code="basic" />
 
+    <h2>Alert with icon or actions</h2>
+    <example :code="special" />
+
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'AlertsDemo',
+
+  computed: {
+    basic() {
+      return `\
+  <div>
     <s-alert>Default alert.</s-alert>
 
     <s-alert success>Success! Data transfered successfully.</s-alert>
@@ -14,9 +31,12 @@
     <s-alert error>
       Serious warning: I’m sorry, Dave. I'm afraid I can't do that.
     </s-alert>
+  </div>`;
+    },
 
-    <h2>Alert with icon or actions</h2>
-
+    special() {
+      return `\
+  <div>
     <s-alert icon="Calendar">
       Your free trial has been extended with 14-days. Enjoy!
     </s-alert>
@@ -29,14 +49,8 @@
         <s-button small primary>Change now</s-button>
       </template>
     </s-alert>
-
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'AlertsDemo',
+  </div>`;
+    },
+  },
 });
 </script>

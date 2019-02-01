@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import BasicDemo from '@/views/BasicDemo.vue';
 import ButtonDemo from '@/views/ButtonDemo.vue';
+import InputsDemo from '@/views/InputsDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
@@ -25,6 +26,11 @@ export default new Router({
       path: '/button',
       name: 'button',
       component: ButtonDemo,
+    },
+    {
+      path: '/inputs',
+      name: 'inputs',
+      component: InputsDemo,
     },
     {
       path: '/dropdown',
