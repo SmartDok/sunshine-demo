@@ -1,9 +1,8 @@
 <template>
   <div class="drop-down-demo">
     <h2>Simple select</h2>
-    <p>
-      <s-drop-down v-model="country" label="Select one country" :items="countries" />
-    </p>
+    <example code='<s-drop-down v-model="country" label="Select one country" :items="countries" />' :data="{countries, country: null}" />
+
     <div class="help">
       <p>
         Use arrow-keys to change value while menu is closed, or to move
@@ -17,17 +16,21 @@
     </div>
 
     <h2>Single select w/search</h2>
-    <p>
-      <s-drop-down search v-model="country" label="Select one country" :items="countries" />
-    </p>
+    <example
+      code='<s-drop-down search v-model="country" label="Select one country" :items="countries" />'
+      :data="{countries, country: null}"
+    />
+
     <p class="help">
       Type text to filter, <b>escape</b> once clears the typed text. Other keys as above.
     </p>
 
     <h2>Multi select</h2>
-    <p>
-      <s-drop-down multiple :max-selected-shown="8" v-model="selected" label="Select countries" :items="countries" />
-    </p>
+    <example
+      code='<s-drop-down multiple :max-selected-shown="8" v-model="selected" label="Select countries" :items="countries" />'
+      :data="{countries, selected: []}"
+    />
+
     <div class="help">
       <p>
         Hit <b>space</b> to toggle selected item, <b>enter</b> to check
@@ -39,18 +42,16 @@
     </div>
 
     <h2>Multi select w/search</h2>
-    <p>
-      <s-drop-down search multiple :max-selected-shown="3" v-model="selected" label="Select countries" :items="countries" />
-    </p>
+    <example
+      code='<s-drop-down search multiple :max-selected-shown="3" v-model="selected" label="Select countries" :items="countries" />'
+      :data="{countries, selected: []}"
+    />
+
     <p class="help">
       Type text to filter, <b>escape</b> once clears the typed text.
       <b>backspace</b> removes last selected value, when text is empty. Other
       keys as above.
     </p>
-
-    <div class="actions">
-      <s-button small @click="reset">Reset</s-button>
-    </div>
   </div>
 </template>
 
@@ -82,30 +83,13 @@ export default Vue.extend({
   data() {
     return {
       countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), title: c })),
-      selected: [],
-      country: null,
     };
-  },
-
-  methods: {
-    reset() {
-      this.selected = [];
-      this.country = null;
-    },
   },
 });
 </script>
 
 <style lang="scss" scoped>
 @import 'smartdok-sunshine/src/style/tools.scss';
-
-.drop-down-demo {
-  width: 500px;
-}
-
-.actions {
-  margin-top: 48px;
-}
 
 .help {
   @include paragraph-font;

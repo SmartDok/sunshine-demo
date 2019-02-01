@@ -92,7 +92,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'InputsDemo',
+  name: 'BasicDemo',
 
   data() {
     return {

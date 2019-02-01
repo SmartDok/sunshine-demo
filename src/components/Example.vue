@@ -70,7 +70,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .example-panel {
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -106,6 +106,7 @@ export default Vue.extend({
 .example-pre {
   margin: 0;
   flex: 1;
+  min-height: 0;
 }
 
 .hljs {
