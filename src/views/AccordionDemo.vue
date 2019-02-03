@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Accordion</h2>
     <example :code="code" />
   </div>
 </template>

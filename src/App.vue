@@ -2,9 +2,10 @@
   <div id="app" class="main-layout">
     <h1>Components demo page</h1>
 
-    <s-tabs v-if="tabs">
-      <s-tab to="/">{{ home }}</s-tab>
+    <s-tabs>
       <s-tab to="/button">Button</s-tab>
+      <s-tab to="/checkbox">Checkbox</s-tab>
+      <s-tab to="/radio">Radio button</s-tab>
       <s-tab to="/inputs">Inputs</s-tab>
       <s-tab to="/dropdown">Dropdown</s-tab>
       <s-tab to="/alerts">Alerts</s-tab>
@@ -33,13 +34,6 @@ import InspectorDemo from './views/InspectorDemo.vue';
 export default Vue.extend({
   components: {
     InspectorDemo,
-  },
-
-  data() {
-    return {
-      tabs: true,
-      home: 'Basic components',
-    };
   },
 });
 </script>

@@ -21,26 +21,20 @@ export default Vue.extend({
   computed: {
     standard() {
       return `\
-  <div>
-    <s-button @click="clicked -= 1">Normal button</s-button>
-    <s-button primary @click="clicked += 1">Primary button</s-button>
-  </div>`;
+  <s-button @click="clicked -= 1">Normal button</s-button>
+  <s-button primary @click="clicked += 1">Primary button</s-button>`;
     },
 
     inactive() {
       return `\
-  <div>
-    <s-button primary inactive>Primary inactive</s-button>&nbsp;
-    <s-button inactive>Secondary inactive</s-button>&nbsp;
-  </div>`;
+  <s-button primary inactive>Primary inactive</s-button>
+  <s-button inactive>Secondary inactive</s-button>`;
     },
 
     smaller() {
       return `\
-  <div>
-    <s-button small>Secondary</s-button>
-    <s-button small primary>Primary</s-button>&nbsp;
-  </div>`;
+  <s-button small>Secondary</s-button>
+  <s-button small primary>Primary</s-button>`;
     },
   },
 });

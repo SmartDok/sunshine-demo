@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import BasicDemo from '@/views/BasicDemo.vue';
 import ButtonDemo from '@/views/ButtonDemo.vue';
+import CheckboxDemo from '@/views/CheckboxDemo.vue';
+import RadioButtonDemo from '@/views/RadioButtonDemo.vue';
 import InputsDemo from '@/views/InputsDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
@@ -19,13 +20,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: BasicDemo,
+      redirect: '/button',
     },
     {
       path: '/button',
       name: 'button',
       component: ButtonDemo,
+    },
+    {
+      path: '/checkbox',
+      name: 'checkbox',
+      component: CheckboxDemo,
+    },
+    {
+      path: '/radio',
+      name: 'radio',
+      component: RadioButtonDemo,
     },
     {
       path: '/inputs',
