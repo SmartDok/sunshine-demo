@@ -8,6 +8,16 @@
 
     <h2>Inactive inputs</h2>
     <example :code="inactive" />
+
+    <todo-list>
+      <todo>Read-only state, shown in design.</todo>
+      <todo>Caution/warning/confirmation state, shown in design.</todo>
+      <todo>Pending data/loading state, shown in design.</todo>
+      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo>Positioning of expected format is not accurate.</todo>
+      <todo>Issues with expected format and panning.</todo>
+      <todo>Validation of expected format.</todo>
+    </todo-list>
   </div>
 </template>
 

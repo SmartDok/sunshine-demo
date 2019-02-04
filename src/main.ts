@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 import SmartDokUI from 'smartdok-sunshine';
 import Example from './components/Example.vue';
+import TodoList from './components/TodoList.vue';
+import TodoItem from './components/TodoItem.vue';
 
 Vue.config.productionTip = false;
 
@@ -13,6 +15,8 @@ import store from './store';
 Vue.use(SmartDokUI as any);
 
 Vue.component('example', Example);
+Vue.component('todo-list', TodoList);
+Vue.component('todo', TodoItem);
 
 new Vue({
   router,

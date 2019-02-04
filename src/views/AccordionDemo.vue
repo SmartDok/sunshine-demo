@@ -2,6 +2,10 @@
   <div>
     <h2>Accordion</h2>
     <example :code="code" />
+
+    <todo-list>
+      <todo>Optional linked state (e.g. opening one item closes the one currently open).</todo>
+    </todo-list>
   </div>
 </template>
 

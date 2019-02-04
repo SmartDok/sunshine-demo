@@ -9,6 +9,10 @@
     <h2>Smaller version</h2>
     <example :code="smaller" />
 
+    <todo-list>
+      <todo>Look into using <b>border</b> instead of <b>box-shadow</b>, because it looks strange in Edge when zooming.</todo>
+      <todo>Investigate using semi-transparent overlay instead of color for hover effect.</todo>
+    </todo-list>
   </div>
 </template>
 
@@ -27,8 +31,8 @@ export default Vue.extend({
 
     inactive() {
       return `\
-  <s-button primary inactive>Primary inactive</s-button>
-  <s-button inactive>Secondary inactive</s-button>`;
+  <s-button inactive>Secondary inactive</s-button>
+  <s-button primary inactive>Primary inactive</s-button>`;
     },
 
     smaller() {

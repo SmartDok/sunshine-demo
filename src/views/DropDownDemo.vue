@@ -82,6 +82,16 @@
       <b>backspace</b> removes last selected value, when text is empty. Other
       keys as above.
     </p>
+
+    <todo-list>
+      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo>"Autocomplete" use-case (no items are present until we start typing something). Maybe as a separate component.</todo>
+      <todo>Refactor keyboard interaction, so that it also works in table options menu.</todo>
+      <todo>Pending data/loading state (shown in design for text field, but actually more relevant for drop-down).</todo>
+      <todo>Looks strange when single-select with search has a value selected, and receives focus, that the cursor starts blinking after the text.</todo>
+      <todo>Looks weird in multi-select when clicking an item and moving the mouse, that both the clicked and the hovered item is highlighted (<b>SList</b> component).</todo>
+      <todo>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
+    </todo-list>
   </div>
 </template>
 

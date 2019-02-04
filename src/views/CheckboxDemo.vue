@@ -9,6 +9,9 @@
     <h2>Multiple state checkbox</h2>
     <example :code="multi" :data="{state: null}" />
 
+    <todo-list>
+      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+    </todo-list>
   </div>
 </template>
 

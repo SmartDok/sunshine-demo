@@ -6,6 +6,11 @@
     <h2>Alert with icon or actions</h2>
     <example :code="special" />
 
+    <todo-list>
+      <todo>Progress indicator.</todo>
+      <todo>Dismiss button w/event.</todo>
+      <todo>Neutral alert design may be changed.</todo>
+    </todo-list>
   </div>
 </template>
 

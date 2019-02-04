@@ -46,6 +46,21 @@
 
     </s-data-table>
 
+    <todo-list>
+      <todo>Resizable columns.</todo>
+      <todo>Hooks for persisting column state, together with filters. (Move column state to store?)</todo>
+      <todo>Selected row state.</todo>
+      <todo>Keyboard selection.</todo>
+      <todo>Multi-selection checkboxes.</todo>
+      <todo>Select/unselect all.</todo>
+      <todo>Optimize column operations when many rows are rendered.</todo>
+      <todo>Smart loading when scrolling up (works only when scrolling down).</todo>
+      <todo>Possibility to include sub-items synchronously.</todo>
+      <todo>Automatically scroll horizontally when dragging columns.</todo>
+      <todo>Adjust padding of first column content, alignment of header content.</todo>
+      <todo>Change sorting indicator images, shown in design.</todo>
+      <todo>Messages icons, shown in design.</todo>
+    </todo-list>
   </div>
 </template>
 
