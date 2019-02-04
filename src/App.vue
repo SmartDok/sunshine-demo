@@ -11,6 +11,7 @@
       <s-tab to="/alerts">Alerts</s-tab>
       <s-tab to="/accordion">Accordion</s-tab>
       <s-tab to="/inspector">Inspector</s-tab>
+      <s-tab to="/tabs">Tabs</s-tab>
       <s-tab to="/table">DataTable</s-tab>
       <s-tab to="/chart">DataChart</s-tab>
       <s-tab to="/calendar">Calendar</s-tab>

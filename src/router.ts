@@ -8,6 +8,7 @@ import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
 import InspectorDemo from './views/InspectorDemo.vue';
+import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
@@ -62,6 +63,11 @@ export default new Router({
       path: '/inspector',
       name: 'inspector',
       component: InspectorDemo,
+    },
+    {
+      path: '/tabs',
+      name: 'tabs',
+      component: TabsDemo,
     },
     {
       path: '/table',
