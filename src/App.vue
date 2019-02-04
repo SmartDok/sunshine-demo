@@ -24,8 +24,6 @@
       </transition>
     </div>
 
-    <InspectorDemo />
-
   </div>
 </template>
 
