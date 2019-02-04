@@ -27,6 +27,9 @@ export default Vue.extend({
       <s-radio-button name="option" value="2">Option 2</s-radio-button>
     </p>
     <p>
+      <s-radio-button inactive name="option" value="inactive">Inactive</s-radio-button>
+    </p>
+    <p>
       <s-radio-button name="option" value="foobar">Option foobar</s-radio-button>
     </p>
   </s-radio-group>`;
