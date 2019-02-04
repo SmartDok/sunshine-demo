@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div class="toggle" @click="open = !open">
-      <i class="fas fa-bars" />
-    </div>
+    <example :code='`
+    <s-button @click="open = !open">Toggle inspector</s-button>
 
     <s-inspector v-model="open">
       <div slot="header">
@@ -78,8 +77,8 @@
               <s-text-field class="grid-item--span-3" v-model="pause" label="Antall" />
             </s-grid-item>
 
-            <s-grid-item v-for="i in 20" :key="i" :span="6">
-              <s-text-field :label="`Tillegg ${i}`" />
+            <s-grid-item v-for="(label, i) in additions" :key="i" :span="6">
+              <s-text-field :label="label" />
             </s-grid-item>
           </s-grid>
         </s-accordion-item>
@@ -93,7 +92,18 @@
         </s-accordion-item>
 
       </s-accordion>
-    </s-inspector>
+    </s-inspector>`'
+    :data="$data"
+    />
+
+    <todo-list>
+      <todo>Define layout (width, margin, padding).</todo>
+      <todo>Inline layout (main page content and inspector side-by-side with spacing between.</todo>
+      <todo>Proper layout on legacy pages, with space for SmartDok header above.</todo>
+      <todo>Responsive layout (switch to modal on small screens?)</todo>
+      <todo>Define inspector header according to design (back arrow etc.)</todo>
+    </todo-list>
+
   </div>
 </template>
 
@@ -122,25 +132,20 @@ export default Vue.extend({
         {title: 'Graveprosjekt'},
         {title: 'Brøyteprosjekt'},
       ],
+
+      additions: [
+        'Nattillegg',
+        'Helgtillegg',
+        'Risikotillegg',
+        'Overtid 50%',
+        'Overtid 100%',
+        'Overtid 125%',
+        'Ustyrstillegg',
+        'Hjelmtillegg',
+        'Bråktillegg',
+        'Timetillegg',
+      ].concat([...Array(20).keys()].map(n => `Andre tillegg ${n + 1}`)),
     };
   },
 });
 </script>
-
-<style lang="scss" scoped>
-@import 'smartdok-sunshine/src/style/settings.scss';
-
-.toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2.5rem;
-  width: 2.5rem;
-  line-height: 2.5rem;
-  background-color: $white;
-  text-align: center;
-  z-index: 10000;
-  cursor: pointer;
-}
-</style>
-

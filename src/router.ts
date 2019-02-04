@@ -7,6 +7,7 @@ import InputsDemo from '@/views/InputsDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
+import InspectorDemo from './views/InspectorDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
@@ -56,6 +57,11 @@ export default new Router({
       path: '/accordion',
       name: 'accordion',
       component: AccordionDemo,
+    },
+    {
+      path: '/inspector',
+      name: 'inspector',
+      component: InspectorDemo,
     },
     {
       path: '/table',

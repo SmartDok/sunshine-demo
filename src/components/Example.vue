@@ -114,5 +114,6 @@ export default Vue.extend({
 
 .hljs {
   height: 100%;
+  max-height: 500px;
 }
 </style>

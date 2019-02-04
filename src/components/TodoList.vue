@@ -22,7 +22,7 @@ export default Vue.extend({
 @import "smartdok-sunshine/src/style/tools.scss";
 
 .todo {
-  margin-top: 4rem;
+  margin: 4rem 0;
   color: $grayer;
 }
 
