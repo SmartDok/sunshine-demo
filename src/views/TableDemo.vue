@@ -53,9 +53,9 @@
       <todo>Keyboard selection.</todo>
       <todo>Multi-selection checkboxes.</todo>
       <todo>Select/unselect all.</todo>
-      <todo>Prevent removing all columns.</todo>
-      <todo>Prevent moving other columns to replace the first ("row title") column. (This might be generalized to say that a configurable number of columns are fixed, or "static").</todo>
-      <todo>Optimize column operations when many rows are rendered.</todo>
+      <todo done>Prevent removing all columns.</todo>
+      <todo done>Prevent moving other columns to replace the first ("row title") column. (This might be generalized to say that a configurable number of columns are fixed, or "static").</todo>
+      <todo done>Optimize column operations when many rows are rendered.</todo>
       <todo>Smart loading when scrolling up (works only when scrolling down).</todo>
       <todo>Possibility to include sub-items synchronously.</todo>
       <todo>Automatically scroll horizontally when dragging columns.</todo>
