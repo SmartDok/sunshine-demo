@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Standard inputs</h2>
-    <example :code="standard" :data="{name: '', number: '', email: '', password: ''}" />
+    <example :code="standard" :data="{name: '', phone: '', number: '', email: '', password: ''}" />
 
     <h2>Expected format</h2>
     <example :code="expected" :data="{time: ''}" />
@@ -34,7 +34,10 @@ export default Vue.extend({
     <s-text-field v-model="name" label="Project name" />
   </p>
   <p>
-    <s-text-field v-model="number" phone label="Phone number" />
+    <s-text-field v-model="phone" phone label="Phone number" />
+  </p>
+  <p>
+    <s-text-field v-model="number" number label="Number" />
   </p>
   <p>
     <s-text-field v-model="email" email label="Email" />

@@ -56,11 +56,11 @@
             </s-grid-item>
 
             <s-grid-item :span="6">
-              <s-text-field class="grid-item--span-6" v-model="activity" label="Aktivitet" />
+              <s-text-field v-model="activity" label="Aktivitet" />
             </s-grid-item>
 
             <s-grid-item :span="6">
-              <s-text-field class="grid-item--span-6" v-model="area" label="Område" />
+              <s-text-field v-model="area" label="Område" />
             </s-grid-item>
           </div>
         </s-accordion-item>
@@ -74,7 +74,7 @@
             </s-grid-item>
 
             <s-grid-item :span="3">
-              <s-text-field class="grid-item--span-3" v-model="pause" label="Antall" />
+              <s-text-field v-model="pause" label="Antall" />
             </s-grid-item>
 
             <s-grid-item v-for="(label, i) in additions" :key="i" :span="6">
