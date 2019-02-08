@@ -60,6 +60,7 @@
       <todo>Possibility to include sub-items synchronously.</todo>
       <todo>Automatically scroll horizontally when dragging columns.</todo>
       <todo>Adjust padding of first column content, alignment of header content.</todo>
+      <todo>Improve (or remove) display of "placeholder" rows when scrolling</todo>
       <todo>Change sorting indicator images, shown in design.</todo>
       <todo>Messages icons, shown in design.</todo>
     </todo-list>
