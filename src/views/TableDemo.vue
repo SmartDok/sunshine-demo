@@ -57,6 +57,8 @@
       <todo done>Prevent moving other columns to replace the first ("row title") column. (This might be generalized to say that a configurable number of columns are fixed, or "static").</todo>
       <todo done>Optimize column operations when many rows are rendered.</todo>
       <todo done>Smart loading when scrolling up (works only when scrolling down).</todo>
+      <todo>[needs design] various loading indicators</todo>
+      <todo>[needs design] "no data" display</todo>
       <todo>Possibility to include sub-items synchronously.</todo>
       <todo>Automatically scroll horizontally when dragging columns.</todo>
       <todo>Adjust padding of first column content, alignment of header content.</todo>
