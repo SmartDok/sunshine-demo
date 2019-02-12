@@ -27,7 +27,7 @@ const items: IItem[] = [
       cost: 123412,
     },
 
-    children: [
+    subItems: [
       {
         key: '5124-1',
         icon: 'Folder-1',
@@ -61,7 +61,7 @@ const items: IItem[] = [
           cost: 1575.50,
         },
 
-        children: [
+        subItems: [
           {
             key: '5124-1200',
             icon: 'Focus-Center',
@@ -99,7 +99,7 @@ const items: IItem[] = [
       cost: 100 / 3,
     },
 
-    children: [
+    subItems: [
       {
         key: '5124-1',
         icon: 'Folder-1',
@@ -115,7 +115,7 @@ const items: IItem[] = [
           invoiced: 0,
         },
 
-        children: [
+        subItems: [
           {
             key: '5124-1100',
             icon: 'Focus-Center',
@@ -170,7 +170,7 @@ const items: IItem[] = [
       cost: 15500,
     },
 
-    children: [],
+    subItems: [],
   },
 ];
 
