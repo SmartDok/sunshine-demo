@@ -2,6 +2,7 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 
 import projects from './modules/projects';
+import projectsSync from './modules/projects-sync';
 import jsonplaceholder from './modules/jsonplaceholder';
 import github from './modules/github';
 import fake from './modules/fake';
@@ -16,6 +17,7 @@ const store = new Vuex.Store({
   state: {
     sources: compact([
       { title: 'Projects', namespace: 'projects', fixed: false, outline: true },
+      { title: 'Projects (synchronous)', namespace: 'projectsSync', fixed: false, outline: true },
       { title: 'Users', namespace: 'jsonplaceholder' },
       { title: 'Github', namespace: 'github' },
       { namespace: 'fakeinf', title: 'Infinite rows' },
@@ -33,6 +35,7 @@ const store = new Vuex.Store({
 
   modules: {
     projects,
+    projectsSync,
     jsonplaceholder,
     github,
 
