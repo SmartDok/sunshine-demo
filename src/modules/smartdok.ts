@@ -40,7 +40,7 @@ const fetchSubProjects = async (projectId: string): Promise<IItem[]> => {
 
   return subProjects.map((data: any) => ({
     key: data.Id,
-    totalChildren: -1,
+    subItems: null,
     icon: 'Folder-1',
     data: {
       name: data.Name,
@@ -54,7 +54,7 @@ const fetchProjects = async (): Promise<IItem[]> => {
 
   return projects.map((data: any) => ({
     key: data.ProjectId,
-    totalChildren: -1,
+    subItems: null,
     icon: 'Briefcase-1',
     data: {
       name: data.ProjectName,
