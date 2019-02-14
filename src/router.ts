@@ -13,6 +13,7 @@ import TableDemo from '@/views/TableDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
+import AddUserDemo from '@/views/AddUserDemo.vue';
 
 Vue.use(Router);
 
@@ -88,6 +89,11 @@ export default new Router({
       path: '/datepicker',
       name: 'datepicker',
       component: DatepickerDemo,
+    },
+    {
+      path: '/add-user',
+      name: 'adduser',
+      component: AddUserDemo,
     },
   ],
 });

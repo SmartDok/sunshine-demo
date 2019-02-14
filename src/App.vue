@@ -16,6 +16,7 @@
       <s-tab to="/chart">DataChart</s-tab>
       <s-tab to="/calendar">Calendar</s-tab>
       <s-tab to="/datepicker">Datepicker</s-tab>
+      <s-tab to="/add-user">Add user</s-tab>
     </s-tabs>
 
     <div class="main">
