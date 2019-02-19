@@ -17,6 +17,7 @@
       <todo>Positioning of expected format is not accurate.</todo>
       <todo>Issues with expected format and panning.</todo>
       <todo>Validation of expected format.</todo>
+      <todo>Date input should open datepicker.</todo>
     </todo-list>
   </div>
 </template>
