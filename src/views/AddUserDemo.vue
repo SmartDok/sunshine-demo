@@ -1,5 +1,16 @@
 <template>
   <div class="user-demo">
+    <todo-list>
+      <todo>
+        Handle state of "Complete"-button when required fields are met
+      </todo>
+      <todo>
+        Add the rest of the form elements
+      </todo>
+      <todo>
+        Sort forms in accordions and show required and missing fields
+      </todo>
+    </todo-list>
     <div class="user-demo-scale-container" :class="{'open': open}">
       <div class="user-demo-page">
         <div class="user-demo-header">
@@ -13,24 +24,45 @@
     </div>
     
     <s-inspector v-model="open">
+
       <div slot="header">
         <h1>Ny bruker</h1>
       </div>
+    
       <s-accordion>
         <s-accordion-item>
           <template slot="heading">Brukerinformasjon</template>
+          <s-grid>
+            <s-grid-item :span="12">
+              <s-text-field v-model="requiredFields.employeeId" label="Ansatt ID" />
+            </s-grid-item>
+            <s-grid-item :span="12">
+              <s-text-field v-model="requiredFields.fullName" label="Navn" />
+            </s-grid-item>
+            <s-grid-item :span="12">
+              <s-text-field v-model="requiredFields.dateOfBirth" format="dd.mm.åååå" label="Fødselsdato" />
+              <s-button 
+                style="margin-top: 1rem;" 
+                @click="setTodaysDate">
+                Test for å sette dato med knapp
+              </s-button>
+            </s-grid-item>
+          </s-grid>
         </s-accordion-item>
       </s-accordion>
+    
       <s-accordion>
         <s-accordion-item>
           <template slot="heading">Brukernavn og passord</template>
         </s-accordion-item>
       </s-accordion>
+    
       <s-accordion>
         <s-accordion-item>
           <template slot="heading">Rolle og tilgang</template>
         </s-accordion-item>
       </s-accordion>
+    
       <s-accordion>
         <s-accordion-item>
           <template slot="heading">Pårørende</template>
@@ -41,12 +73,16 @@
         <s-button @click="open = !open">Avbryt</s-button>
         <s-button :primary="formReady">Opprett bruker</s-button>
       </div>
+
     </s-inspector>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import moment from 'moment';
+
+moment.locale('nb');
 
 export default Vue.extend({
   name: 'AddUserDemo',
@@ -54,8 +90,19 @@ export default Vue.extend({
     return {
       open: false,
       formReady: true,
+      requiredFields: {
+        employeeId: '54',
+        fullName: undefined as string,
+        dateOfBirth: undefined as Moment,
+      }
     };
   },
+
+  methods: {
+    setTodaysDate() {
+      this.requiredFields.dateOfBirth = moment().format('L');
+    }
+  }
 });
 </script>
 
@@ -82,6 +129,7 @@ export default Vue.extend({
   width: 100%;
   background: white;
   padding: 1rem;
+  text-align: right;
 }
 
 .user-demo-fill {
