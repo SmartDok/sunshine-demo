@@ -8,6 +8,9 @@
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
+
+      <s-button small @click="onSave">Save</s-button>&nbsp;
+      <s-button small @click="onRestore">Restore</s-button>
     </div>
 
     <s-data-table
@@ -110,6 +113,14 @@ export default Vue.extend({
   methods: {
     onEdit(item: IItem) {
       console.log('edit', item);
+    },
+
+    onSave() {
+      this.$store.dispatch(`${this.namespace}/saveState`, { namespace: this.namespace });
+    },
+
+    onRestore() {
+      this.$store.dispatch(`${this.namespace}/loadState`, { namespace: this.namespace });
     },
   },
 });
