@@ -2,23 +2,19 @@ import { createDataModule, ILoadResult } from 'smartdok-sunshine';
 import createBasicSort from './createBasicSort';
 
 const source = createDataModule({
-  getters: {
-    columns() {
-      return [
-        { key: 'name', title: 'Name', sortable: true },
-        { key: 'username', title: 'User name', sortable: true },
-        { key: 'company', title: 'Company' },
-        { key: 'email', title: 'Email', sortable: true },
-        { key: 'suite', title: 'Suite' },
-        { key: 'street', title: 'Street' },
-        { key: 'zipcode', title: 'Zip-code' },
-        { key: 'city', title: 'City' },
-        { key: 'phone', title: 'Phone' },
-        { key: 'website', title: 'Website' },
-        { key: 'actions', title: 'Actions', export: false },
-      ];
-    },
-  },
+  columns: [
+    { key: 'name', title: 'Name', sortable: true },
+    { key: 'username', title: 'User name', sortable: true },
+    { key: 'company', title: 'Company' },
+    { key: 'email', title: 'Email', sortable: true },
+    { key: 'suite', title: 'Suite' },
+    { key: 'street', title: 'Street' },
+    { key: 'zipcode', title: 'Zip-code' },
+    { key: 'city', title: 'City' },
+    { key: 'phone', title: 'Phone' },
+    { key: 'website', title: 'Website' },
+    { key: 'actions', title: 'Actions', export: false },
+  ],
 
   actions: {
     loadItems: createBasicSort(async (): Promise<ILoadResult> => {

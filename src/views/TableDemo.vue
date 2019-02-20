@@ -15,6 +15,7 @@
       :module="namespace"
       :outline="outline"
       :fixed="fixed"
+      checkable
       :draggable="draggable"
       :condensed="condensed"
       :sticky-column="stickyColumn"
