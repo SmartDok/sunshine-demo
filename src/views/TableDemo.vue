@@ -6,6 +6,7 @@
       <div class="flex-grow" />
 
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
+      <s-checkbox v-model="checkable">Checkable rows</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
 
@@ -18,7 +19,7 @@
       :module="namespace"
       :outline="outline"
       :fixed="fixed"
-      checkable
+      :checkable="checkable"
       :draggable="draggable"
       :condensed="condensed"
       :sticky-column="stickyColumn"
@@ -52,11 +53,11 @@
 
     <todo-list>
       <todo>Resizable columns.</todo>
-      <todo>Hooks for persisting column state, together with filters. (Move column state to store?)</todo>
-      <todo>Selected row state.</todo>
+      <todo>Hooks for persisting column state, together with filters. <strike>(Move column state to store?)</strike></todo>
+      <todo done>Selected row state.</todo>
       <todo>Keyboard selection.</todo>
-      <todo>Multi-selection checkboxes.</todo>
-      <todo>Select/unselect all.</todo>
+      <todo done>Multi-selection checkboxes.</todo>
+      <todo done>Select/unselect all.</todo>
       <todo done>Prevent removing all columns.</todo>
       <todo done>Prevent moving other columns to replace the first ("row title") column. (This might be generalized to say that a configurable number of columns are fixed, or "static").</todo>
       <todo done>Optimize column operations when many rows are rendered.</todo>
@@ -67,7 +68,7 @@
       <todo>Automatically scroll horizontally when dragging columns.</todo>
       <todo>Adjust padding of first column content, alignment of header content.</todo>
       <todo>Improve (or remove) display of "placeholder" rows when scrolling</todo>
-      <todo>Change sorting indicator images, shown in design.</todo>
+      <todo done>Change sorting indicator images, shown in design.</todo>
       <todo>Messages icons, shown in design.</todo>
     </todo-list>
   </div>
@@ -87,6 +88,7 @@ export default Vue.extend({
     return {
       dataSource: this.$store.state.sources[0],
       draggable: true,
+      checkable: false,
       condensed: false,
       stickyColumn: false,
       sorting: {
