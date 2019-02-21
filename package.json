@@ -12,6 +12,7 @@
   "dependencies": {
     "d3": "^5.9.1",
     "highlight.js": "^9.14.2",
+    "moment": "^2.24.0",
     "smartdok-sunshine": "smartdok/sunshine#master",
     "vue": "^2.6.6",
     "vue-highlight-component": "^1.0.0",
