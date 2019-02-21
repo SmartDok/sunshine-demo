@@ -79,7 +79,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 
 moment.locale('nb');
 
@@ -91,8 +91,8 @@ export default Vue.extend({
       formReady: true,
       requiredFields: {
         employeeId: '54',
-        fullName: undefined as string,
-        dateOfBirth: undefined as Moment,
+        fullName: '',
+        dateOfBirth: '',
       }
     };
   },

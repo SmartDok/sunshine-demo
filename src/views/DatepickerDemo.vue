@@ -1,6 +1,6 @@
 <template>
     <div>
-        <s-datepicker />
+        <s-date-field />
         <todo-list>
           <todo>Toggle datepicker with a SMenu component or an input-field</todo>
           <todo>Move info about selected period to input-field</todo>
