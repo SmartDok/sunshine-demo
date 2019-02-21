@@ -1,7 +1,7 @@
 <template>
   <s-accordion class="todo">
     <s-accordion-item>
-    <template slot="heading">TODO LIST</template>
+    <template v-slot:heading>TODO LIST</template>
 
     <ul class="todo-list">
       <slot />

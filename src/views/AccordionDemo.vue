@@ -20,7 +20,7 @@ export default Vue.extend({
       return `
     <s-accordion>
       <s-accordion-item>
-        <template slot="heading">Basic settings</template>
+        <template v-slot:heading>Basic settings</template>
 
         Basic settings here
 
@@ -42,7 +42,7 @@ export default Vue.extend({
       </s-accordion-item>
 
       <s-accordion-item>
-        <template slot="heading">Other settings</template>
+        <template v-slot:heading>Other settings</template>
 
         <div>
           Other settings here
@@ -53,7 +53,7 @@ export default Vue.extend({
       </s-accordion-item>
 
       <s-accordion-item>
-        <template slot="heading">Comment</template>
+        <template v-slot:heading>Comment</template>
 
         <div>
           <s-text-field label="Project name" />

@@ -11,36 +11,34 @@
       </div>
       <div class="user-demo-inspector-placeholder"></div>
     </div>
-    
+
     <s-inspector v-model="open">
-      <div slot="header">
+      <template v-slot:header>
         <h1>Ny bruker</h1>
-      </div>
+      </template>
+
       <s-accordion>
         <s-accordion-item>
-          <template slot="heading">Brukerinformasjon</template>
+          <template v-slot:heading>Brukerinformasjon</template>
         </s-accordion-item>
-      </s-accordion>
-      <s-accordion>
+
         <s-accordion-item>
-          <template slot="heading">Brukernavn og passord</template>
+          <template v-slot:heading>Brukernavn og passord</template>
         </s-accordion-item>
-      </s-accordion>
-      <s-accordion>
+
         <s-accordion-item>
-          <template slot="heading">Rolle og tilgang</template>
+          <template v-slot:heading>Rolle og tilgang</template>
         </s-accordion-item>
-      </s-accordion>
-      <s-accordion>
+
         <s-accordion-item>
-          <template slot="heading">Pårørende</template>
+          <template v-slot:heading>Pårørende</template>
         </s-accordion-item>
       </s-accordion>
 
-      <div slot="footer">
+      <template v-slot:footer>
         <s-button @click="open = !open">Avbryt</s-button>
         <s-button :primary="formReady">Opprett bruker</s-button>
-      </div>
+      </template>
     </s-inspector>
   </div>
 </template>

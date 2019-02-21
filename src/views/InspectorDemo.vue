@@ -4,20 +4,20 @@
     <s-button @click="open = !open">Toggle inspector</s-button>
 
     <s-inspector v-model="open">
-      <div slot="header">
+      <template v-slot:header>
         <h1>25.08.2018</h1>
         Tor Erik Olsen
-      </div>
+      </template>
 
-      <div slot="footer">
+      <template v-slot:footer>
         <div class="flex">
           <s-button primary>Godkjenn</s-button>
         </div>
-      </div>
+      </template>
 
       <s-accordion>
         <s-accordion-item>
-          <template slot="heading">Timeføring</template>
+          <template v-slot:heading>Timeføring</template>
 
           <s-grid>
             <s-grid-item :span="3">
@@ -40,7 +40,7 @@
         </s-accordion-item>
 
         <s-accordion-item>
-          <template slot="heading">Prosjekt og aktivitet</template>
+          <template v-slot:heading>Prosjekt og aktivitet</template>
 
           <div class="grid">
             <s-grid-item :span="12">
@@ -66,7 +66,7 @@
         </s-accordion-item>
 
         <s-accordion-item>
-          <template slot="heading">Lønn og tillegg</template>
+          <template v-slot:heading>Lønn og tillegg</template>
 
           <s-grid>
             <s-grid-item :span="9">
@@ -84,7 +84,7 @@
         </s-accordion-item>
 
         <s-accordion-item>
-          <template slot="heading">Maskintimer</template>
+          <template v-slot:heading>Maskintimer</template>
 
           <p>
             Maskintimer

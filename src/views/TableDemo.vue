@@ -26,28 +26,28 @@
     >
 
       <!-- Override cell to show email address as link -->
-      <template slot="~email" slot-scope="{ value }">
+      <template v-slot:~email="{ value }">
         <a class="s-link" :href="'mailto:' + value">{{ value }}</a>
       </template>
 
       <!-- Override cell to show website as link -->
-      <template slot="~website" slot-scope="{ value }">
+      <template v-slot:~website="{ value }">
         <a class="s-link" :href="'http://' + value">{{ value }}</a>
       </template>
 
       <!-- Override cell to show a button -->
-      <template slot="~actions" slot-scope="{ item }">
+      <template v-slot:~actions="{ item }">
         <s-button small @click="onEdit(item)">Edit</s-button>
       </template>
 
-      <template slot="~ue_code" slot-scope="{ value }">
+      <template v-slot:~ue_code="{ value }">
         <a class="s-link" href="#">{{ value }}</a>
       </template>
 
       <!-- Override content to show when there is no data -->
-      <div slot="empty">
+      <template v-slot:empty>
         No data!
-      </div>
+      </template>
 
     </s-data-table>
 

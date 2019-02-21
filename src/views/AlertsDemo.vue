@@ -49,7 +49,7 @@ export default Vue.extend({
     <s-alert warning icon="Lock-User1">
       Your password has not been changed in 2 months.
 
-      <template slot="buttons">
+      <template v-slot:buttons>
         <s-button small>Remind me later</s-button>
         <s-button small primary>Change now</s-button>
       </template>
