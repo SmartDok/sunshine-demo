@@ -38,23 +38,19 @@ const data = {
 };
 
 export default (count: number | null = null) => createDataModule({
-  getters: {
-    columns() {
-      return [
-        { key: 'id', title: '#' },
-        { key: 'number', title: 'Number' },
-        { key: 'name', title: 'Name' },
-        { key: 'company', title: 'Company' },
-        { key: 'email', title: 'Email' },
-        { key: 'suite', title: 'Suite' },
-        { key: 'street', title: 'Street' },
-        { key: 'zipcode', title: 'Zip-code' },
-        { key: 'city', title: 'City' },
-        { key: 'phone', title: 'Phone' },
-        { key: 'website', title: 'Website' },
-      ];
-    },
-  },
+  columns: [
+    { key: 'id', title: '#' },
+    { key: 'number', title: 'Number' },
+    { key: 'name', title: 'Name' },
+    { key: 'company', title: 'Company' },
+    { key: 'email', title: 'Email' },
+    { key: 'suite', title: 'Suite' },
+    { key: 'street', title: 'Street' },
+    { key: 'zipcode', title: 'Zip-code' },
+    { key: 'city', title: 'City' },
+    { key: 'phone', title: 'Phone' },
+    { key: 'website', title: 'Website' },
+  ],
 
   actions: {
     loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {

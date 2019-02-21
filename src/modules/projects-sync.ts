@@ -175,22 +175,18 @@ const items: IItem[] = [
 ];
 
 const source = createDataModule({
-  getters: {
-    columns() {
-      return [
-        { key: 'name', title: 'Name', width: 300 },
-        { key: 'number', title: 'Number', width: 150 },
-        { key: 'place', title: 'Place' },
-        { key: 'department', title: 'Department' },
-        { key: 'responsible', title: 'Responsible' },
-        { key: 'ue_code', title: 'UE-code' },
-        { key: 'calculated', title: 'Calculated', align: 'right' },
-        { key: 'hours', title: 'Hours', align: 'right' },
-        { key: 'invoiced', title: 'Invoiced', align: 'right' },
-        { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
-      ];
-    },
-  },
+  columns: [
+    { key: 'name', title: 'Name', width: 300 },
+    { key: 'number', title: 'Number', width: 150 },
+    { key: 'place', title: 'Place' },
+    { key: 'department', title: 'Department' },
+    { key: 'responsible', title: 'Responsible' },
+    { key: 'ue_code', title: 'UE-code' },
+    { key: 'calculated', title: 'Calculated', align: 'right' },
+    { key: 'hours', title: 'Hours', align: 'right' },
+    { key: 'invoiced', title: 'Invoiced', align: 'right' },
+    { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
+  ],
 
   actions: {
     loadItems: async ({}, {skip}: ILoadItemsPayload) => {

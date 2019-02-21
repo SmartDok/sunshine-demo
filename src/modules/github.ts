@@ -1,21 +1,17 @@
 import { createDataModule, ISortState, IItemData, ILoadResult, IColumn, ILoadItemsPayload } from 'smartdok-sunshine';
 
 const source = createDataModule({
-  getters: {
-    columns(): IColumn[] {
-      return [
-        { key: 'full_name', title: 'Full name', sortable: true },
-        { key: 'created_at', title: 'Created', sortable: true },
-        { key: 'updated_at', title: 'Updated', sortable: true },
-        { key: 'name', title: 'Name' },
-        { key: 'stargazers_count', title: 'Stars', align: 'right' },
-        { key: 'language', title: 'Language', align: 'center' },
-        { key: 'homepage', title: 'Homepage' },
-        { key: 'size', title: 'Size', align: 'right' },
-        { key: 'description', title: 'Description' },
-      ];
-    },
-  },
+  columns: [
+    { key: 'full_name', title: 'Full name', sortable: true },
+    { key: 'created_at', title: 'Created', sortable: true },
+    { key: 'updated_at', title: 'Updated', sortable: true },
+    { key: 'name', title: 'Name' },
+    { key: 'stargazers_count', title: 'Stars', align: 'right' },
+    { key: 'language', title: 'Language', align: 'center' },
+    { key: 'homepage', title: 'Homepage' },
+    { key: 'size', title: 'Size', align: 'right' },
+    { key: 'description', title: 'Description' },
+  ],
 
   actions: {
     loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {

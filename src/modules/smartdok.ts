@@ -69,20 +69,16 @@ const fetchProjects = async (): Promise<IItem[]> => {
 };
 
 const source = createDataModule({
-  getters: {
-    columns(): IColumn[] {
-      return [
-        { key: 'name', title: 'Navn', width: 350 },
-        { key: 'number', title: 'Number', width: 150 },
-        { key: 'location', title: 'Oppdragssted', width: 250 },
-        { key: 'department', title: 'Avdeling' },
-        { key: 'ue_code', title: 'UE-kode' },
-        { key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100 },
-        { key: 'hours_used', title: 'Timer', align: 'right', width: 100 },
-        { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
-      ];
-    },
-  },
+  columns: [
+    { key: 'name', title: 'Navn', width: 350 },
+    { key: 'number', title: 'Number', width: 150 },
+    { key: 'location', title: 'Oppdragssted', width: 250 },
+    { key: 'department', title: 'Avdeling' },
+    { key: 'ue_code', title: 'UE-kode' },
+    { key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100 },
+    { key: 'hours_used', title: 'Timer', align: 'right', width: 100 },
+    { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
+  ],
 
   actions: {
     loadItems: async ({}, {skip}: ILoadItemsPayload): Promise<ILoadResult> => {

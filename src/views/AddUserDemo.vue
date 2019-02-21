@@ -22,16 +22,15 @@
       </div>
       <div class="user-demo-inspector-placeholder"></div>
     </div>
-    
-    <s-inspector v-model="open">
 
-      <div slot="header">
+    <s-inspector v-model="open">
+      <template v-slot:header>
         <h1>Ny bruker</h1>
-      </div>
-    
+      </template>
+
       <s-accordion>
         <s-accordion-item>
-          <template slot="heading">Brukerinformasjon</template>
+          <template v-slot:heading>Brukerinformasjon</template>
           <s-grid>
             <s-grid-item :span="12">
               <s-text-field v-model="requiredFields.employeeId" label="Ansatt ID" />
@@ -41,8 +40,8 @@
             </s-grid-item>
             <s-grid-item :span="12">
               <s-text-field v-model="requiredFields.dateOfBirth" format="dd.mm.åååå" label="Fødselsdato" />
-              <s-button 
-                style="margin-top: 1rem;" 
+              <s-button
+                style="margin-top: 1rem;"
                 @click="setTodaysDate">
                 Test for å sette dato med knapp
               </s-button>
@@ -50,29 +49,29 @@
           </s-grid>
         </s-accordion-item>
       </s-accordion>
-    
+
       <s-accordion>
         <s-accordion-item>
-          <template slot="heading">Brukernavn og passord</template>
-        </s-accordion-item>
-      </s-accordion>
-    
-      <s-accordion>
-        <s-accordion-item>
-          <template slot="heading">Rolle og tilgang</template>
-        </s-accordion-item>
-      </s-accordion>
-    
-      <s-accordion>
-        <s-accordion-item>
-          <template slot="heading">Pårørende</template>
+          <template v-slot:heading>Brukernavn og passord</template>
         </s-accordion-item>
       </s-accordion>
 
-      <div slot="footer">
+      <s-accordion>
+        <s-accordion-item>
+          <template v-slot:heading>Rolle og tilgang</template>
+        </s-accordion-item>
+      </s-accordion>
+
+      <s-accordion>
+        <s-accordion-item>
+          <template v-slot:heading>Pårørende</template>
+        </s-accordion-item>
+      </s-accordion>
+
+      <template v-slot:footer>
         <s-button @click="open = !open">Avbryt</s-button>
         <s-button :primary="formReady">Opprett bruker</s-button>
-      </div>
+      </template>
 
     </s-inspector>
   </div>
