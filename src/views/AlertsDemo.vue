@@ -6,6 +6,14 @@
     <h2>Alert with icon or actions</h2>
     <example :code="special" />
 
+    <h2>Alert with progress indicator</h2>
+    <example
+      :code='`\
+  <s-alert progress> 38% completed </s-alert>
+  <s-alert progress warning>Important process running</s-alert>
+      `'
+    />
+
     <todo-list>
       <todo>Progress indicator.</todo>
       <todo>Dismiss button w/event.</todo>
