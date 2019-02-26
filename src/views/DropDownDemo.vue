@@ -90,7 +90,7 @@
       <todo>Pending data/loading state (shown in design for text field, but actually more relevant for drop-down).</todo>
       <todo>Looks strange when single-select with search has a value selected, and receives focus, that the cursor starts blinking after the text.</todo>
       <todo done>Looks weird in multi-select when clicking an item and moving the mouse, that both the clicked and the hovered item is highlighted (<b>SList</b> component).</todo>
-      <todo>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
+      <todo done>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
       <todo done>If menu is re-rendered while open, it doesn't close when clicking outside (<b>SMenu</b> component)</todo>
     </todo-list>
   </div>
