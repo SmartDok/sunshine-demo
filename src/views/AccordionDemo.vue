@@ -12,7 +12,7 @@
     <example :code="linked" />
 
     <todo-list>
-      <todo>Optional linked state (e.g. opening one item closes the one currently open).</todo>
+      <todo done>Optional linked state (e.g. opening one item closes the one currently open).</todo>
     </todo-list>
   </div>
 </template>

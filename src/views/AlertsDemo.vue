@@ -15,8 +15,8 @@
     />
 
     <todo-list>
-      <todo>Progress indicator.</todo>
-      <todo>Dismiss button w/event.</todo>
+      <todo done>Progress indicator.</todo>
+      <todo>(later) Dismiss button w/event.</todo>
       <todo>Neutral alert design may be changed.</todo>
     </todo-list>
   </div>
