@@ -14,7 +14,7 @@
       <s-button small @click="onRestore">Restore</s-button>
     </div>
 
-    <s-data-table
+    <s-table
       :key="namespace"
       :module="namespace"
       :outline="outline"
@@ -49,7 +49,7 @@
         No data!
       </template>
 
-    </s-data-table>
+    </s-table>
 
     <todo-list>
       <todo>Resizable columns.</todo>
