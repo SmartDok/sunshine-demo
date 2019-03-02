@@ -84,7 +84,7 @@
     </p>
 
     <todo-list>
-      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
       <todo>"Autocomplete" use-case (no items are present until we start typing something). Maybe as a separate component.</todo>
       <todo done>Refactor keyboard interaction, so that it also works in table options menu.</todo>
       <todo>Pending data/loading state (shown in design for text field, but actually more relevant for drop-down).</todo>

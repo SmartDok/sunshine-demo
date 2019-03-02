@@ -5,7 +5,7 @@
     <example :code="template" :data="{option: '1'}" />
 
     <todo-list>
-      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
     </todo-list>
   </div>
 </template>
