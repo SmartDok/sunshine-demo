@@ -126,11 +126,11 @@ export default Vue.extend({
       area: '',
 
       projects: [
-        {title: 'Nybygg'},
-        {title: 'Gammelbygg'},
-        {title: 'Veiprosjekt'},
-        {title: 'Graveprosjekt'},
-        {title: 'Brøyteprosjekt'},
+        {label: 'Nybygg'},
+        {label: 'Gammelbygg'},
+        {label: 'Veiprosjekt'},
+        {label: 'Graveprosjekt'},
+        {label: 'Brøyteprosjekt'},
       ],
 
       additions: [

@@ -4,10 +4,16 @@
     <example :code="code" />
 
     <h2>Linked state</h2>
-    <p class="help">
-      In a linked accordion, only one item can be open at a time.
-      When opening one item, the other ones are closed.
-    </p>
+    <section class="help">
+      <p>
+        In a linked accordion, only one item can be open at a time.
+        When opening one item, the other ones are closed.
+      </p>
+
+      <p>
+        Using heading props instead of slots.
+      </p>
+    </section>
 
     <example :code="linked" />
 
@@ -74,21 +80,15 @@ export default Vue.extend({
     linked() {
       return `\
     <s-accordion linked>
-      <s-accordion-item>
-        <template v-slot:heading>First</template>
-
+      <s-accordion-item heading="First">
         <s-alert success>First content</s-alert>
       </s-accordion-item>
 
-      <s-accordion-item>
-        <template v-slot:heading>Second</template>
-
+      <s-accordion-item heading="Second">
         <s-alert warning>Second content</s-alert>
       </s-accordion-item>
 
-      <s-accordion-item>
-        <template v-slot:heading>Third</template>
-
+      <s-accordion-item heading="Third">
         <s-alert error>Third content</s-alert>
       </s-accordion-item>
     </s-accordion>

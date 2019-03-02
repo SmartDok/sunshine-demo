@@ -124,7 +124,7 @@ export default Vue.extend({
   data() {
     return {
       country: null,
-      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), title: c })),
+      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
     };
   },
 });
