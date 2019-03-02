@@ -21,16 +21,16 @@ export default Vue.extend({
       return `\
   <s-radio-group v-model="option">
     <p>
-      <s-radio-button name="option" value="1">Option 1</s-radio-button>
+      <s-radio-button value="1">Option 1</s-radio-button>
     </p>
     <p>
-      <s-radio-button name="option" value="2">Option 2</s-radio-button>
+      <s-radio-button value="2">Option 2</s-radio-button>
     </p>
     <p>
-      <s-radio-button inactive name="option" value="inactive">Inactive</s-radio-button>
+      <s-radio-button inactive value="inactive">Inactive</s-radio-button>
     </p>
     <p>
-      <s-radio-button name="option" value="foobar">Option foobar</s-radio-button>
+      <s-radio-button value="foobar">Option foobar</s-radio-button>
     </p>
   </s-radio-group>`;
     },
