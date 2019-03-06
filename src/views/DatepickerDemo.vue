@@ -33,6 +33,8 @@
         </s-accordion>
 
         <todo-list>
+          <todo>Validate input and show error / valid input</todo>
+          <todo>Validate input before creating moment</todo>
           <todo>Clear selected dates from calendar when input is cleared</todo>
           <todo>Handle from and to is same date in period</todo>
           <todo>Styling of date-formatted input</todo>
