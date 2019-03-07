@@ -1,24 +1,15 @@
 <template>
     <div>
-
-        <!-- Verdi inn gjennom *value* prop, og verdi ut gjennom *@input* event -->
-
-        <!-- :fromDate="from"
-        :toDate="to" -->
         <h2>With range</h2>
         <s-date-field
           rangeInput
           :fromDate="from"
           :toDate="to"
-          stringFormat="dd.mm.åååå"
           @input="getPeriod"
         />
-
-        <!-- :selectedDate="date" -->
         <h2>Single date</h2>
         <s-date-field
-          :date="date"
-          stringFormat="dd.mm.åååå"
+          :selectedDate="date"
           @input="getDate"
         />
 
@@ -56,9 +47,9 @@ export default Vue.extend({
 
   data() {
     return {
-      from: '',
-      to: '',
-      date: '',
+      from: '01-03-2019',
+      to: '28-03-2019',
+      date: '19-03-2019',
     }
   },
 
