@@ -5,11 +5,14 @@
           rangeInput
           :fromDate="from"
           :toDate="to"
+          fromLabel="Fra dato"
+          toLabel="Til dato"
           @input="getPeriod"
         />
         <h2>Single date</h2>
         <s-date-field
           :selectedDate="date"
+          label="Dato"
           @input="getDate"
         />
 
@@ -17,23 +20,20 @@
           <s-accordion-item>
             <template v-slot:heading>Possible props</template>
             <li>rangeInput: boolean (adds from - to date)</li>
-            <li>date: Moment (the default selected date)</li>
-            <li>from: Moment (the default from date)</li>
-            <li>to: Moment (the default to date)</li>
+            <li>selectedDate: Moment (date format (ISO 8601) 'YYYY-MM-DD' | {y, M, d}) (the default selected date)</li>
+            <li>fromDate: Moment (date format (ISO 8601) 'YYYY-MM-DD' | {y, M, d}) (the default from date)</li>
+            <li>toDate: Moment (date format (ISO 8601) 'YYYY-MM-DD' | {y, M, d}) (the default to date)</li>
           </s-accordion-item>
         </s-accordion>
 
         <todo-list>
-          <todo>Validate input and show error / valid input</todo>
-          <todo>Validate input before creating moment</todo>
-          <todo>Clear selected dates from calendar when input is cleared</todo>
-          <todo>Handle from and to is same date in period</todo>
+          <todo>Scroll to month if selected period is outside viewable months</todo>
           <todo>Styling of date-formatted input</todo>
           <todo>Styling of multiple inputs</todo>
-          <todo>Scroll to month if selected period is outside viewable months</todo>
           <todo>Add arrow-navigation on focus</todo>
           <todo>Make sure text wraps correctly if datepicker width changes</todo>
           <todo>Add possibilities to choose user-defined periods in menu</todo>
+          <todo>Handle toDate before fromDate</todo>
         </todo-list>
     </div>
 </template>
@@ -47,9 +47,9 @@ export default Vue.extend({
 
   data() {
     return {
-      from: '01-03-2019',
-      to: '28-03-2019',
-      date: '19-03-2019',
+      from: moment({ y: 2019, M: 2, d: 3 }),
+      to: moment('2019-03-24'),
+      date: moment('2019-03-24'),
     }
   },
 
