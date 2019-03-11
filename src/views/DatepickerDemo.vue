@@ -1,17 +1,16 @@
 <template>
     <div>
         <h2>With range</h2>
-        <s-date-field
+        <s-date-range
           rangeInput
-          :fromDate="from"
-          :toDate="to"
+          v-model="period"
           fromLabel="Fra dato"
           toLabel="Til dato"
           @input="getPeriod"
         />
         <h2>Single date</h2>
-        <s-date-field
-          :selectedDate="date"
+        <s-date-single
+          v-model="date"
           label="Dato"
           @input="getDate"
         />
@@ -32,6 +31,7 @@
           <todo>Make v-model optional</todo>
           <todo>Scroll to month if selected period is outside viewable months</todo>
           <todo>Fix inline style on "s-datepicker__grid__container" in DatepickerCalendar</todo>
+          <todo>Add ability to zoom out: month-view, year-view</todo>
           <todo>Styling of date-formatted input</todo>
           <todo>Styling of multiple inputs</todo>
           <todo>Add arrow-navigation on focus</todo>
@@ -51,9 +51,11 @@ export default Vue.extend({
 
   data() {
     return {
-      from: moment({ y: 2019, M: 2, d: 3 }),
-      to: moment('2019-03-24'),
       date: moment('2019-03-24'),
+      period: {
+        from: moment({ y: 2019, M: 2, d: 3 }),
+        to: moment('2019-03-24'),
+      }
     }
   },
 
