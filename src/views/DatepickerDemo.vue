@@ -27,7 +27,11 @@
         </s-accordion>
 
         <todo-list>
+          <todo>Split s-date-field into two components for range / single</todo>
+          <todo>Wrap s-text-field in moment -> string converter</todo>
+          <todo>Make v-model optional</todo>
           <todo>Scroll to month if selected period is outside viewable months</todo>
+          <todo>Fix inline style on "s-datepicker__grid__container" in DatepickerCalendar</todo>
           <todo>Styling of date-formatted input</todo>
           <todo>Styling of multiple inputs</todo>
           <todo>Add arrow-navigation on focus</todo>
