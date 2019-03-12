@@ -1,5 +1,9 @@
 <template>
   <div id="app" class="main-layout">
+    <div class="language-select">
+      <a v-for="locale in ['en', 'nb', 'sv']" :key="locale" href="#" @click="$i18n.locale = locale">{{ locale }}</a>
+    </div>
+
     <h1>Components demo page</h1>
 
     <s-tabs>
@@ -82,6 +86,17 @@ export default Vue.extend({
   to {
     transform: translate(0);
     opacity: 1;
+  }
+}
+
+.language-select {
+  position: absolute;
+  right: 60px;
+
+  a {
+    text-decoration: none;
+    outline: none;
+    margin-left: .5rem;
   }
 }
 

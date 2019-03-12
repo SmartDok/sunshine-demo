@@ -10,8 +10,8 @@
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
 
-      <s-button small @click="onSave">Save</s-button>&nbsp;
-      <s-button small @click="onRestore">Restore</s-button>
+      <s-button small @click="onSave">{{ $t('save') }}</s-button>&nbsp;
+      <s-button small @click="onRestore">{{ $t('restore') }}</s-button>
     </div>
 
     <s-table
