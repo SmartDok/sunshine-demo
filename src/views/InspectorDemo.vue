@@ -11,33 +11,35 @@
 
       <template v-slot:footer>
         <div class="flex">
-          <s-button primary>Godkjenn</s-button>
+          <s-button primary @click.prevent="$refs.observer1.validate()">Godkjenn</s-button>
         </div>
       </template>
 
       <s-accordion>
-        <s-accordion-item>
-          <template v-slot:heading>Timeføring</template>
+        <ValidationObserver ref="observer1">
+          <template v-slot="{errors}">
+            <s-accordion-item heading="Timeføring" :invalid="Object.keys(errors).some(k => errors[k].length)">
+              <s-grid>
+                <s-grid-item :span="3">
+                  <s-text-field-with-validation rules="required" v-model="from" label="Fra" name="Fra" format="00:00" />
+                </s-grid-item>
+                <s-grid-item :span="3">
+                  <s-text-field-with-validation rules="required" v-model="to" label="Til" name="Til" format="00:00" />
+                </s-grid-item>
+                <s-grid-item :span="3">
+                  <s-text-field v-model="pause" label="Pause" />
+                </s-grid-item>
+                <s-grid-item :span="3">
+                  <s-text-field inactive label="Timer" value="7,5" />
+                </s-grid-item>
+              </s-grid>
 
-          <s-grid>
-            <s-grid-item :span="3">
-              <s-text-field v-model="from" label="Fra" format="00:00" />
-            </s-grid-item>
-            <s-grid-item :span="3">
-              <s-text-field v-model="to" label="Til" format="00:00" />
-            </s-grid-item>
-            <s-grid-item :span="3">
-              <s-text-field v-model="pause" label="Pause" />
-            </s-grid-item>
-            <s-grid-item :span="3">
-              <s-text-field inactive label="Timer" value="7,5" />
-            </s-grid-item>
-          </s-grid>
-
-          <p>
-            Dette er en kommentar
-          </p>
-        </s-accordion-item>
+              <p>
+                Dette er en kommentar
+              </p>
+            </s-accordion-item>
+          </template>
+        </ValidationObserver>
 
         <s-accordion-item>
           <template v-slot:heading>Prosjekt og aktivitet</template>
@@ -56,7 +58,7 @@
             </s-grid-item>
 
             <s-grid-item :span="6">
-              <s-text-field v-model="activity" label="Aktivitet" />
+              <s-text-field-with-validation rules="required" v-model="activity" label="Aktivitet" />
             </s-grid-item>
 
             <s-grid-item :span="6">
@@ -70,7 +72,7 @@
 
           <s-grid>
             <s-grid-item :span="9">
-              <s-text-field v-model="wage" label="Lønnsart" />
+              <s-text-field-with-validation rules="required" v-model="wage" label="Lønnsart" />
             </s-grid-item>
 
             <s-grid-item :span="3">
@@ -110,13 +112,19 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { withValidation, ValidationObserver } from 'vee-validate';
+import { STextField } from 'smartdok-sunshine';
+
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('STextFieldWithValidation', withValidation(STextField));
+
 export default Vue.extend({
   name: 'InspectorDemo',
 
   data() {
     return {
       open: false,
-      from: '09:00',
+      from: '',
       to: '16:00',
       pause: '30',
       activity: 'Boring',

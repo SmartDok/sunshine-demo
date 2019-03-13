@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import VeeValidate from 'vee-validate';
 import App from './App.vue';
 import router from './router';
 import SmartDokUI from 'smartdok-sunshine';
@@ -7,11 +8,18 @@ import Example from './components/Example.vue';
 import TodoList from './components/TodoList.vue';
 import TodoItem from './components/TodoItem.vue';
 
+import './demo.scss';
+
 Vue.config.productionTip = false;
 
 import store from './store';
 
 Vue.use(VueI18n);
+Vue.use(VeeValidate, {
+  inject: false,
+  // errorBagName: '$errors',
+  // fieldsBagName: '$fields',
+});
 
 // Casting to any here, because TypeScript apparently doesn't care about
 // webpack's module resolution rules
