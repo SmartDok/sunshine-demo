@@ -129,12 +129,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-@import 'smartdok-sunshine/src/style/tools.scss';
-
-.help {
-  @include paragraph-font;
-  color: $grayer;
-}
-</style>
