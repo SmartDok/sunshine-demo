@@ -83,6 +83,12 @@
       keys as above.
     </p>
 
+    <h2>Custom items</h2>
+    <example
+      :code="slotted"
+      :data="{countries, selected: null}"
+    />
+
     <todo-list>
       <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
       <todo>"Autocomplete" use-case (no items are present until we start typing something). Maybe as a separate component.</todo>
@@ -125,6 +131,26 @@ export default Vue.extend({
     return {
       country: null,
       countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+
+      slotted: `\
+  <s-drop-down
+    search
+    label="Custom content"
+    v-model="selected"
+    :items="countries"
+  >
+    <template v-slot:above>
+      <s-list-item @click="log('Add new')">
+        <b>+ Add as new</b>
+      </s-list-item>
+      <s-list-separator />
+    </template>
+
+    <template v-slot="{label, item}">
+      <span class="flex-grow">{{ label }}</span>
+      <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
+    </template>
+  </s-drop-down>`
     };
   },
 });
