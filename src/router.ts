@@ -11,6 +11,7 @@ import InspectorDemo from './views/InspectorDemo.vue';
 import DialogDemo from '@/views/DialogDemo.vue';
 import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
+import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
@@ -75,6 +76,11 @@ export default new Router({
       path: '/tabs',
       name: 'tabs',
       component: TabsDemo,
+    },
+    {
+      path: '/saved-setups',
+      name: 'saved-setups',
+      component: SavedSetupsDemo,
     },
     {
       path: '/table',

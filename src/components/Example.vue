@@ -43,6 +43,7 @@ export default Vue.extend({
       type: Object,
       default: () => ({}),
     },
+    methods: Object,
   },
 
   data() {
@@ -64,6 +65,12 @@ export default Vue.extend({
       return {
         name: 'DynamicExampleComponent',
         template: `<div>${this.code}</div>`,
+        methods: {
+          log(arg: any) {
+            console.log(arg);
+          },
+          ...(this.methods || {}),
+        },
         data: () => this.componentData,
       };
     },
