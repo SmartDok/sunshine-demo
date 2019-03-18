@@ -6,6 +6,7 @@ import RadioButtonDemo from '@/views/RadioButtonDemo.vue';
 import InputsDemo from '@/views/InputsDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
+import IconDemo from '@/views/IconDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
 import InspectorDemo from './views/InspectorDemo.vue';
 import DialogDemo from '@/views/DialogDemo.vue';
@@ -56,6 +57,11 @@ export default new Router({
       path: '/alerts',
       name: 'alerts',
       component: AlertsDemo,
+    },
+    {
+      path: '/icons',
+      name: 'icons',
+      component: IconDemo,
     },
     {
       path: '/accordion',

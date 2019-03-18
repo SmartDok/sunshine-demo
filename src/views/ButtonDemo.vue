@@ -8,11 +8,6 @@
 
     <h2>Smaller version</h2>
     <example :code="smaller" />
-
-    <todo-list>
-      <todo done>Look into using <b>border</b> instead of <b>box-shadow</b>, because it looks strange in Edge when zooming.</todo>
-      <todo done>Investigate using semi-transparent overlay instead of color for hover effect.</todo>
-    </todo-list>
   </div>
 </template>
 

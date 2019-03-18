@@ -13,10 +13,6 @@
     </p>
 
     <example :code="multi" :data="{state: null}" />
-
-    <todo-list>
-      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
-    </todo-list>
   </div>
 </template>
 
