@@ -15,6 +15,7 @@
       <router-link to="/checkbox">Checkbox</router-link>
       <router-link to="/radio">Radio button</router-link>
       <router-link to="/inputs">Text field</router-link>
+      <router-link to="/textarea">Text area</router-link>
 
       <h3>Informal</h3>
       <router-link to="/icons">Icon</router-link>

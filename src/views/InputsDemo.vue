@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Standard inputs</h2>
-    <example :code="standard" :data="{name: '', phone: '', number: '', email: '', password: '', text: ''}" />
+    <example :code="standard" :data="{name: '', phone: '', number: '', email: '', password: ''}" />
 
     <h2>Expected format</h2>
     <example :code="expected" :data="{time: ''}" />
@@ -47,9 +47,6 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field v-model="password" password label="Password" />
-  </p>
-  <p>
-    <s-text-area v-model="text" label="Comments"/>
   </p>`
     },
 
@@ -68,12 +65,7 @@ export default Vue.extend({
   <p>
     <s-text-field label="Inactive Input" value="With text" inactive />
   </p>
-  <p>
-    <s-text-area label="Inactive text area" inactive />
-  </p>
-   <p>
-    <s-text-area label="Inactive text area" value="With text" inactive />
-  </p>`
+  <p>`
     },
   },
 });
