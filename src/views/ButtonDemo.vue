@@ -3,6 +3,9 @@
     <h2>Standard buttons</h2>
     <example :code="standard" :data="{clicked: 0}" />
 
+    <h2>Danger button</h2>
+    <example :code='`<s-button danger>Delete</s-button>`' />
+
     <h2>Inactive buttons</h2>
     <example :code="inactive" />
 
