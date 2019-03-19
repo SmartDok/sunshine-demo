@@ -33,6 +33,7 @@
 
       <h3>Special</h3>
       <router-link to="/saved-setups">Saved setups</router-link>
+      <router-link to="/filter">Filter</router-link>
 
       <h3>Experimental</h3>
       <router-link to="/chart">DataChart</router-link>
