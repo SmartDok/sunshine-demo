@@ -10,8 +10,8 @@
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
 
-      <s-button small @click="onSave">Save</s-button>&nbsp;
-      <s-button small @click="onRestore">Restore</s-button>
+      <s-button small @click="onSave">{{ $t('save') }}</s-button>&nbsp;
+      <s-button small @click="onRestore">{{ $t('restore') }}</s-button>
     </div>
 
     <s-table
@@ -53,9 +53,9 @@
 
     <todo-list>
       <todo>Resizable columns.</todo>
-      <todo>Hooks for persisting column state, together with filters. <strike>(Move column state to store?)</strike></todo>
+      <todo done>Hooks for persisting column state, together with filters. <strike>(Move column state to store?)</strike></todo>
       <todo done>Selected row state.</todo>
-      <todo>Keyboard selection.</todo>
+      <todo>[later] Keyboard selection.</todo>
       <todo done>Multi-selection checkboxes.</todo>
       <todo done>Select/unselect all.</todo>
       <todo done>Prevent removing all columns.</todo>

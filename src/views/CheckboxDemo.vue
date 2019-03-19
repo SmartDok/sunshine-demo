@@ -7,11 +7,12 @@
     <example :code="inactive" />
 
     <h2>Multiple state checkbox</h2>
-    <example :code="multi" :data="{state: null}" />
+    <p class="help">
+      Checkboxes can have an "unknown" state, that is neither checked nor unchecked. This is achieved by setting the bound value to <b>null</b>.
+      Under no circumstance will the component change the value to <b>null</b>. In this example, a button is added to reset the value to <b>null</b>.
+    </p>
 
-    <todo-list>
-      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
-    </todo-list>
+    <example :code="multi" :data="{state: null}" />
   </div>
 </template>
 

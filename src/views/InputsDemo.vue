@@ -6,6 +6,9 @@
     <h2>Expected format</h2>
     <example :code="expected" :data="{time: ''}" />
 
+    <h2>With placeholder instead of label</h2>
+    <example :code='`<s-text-field placeholder="Placeholder" />`' />
+
     <h2>Inactive inputs</h2>
     <example :code="inactive" />
 
