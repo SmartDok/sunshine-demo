@@ -2,6 +2,7 @@
     <div>
         <h2>With range</h2>
         <s-date-range
+          includeMenu
           v-model="period"
           fromLabel="Fra dato"
           toLabel="Til dato"
@@ -14,7 +15,6 @@
         />
 
         <todo-list>
-          <todo>Make v-model optional</todo>
           <todo>Slected current month should send filter "current month" and not just dates (ie. 01.03.2019 - 31.03.2019)</todo>
           <todo>Scroll to month if selected period is outside viewable months</todo>
           <todo>Add ability to zoom out: month-view, year-view</todo>
