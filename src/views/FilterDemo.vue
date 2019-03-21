@@ -5,10 +5,10 @@
       code='
       <s-filter-drop-down
         v-model="selected"
-        :sections="sections"
+        :sections="data.sections"
       />
       '
-      :data="{ sections, selected }"
+      :data="{ data: { sections }, selected }"
     />
   </div>
 </template>
