@@ -3,9 +3,19 @@
     <h2>Accordion</h2>
     <example :code="code" />
 
-    <todo-list>
-      <todo>Optional linked state (e.g. opening one item closes the one currently open).</todo>
-    </todo-list>
+    <h2>Linked state</h2>
+    <section class="help">
+      <p>
+        In a linked accordion, only one item can be open at a time.
+        When opening one item, the other ones are closed.
+      </p>
+
+      <p>
+        Using heading props instead of slots.
+      </p>
+    </section>
+
+    <example :code="linked" />
   </div>
 </template>
 
@@ -47,7 +57,7 @@ export default Vue.extend({
         <div>
           Other settings here
           <p>
-            <s-select>Bar</s-select>
+            <s-alert success>Bar</s-alert>
           </p>
         </div>
       </s-accordion-item>
@@ -62,6 +72,24 @@ export default Vue.extend({
     </s-accordion>
       `;
     },
+
+    linked() {
+      return `\
+    <s-accordion linked>
+      <s-accordion-item heading="First">
+        <s-alert success>First content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Second">
+        <s-alert warning>Second content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Third">
+        <s-alert error>Third content</s-alert>
+      </s-accordion-item>
+    </s-accordion>
+      `;
+    },
   },
 });
 </script>
@@ -69,7 +97,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import 'smartdok-sunshine/src/style/tools.scss';
 
-.below {
+.help {
   @include paragraph-font;
   color: $grayer;
 }

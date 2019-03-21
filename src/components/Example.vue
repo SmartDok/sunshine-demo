@@ -4,13 +4,13 @@
       <component :is="component" />
     </div>
 
-    <div class="example-tabs">
-      <div>
+    <div class="example-details">
+      <div class="example-tabs">
         <a
-          v-for="tab in ['code', 'data']"
+          v-for="tab in tabs"
           :key="tab"
           :class="{'example-tab': true, 'example-tab--active': activeTab === tab}"
-          @click="activeTab = tab"
+          @click="onClick(tab)"
         >
           {{ tab | uppercase }}
         </a>
@@ -43,16 +43,25 @@ export default Vue.extend({
       type: Object,
       default: () => ({}),
     },
+    methods: Object,
   },
 
   data() {
     return {
-      activeTab: 'code',
+      activeTab: '',
       componentData: this.data,
     };
   },
 
   computed: {
+    tabs(): string[] {
+      const tabs = ['code'];
+      if (Object.keys(this.componentData).length) {
+        tabs.push('data');
+      }
+      return tabs;
+    },
+
     jsonData(): string {
       const replacer = (key: string, value: any) => {
         return value;
@@ -64,8 +73,24 @@ export default Vue.extend({
       return {
         name: 'DynamicExampleComponent',
         template: `<div>${this.code}</div>`,
+        methods: {
+          log(arg: any) {
+            console.log(arg);
+          },
+          ...(this.methods || {}),
+        },
         data: () => this.componentData,
       };
+    },
+  },
+
+  methods: {
+    onClick(tab: string) {
+      if (this.activeTab === tab) {
+        this.activeTab = '';
+      } else {
+        this.activeTab = tab;
+      }
     },
   },
 });
@@ -75,8 +100,6 @@ export default Vue.extend({
 .example-panel {
   min-height: 100px;
   margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: stretch;
 }
 
@@ -85,17 +108,22 @@ export default Vue.extend({
   padding: 15px;
 }
 
-.example-tabs {
+.example-details {
   display: flex;
   flex-direction: column;
   font-size: .9em;
-  background-color: #333;
+  background-color: #fff;
+}
+
+.example-tabs {
+  text-align: right;
+  padding: 0 10px;
 }
 
 .example-tab {
   display: inline-block;
   padding: 0 4px;
-  color: #b1b1b1;
+  color: #1e1e1e;
   cursor: pointer;
 
   &--active {

@@ -6,6 +6,9 @@
     <h2>Expected format</h2>
     <example :code="expected" :data="{time: ''}" />
 
+    <h2>With placeholder instead of label</h2>
+    <example :code='`<s-text-field placeholder="Placeholder" />`' />
+
     <h2>Inactive inputs</h2>
     <example :code="inactive" />
 
@@ -13,7 +16,7 @@
       <todo>Read-only state, shown in design.</todo>
       <todo>Caution/warning/confirmation state, shown in design.</todo>
       <todo>Pending data/loading state, shown in design.</todo>
-      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
       <todo>Positioning of expected format is not accurate.</todo>
       <todo>Issues with expected format and panning.</todo>
       <todo>Validation of expected format.</todo>

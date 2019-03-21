@@ -44,11 +44,11 @@
 
           <div class="grid">
             <s-grid-item :span="12">
-              <s-drop-down v-model="project" :items="projects" label="Prosjekt" />
+              <s-drop-down :items="projects" label="Prosjekt" />
             </s-grid-item>
 
             <s-grid-item :span="9">
-              <s-text-field v-model="subProject" label="Underprosjekt" />
+              <s-text-field label="Underprosjekt" />
             </s-grid-item>
 
             <s-grid-item :span="3">
@@ -119,18 +119,16 @@ export default Vue.extend({
       from: '09:00',
       to: '16:00',
       pause: '30',
-      project: null,
-      subProject: '',
       activity: 'Boring',
       wage: '',
       area: '',
 
       projects: [
-        {title: 'Nybygg'},
-        {title: 'Gammelbygg'},
-        {title: 'Veiprosjekt'},
-        {title: 'Graveprosjekt'},
-        {title: 'Brøyteprosjekt'},
+        {label: 'Nybygg'},
+        {label: 'Gammelbygg'},
+        {label: 'Veiprosjekt'},
+        {label: 'Graveprosjekt'},
+        {label: 'Brøyteprosjekt'},
       ],
 
       additions: [

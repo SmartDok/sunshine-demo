@@ -6,10 +6,14 @@ import RadioButtonDemo from '@/views/RadioButtonDemo.vue';
 import InputsDemo from '@/views/InputsDemo.vue';
 import DropDownDemo from '@/views/DropDownDemo.vue';
 import AlertsDemo from '@/views/AlertsDemo.vue';
+import IconDemo from '@/views/IconDemo.vue';
 import AccordionDemo from '@/views/AccordionDemo.vue';
 import InspectorDemo from './views/InspectorDemo.vue';
+import DialogDemo from '@/views/DialogDemo.vue';
 import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
+import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
+import FilterDemo from '@/views/FilterDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
@@ -56,6 +60,11 @@ export default new Router({
       component: AlertsDemo,
     },
     {
+      path: '/icons',
+      name: 'icons',
+      component: IconDemo,
+    },
+    {
       path: '/accordion',
       name: 'accordion',
       component: AccordionDemo,
@@ -66,9 +75,24 @@ export default new Router({
       component: InspectorDemo,
     },
     {
+      path: '/dialog',
+      name: 'Dialog',
+      component: DialogDemo,
+    },
+    {
       path: '/tabs',
       name: 'tabs',
       component: TabsDemo,
+    },
+    {
+      path: '/saved-setups',
+      name: 'saved-setups',
+      component: SavedSetupsDemo,
+    },
+    {
+      path: '/filter',
+      name: 'filter',
+      component: FilterDemo,
     },
     {
       path: '/table',

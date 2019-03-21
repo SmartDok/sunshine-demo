@@ -83,15 +83,21 @@
       keys as above.
     </p>
 
+    <h2>Custom items</h2>
+    <example
+      :code="slotted"
+      :data="{countries, selected: null}"
+    />
+
     <todo-list>
-      <todo>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
       <todo>"Autocomplete" use-case (no items are present until we start typing something). Maybe as a separate component.</todo>
-      <todo>Refactor keyboard interaction, so that it also works in table options menu.</todo>
+      <todo done>Refactor keyboard interaction, so that it also works in table options menu.</todo>
       <todo>Pending data/loading state (shown in design for text field, but actually more relevant for drop-down).</todo>
       <todo>Looks strange when single-select with search has a value selected, and receives focus, that the cursor starts blinking after the text.</todo>
-      <todo>Looks weird in multi-select when clicking an item and moving the mouse, that both the clicked and the hovered item is highlighted (<b>SList</b> component).</todo>
-      <todo>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
-      <todo>If menu is re-rendered while open, it doesn't close when clicking outsize (<b>SMenu</b> component)</todo>
+      <todo done>Looks weird in multi-select when clicking an item and moving the mouse, that both the clicked and the hovered item is highlighted (<b>SList</b> component).</todo>
+      <todo done>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
+      <todo done>If menu is re-rendered while open, it doesn't close when clicking outside (<b>SMenu</b> component)</todo>
     </todo-list>
   </div>
 </template>
@@ -124,18 +130,28 @@ export default Vue.extend({
   data() {
     return {
       country: null,
-      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), title: c })),
+      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+
+      slotted: `\
+  <s-drop-down
+    search
+    label="Custom content"
+    v-model="selected"
+    :items="countries"
+  >
+    <template v-slot:above>
+      <s-list-item @click="log('Add new')">
+        <b>+ Add as new</b>
+      </s-list-item>
+      <s-list-separator />
+    </template>
+
+    <template v-slot="{label, item}">
+      <span class="flex-grow">{{ label }}</span>
+      <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
+    </template>
+  </s-drop-down>`
     };
   },
 });
 </script>
-
-<style lang="scss" scoped>
-@import 'smartdok-sunshine/src/style/tools.scss';
-
-.help {
-  @include paragraph-font;
-  color: $grayer;
-}
-</style>
-
