@@ -16,6 +16,7 @@
         </a>
       </div>
       <highlight v-if="activeTab === 'code'" class="example-pre" language="html" :code="code" />
+      <highlight v-if="activeTab === 'state'" class="example-pre" language="json" :code="jsonState" />
       <highlight v-if="activeTab === 'data'" class="example-pre" language="json" :code="jsonData" />
     </div>
   </div>
@@ -56,17 +57,24 @@ export default Vue.extend({
   computed: {
     tabs(): string[] {
       const tabs = ['code'];
-      if (Object.keys(this.componentData).length) {
+      const { data, ...state } = this.componentData;
+      if (Object.keys(state).length) {
+        tabs.push('state');
+      }
+      if (data) {
         tabs.push('data');
       }
       return tabs;
     },
 
+    jsonState(): string {
+      const { data, ...state } = this.componentData;
+      return JSON.stringify(state, null, 2);
+    },
+
     jsonData(): string {
-      const replacer = (key: string, value: any) => {
-        return value;
-      };
-      return JSON.stringify(this.componentData, replacer, 2);
+      const { data } = this.componentData;
+      return JSON.stringify(data, null, 2);
     },
 
     component(): object {
@@ -138,10 +146,5 @@ export default Vue.extend({
   margin: 0;
   flex: 1;
   min-height: 0;
-}
-
-.hljs {
-  height: 100%;
-  max-height: 500px;
 }
 </style>

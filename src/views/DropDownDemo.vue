@@ -6,7 +6,7 @@
   <s-drop-down
     label="Select one country"
     v-model="country"
-    :items="countries"
+    :items="data.countries"
   />`'
 
       :data="$data"
@@ -31,7 +31,7 @@
     search
     label="Select one country"
     v-model="country"
-    :items="countries"
+    :items="data.countries"
   />`'
       :data="$data"
     />
@@ -47,10 +47,10 @@
     multiple
     label="Select countries"
     v-model="selected"
-    :items="countries"
+    :items="data.countries"
     :max-selected-shown="8"
   />`'
-      :data="{countries, selected: []}"
+      :data="{ data, selected: []}"
     />
 
     <div class="help">
@@ -71,10 +71,10 @@
     search
     label="Select countries"
     v-model="selected"
-    :items="countries"
+    :items="data.countries"
     :max-selected-shown="3"
   />`'
-      :data="{countries, selected: []}"
+      :data="{ data, selected: []}"
     />
 
     <p class="help">
@@ -86,7 +86,7 @@
     <h2>Custom items</h2>
     <example
       :code="slotted"
-      :data="{countries, selected: null}"
+      :data="{ data, selected: null }"
     />
 
     <todo-list>
@@ -130,14 +130,21 @@ export default Vue.extend({
   data() {
     return {
       country: null,
-      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+      data: {
+        countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+      },
+    };
+  },
 
-      slotted: `\
+
+  computed: {
+    slotted() {
+      return `\
   <s-drop-down
     search
     label="Custom content"
     v-model="selected"
-    :items="countries"
+    :items="data.countries"
   >
     <template v-slot:above>
       <s-list-item @click="log('Add new')">
@@ -150,8 +157,8 @@ export default Vue.extend({
       <span class="flex-grow">{{ label }}</span>
       <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
     </template>
-  </s-drop-down>`
-    };
+  </s-drop-down>`;
+    },
   },
 });
 </script>
