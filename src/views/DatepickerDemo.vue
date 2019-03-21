@@ -2,7 +2,6 @@
     <div>
         <h2>With range</h2>
         <s-date-range
-          rangeInput
           v-model="period"
           fromLabel="Fra dato"
           toLabel="Til dato"
