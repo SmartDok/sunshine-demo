@@ -1,10 +1,10 @@
 <template>
   <div>
     <h2>Standard inputs</h2>
-    <example :code="standard" :data="{ text: ''}" />
+    <example :code="standard" :data="{ text: ``, text2:``}" />
 
-    <h2>With placeholder instead of label</h2>
-    <example :code='placeholder' :data="{ text: '', text2: '' }" />
+    <h2>With placeholder</h2>
+    <example :code='placeholder' :data="{ text:`` , text2: `` }" />
 
     <h2>Read only</h2>
     <example :code='readonly' />
@@ -13,10 +13,8 @@
     <example :code="inactive"/>
 
     <todo-list>
-      <todo>Clarify and implement expected behaviour of empty label</todo>
-      <todo>Clarify if label and placeholder can coexist, if so clarify behaviour</todo>
+      <todo>Fit content attribute? Given content as value, TextArea displays all the content. </todo>
       <todo>State when in readonly?</todo>
-      <todo>Implement auto resize of height</todo>
       <todo>Scrollbard design?</todo>
     </todo-list>
   </div>
@@ -32,6 +30,7 @@ export default Vue.extend({
     standard() {
       return `\
         <s-text-area label="Comments" v-model="text" />
+        <s-text-area label="Autoresize" v-model="text2" :initrows="4" :maxrows="8" />
     `;
     },
 

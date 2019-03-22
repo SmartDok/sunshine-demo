@@ -75,8 +75,7 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field label="Inactive Input" value="With text" inactive />
-  </p>
-  <p>`
+  </p>`
     },
   },
 });
