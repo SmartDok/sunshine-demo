@@ -2,10 +2,13 @@
     <div>
         <h2>With range</h2>
         <s-date-range
-          includeMenu
+          withMenu
           v-model="period"
+          :filter="filter"
+          @update-filter="updateFilter"
           fromLabel="Fra dato"
           toLabel="Til dato"
+          localeString="nb"
         />
 
         <h2>Single date</h2>
@@ -40,6 +43,10 @@ export default Vue.extend({
       period: {
         from: {} as Moment,
         to: {} as Moment,
+      },
+      filter: {
+        option: 'Current',
+        period: 'Month'
       }
     }
   },
@@ -52,6 +59,12 @@ export default Vue.extend({
     period(newVal) {
       console.log('Period from', moment(newVal.from).format('DD-MM-YYYY'));
       console.log('Period to', moment(newVal.to).format('DD-MM-YYYY'));
+    },
+  },
+
+  methods: {
+    updateFilter(filter: any) {
+      console.log('Filter updated ', filter.option, filter.period);
     },
   },
 });
