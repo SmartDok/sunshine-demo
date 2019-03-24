@@ -1,20 +1,31 @@
 <template>
     <div>
         <h2>With range</h2>
-        <s-date-range
-          withMenu
-          v-model="period"
-          :filter="filter"
-          @update-filter="updateFilter"
-          fromLabel="Fra dato"
-          toLabel="Til dato"
-          localeString="nb"
+
+        <example
+          :code='`\
+  <s-date-range
+    withMenu
+    v-model="period"
+    :filter="filter"
+    fromLabel="Fra dato"
+    toLabel="Til dato"
+    localeString="nb"
+  />`'
+          :data="{
+            period: { from: {}, to: {} },
+            filter: { option: 'Current', period: 'Month' },
+          }"
         />
 
         <h2>Single date</h2>
-        <s-date-single
-          v-model="date"
-          label="Dato"
+        <example
+          :code='`\
+  <s-date-single
+    v-model="date"
+    label="Dato"
+  />`'
+          :data="{ date: {} }"
         />
 
         <todo-list>
@@ -32,49 +43,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment, { Moment } from 'moment';
 
 export default Vue.extend({
   name: 'DatepickerDemo',
-
-  data() {
-    return {
-      date: {} as Moment,
-      period: {
-        from: {} as Moment,
-        to: {} as Moment,
-      },
-      filter: {
-        option: 'Current',
-        period: 'Month'
-      }
-    }
-  },
-
-  watch: {
-    date(newVal) {
-      console.log('Date ', moment(newVal).format('DD-MM-YYYY'));
-    },
-
-    period(newVal) {
-      console.log('Period from', moment(newVal.from).format('DD-MM-YYYY'));
-      console.log('Period to', moment(newVal.to).format('DD-MM-YYYY'));
-    },
-  },
-
-  methods: {
-    updateFilter(filter: any) {
-      console.log('Filter updated ', filter.option, filter.period);
-    },
-  },
 });
 </script>
-
-<style lang="scss" scoped>
-@import 'smartdok-sunshine/src/style/tools.scss';
-
-.datepicker-props-list {
-  margin-top: 3rem;
-}
-
-</style>
