@@ -7,7 +7,10 @@
     <example :code="expected" :data="{time: ''}" />
 
     <h2>With placeholder instead of label</h2>
-    <example :code='`<s-text-field placeholder="Placeholder" />`' />
+    <example :code='placeholder' />
+
+    <h2>Read only</h2>
+    <example code='<s-text-field readonly value="Readonly"/>' />
 
     <h2>Inactive inputs</h2>
     <example :code="inactive" />
@@ -47,6 +50,14 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field v-model="password" password label="Password" />
+  </p>`
+    },
+
+    placeholder() {
+      return `\
+  <p>
+    <s-text-field placeholder="Placeholder" />
+     <s-text-field placeholder="Placeholder" label="Label" />
   </p>`;
     },
 
@@ -64,7 +75,7 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field label="Inactive Input" value="With text" inactive />
-  </p>`;
+  </p>`
     },
   },
 });
