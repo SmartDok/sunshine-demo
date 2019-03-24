@@ -3,9 +3,9 @@
     <h2>Tabs</h2>
     <example :code='`\
     <s-tabs>
-      <s-tab to="?first">Button</s-tab>
-      <s-tab to="?second">Tabs</s-tab>
-      <s-tab to="?third">Button</s-tab>
+      <s-tab to="?first">First</s-tab>
+      <s-tab to="?second">Second</s-tab>
+      <s-tab to="?third">Third</s-tab>
     </s-tabs>
     `'
     />

@@ -21,7 +21,7 @@
       <router-link to="/alerts">Alert</router-link>
 
       <h3>Structural</h3>
-      <router-link to="/tabs">Tabs</router-link>
+      <router-link to="/tabs?second">Tabs</router-link>
       <router-link to="/accordion">Accordion</router-link>
       <router-link to="/inspector">Inspector</router-link>
       <router-link to="/dialog">Dialog</router-link>
