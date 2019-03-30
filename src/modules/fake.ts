@@ -2,11 +2,9 @@ import { IItem } from 'smartdok-sunshine';
 import { ILoadResult, ILoadItemsPayload } from './types';
 import createDataModule from './createDataModule';
 
-const delay = (milliseconds: number): Promise<void> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, milliseconds);
-  });
-};
+const delay = (milliseconds: number): Promise<void> => new Promise(resolve => {
+  setTimeout(resolve, milliseconds);
+});
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
@@ -55,7 +53,7 @@ export default (count: number | null = null) => createDataModule({
   ],
 
   actions: {
-    loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {
+    loadItems: async ({ getters }, { skip, take }: ILoadItemsPayload): Promise<ILoadResult> => {
       const items: IItem[] = [];
 
       for (let i = 0; i < take; i++) {

@@ -71,19 +71,25 @@ const source = createDataModule({
     { key: 'location', title: 'Oppdragssted', width: 250 },
     { key: 'department', title: 'Avdeling' },
     { key: 'ue_code', title: 'UE-kode' },
-    { key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100 },
-    { key: 'hours_used', title: 'Timer', align: 'right', width: 100 },
-    { key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100 },
+    {
+      key: 'hours_calculated', title: 'Kalkulert', align: 'right', width: 100,
+    },
+    {
+      key: 'hours_used', title: 'Timer', align: 'right', width: 100,
+    },
+    {
+      key: 'hours_invoiced', title: 'Fakturert', align: 'right', width: 100,
+    },
   ],
 
   actions: {
-    loadItems: async ({}, {skip}: ILoadItemsPayload): Promise<ILoadResult> => {
-      if (skip > 0) return {items: [], total: -1};
+    loadItems: async ({}, { skip }: ILoadItemsPayload): Promise<ILoadResult> => {
+      if (skip > 0) return { items: [], total: -1 };
       const items = await fetchProjects();
-      return {items, total: items.length};
+      return { items, total: items.length };
     },
 
-    loadSubItems: async ({}, {keyPath}: ILoadSubItemsPayload): Promise<ILoadResult> => {
+    loadSubItems: async ({}, { keyPath }: ILoadSubItemsPayload): Promise<ILoadResult> => {
       let items: IItem[] = [];
 
       if (keyPath.length === 1) {

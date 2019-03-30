@@ -33,7 +33,7 @@ const source = createDataModule({
 
       const totalHeader = res.headers.get('x-total-count') as string;
       const total = totalHeader ? parseInt(totalHeader, 10) : items.length;
-      return {items, total};
+      return { items, total };
     }),
   },
 });

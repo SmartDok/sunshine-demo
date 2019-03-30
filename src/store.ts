@@ -16,8 +16,12 @@ const compact = <T>(array: T[]): T[] => array.filter(e => e);
 const store = new Vuex.Store({
   state: {
     sources: compact([
-      { label: 'Projects', namespace: 'projects', fixed: false, outline: true },
-      { label: 'Projects (synchronous)', namespace: 'projectsSync', fixed: false, outline: true },
+      {
+        label: 'Projects', namespace: 'projects', fixed: false, outline: true,
+      },
+      {
+        label: 'Projects (synchronous)', namespace: 'projectsSync', fixed: false, outline: true,
+      },
       { label: 'Users', namespace: 'jsonplaceholder' },
       { label: 'Github', namespace: 'github' },
       { label: 'Infinite rows', namespace: 'fakeinf' },
@@ -27,7 +31,9 @@ const store = new Vuex.Store({
       (
         // Show "SmartDok" source only if Token exists
         localStorage.getItem('SmartApiToken') &&
-        { label: 'SmartDok Project Tree', namespace: 'smartdok', fixed: true, outline: true }
+        {
+          label: 'SmartDok Project Tree', namespace: 'smartdok', fixed: true, outline: true,
+        }
       ),
       { label: 'Empty', namespace: 'empty' },
     ]),

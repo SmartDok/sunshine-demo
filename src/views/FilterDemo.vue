@@ -38,10 +38,9 @@ export default Vue.extend({
         {
           label: 'Projects',
           items: itemize(['Main road', 'Apartment building', 'Tunnel'], 'Project'),
-        }
+        },
       ],
     };
   },
-})
+});
 </script>
-

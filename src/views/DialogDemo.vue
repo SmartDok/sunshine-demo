@@ -40,6 +40,5 @@ export default Vue.extend({
       ].map(n => ({ key: n, label: n })),
     };
   },
-})
+});
 </script>
-

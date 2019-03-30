@@ -124,6 +124,6 @@ export default new Router({
       path: '/textarea',
       name: 'textarea',
       component: TextAreaDemo,
-    }
+    },
   ],
 });

@@ -3,14 +3,11 @@ import { ILoadItemsPayload } from './types';
 import createDataModule from './createDataModule';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
-const kroner = (value: any) =>
-  value == null ? null : fmt.format(value);
+const kroner = (value: any) => (value == null ? null : fmt.format(value));
 
-const delay = (milliseconds: number): Promise<void> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, milliseconds);
-  });
-};
+const delay = (milliseconds: number): Promise<void> => new Promise(resolve => {
+  setTimeout(resolve, milliseconds);
+});
 
 const items: IItem[] = [
   {
@@ -187,13 +184,15 @@ const source = createDataModule({
     { key: 'calculated', title: 'Calculated', align: 'right' },
     { key: 'hours', title: 'Hours', align: 'right' },
     { key: 'invoiced', title: 'Invoiced', align: 'right' },
-    { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
+    {
+      key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner,
+    },
   ],
 
   actions: {
-    loadItems: async ({}, {skip}: ILoadItemsPayload) => {
-      if (skip > 0) return {items: [], total: items.length};
-      return {items, total: items.length};
+    loadItems: async ({}, { skip }: ILoadItemsPayload) => {
+      if (skip > 0) return { items: [], total: items.length };
+      return { items, total: items.length };
     },
   },
 

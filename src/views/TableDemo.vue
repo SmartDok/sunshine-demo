@@ -76,11 +76,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import STableVuexWrapper from '../components/STableVuexWrapper.vue';
 import {
   ISortState,
   IItem,
 } from 'smartdok-sunshine';
+import STableVuexWrapper from '../components/STableVuexWrapper.vue';
 
 export default Vue.extend({
   name: 'TableDemo',

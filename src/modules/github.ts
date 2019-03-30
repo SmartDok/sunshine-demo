@@ -16,9 +16,8 @@ const source = createDataModule({
   ],
 
   actions: {
-    loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {
-      if (skip % take !== 0)
-        console.warn(`Expected skip (${skip}) to be a multiple of take (${take})`);
+    loadItems: async ({ getters }, { skip, take }: ILoadItemsPayload): Promise<ILoadResult> => {
+      if (skip % take !== 0) console.warn(`Expected skip (${skip}) to be a multiple of take (${take})`);
 
       const sorting = getters.sorting as ISortState;
       let direction = sorting.reverse ? 'desc' : 'asc';
@@ -33,7 +32,7 @@ const source = createDataModule({
       const total = (repos.length < take) ? (skip + repos.length) : null;
 
       return {
-        items: repos.map(data => ({key: data.id, data})),
+        items: repos.map(data => ({ key: data.id, data })),
         total,
       };
     },

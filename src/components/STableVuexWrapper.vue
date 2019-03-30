@@ -24,7 +24,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { ISortState, IItem, IColumn, IOrderedColumn, } from 'smartdok-sunshine';
+import {
+  ISortState, IItem, IColumn, IOrderedColumn,
+} from 'smartdok-sunshine';
 import { IRequestLoadItemsPayload } from '../modules/types';
 
 const connectToStore = (key: string) => ({

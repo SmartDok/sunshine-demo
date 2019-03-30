@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import SmartDokUI from 'smartdok-sunshine';
 import App from './App.vue';
 import router from './router';
-import SmartDokUI from 'smartdok-sunshine';
 import Example from './components/Example.vue';
 import TodoList from './components/TodoList.vue';
 import TodoItem from './components/TodoItem.vue';
 
-Vue.config.productionTip = false;
-
 import store from './store';
+
+Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
 

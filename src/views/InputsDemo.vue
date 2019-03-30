@@ -50,7 +50,7 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field v-model="password" password label="Password" />
-  </p>`
+  </p>`;
     },
 
     placeholder() {
@@ -75,7 +75,7 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field label="Inactive Input" value="With text" inactive />
-  </p>`
+  </p>`;
     },
   },
 });

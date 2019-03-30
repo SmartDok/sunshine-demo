@@ -22,10 +22,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "TextAreaDemo",
+  name: 'TextAreaDemo',
 
   computed: {
     standard() {
@@ -52,7 +52,7 @@ export default Vue.extend({
         <p><s-text-area label="Inactive area" inactive/></p>
         <p><s-text-area label="Inactive area" value="With text" inactive/></p>
       `;
-    }
-  }
+    },
+  },
 });
 </script>
