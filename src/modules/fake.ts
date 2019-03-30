@@ -1,4 +1,6 @@
-import { createDataModule, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
+import { IItem } from 'smartdok-sunshine';
+import { ILoadResult, ILoadItemsPayload } from './types';
+import createDataModule from './createDataModule';
 
 const delay = (milliseconds: number): Promise<void> => {
   return new Promise(resolve => {

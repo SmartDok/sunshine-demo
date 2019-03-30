@@ -14,7 +14,7 @@
       <s-button small @click="onRestore">{{ $t('restore') }}</s-button>
     </div>
 
-    <s-table
+    <s-table-vuex-wrapper
       :key="namespace"
       :module="namespace"
       :outline="outline"
@@ -49,7 +49,7 @@
         No data!
       </template>
 
-    </s-table>
+    </s-table-vuex-wrapper>
 
     <todo-list>
       <todo>Resizable columns.</todo>
@@ -76,6 +76,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import STableVuexWrapper from '../components/STableVuexWrapper.vue';
 import {
   ISortState,
   IItem,
@@ -83,6 +84,10 @@ import {
 
 export default Vue.extend({
   name: 'TableDemo',
+
+  components: {
+    STableVuexWrapper,
+  },
 
   data() {
     return {

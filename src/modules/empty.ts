@@ -1,4 +1,5 @@
-import { createDataModule, ILoadResult, IColumn } from 'smartdok-sunshine';
+import { ILoadResult } from './types';
+import createDataModule from './createDataModule';
 
 const source = createDataModule({
   columns: [

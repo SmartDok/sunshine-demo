@@ -1,4 +1,6 @@
-import { createDataModule, ISortState, IItemData, ILoadResult, IColumn, ILoadItemsPayload } from 'smartdok-sunshine';
+import { ISortState, IItemData } from 'smartdok-sunshine';
+import { ILoadResult, ILoadItemsPayload } from './types';
+import createDataModule from './createDataModule';
 
 const source = createDataModule({
   columns: [

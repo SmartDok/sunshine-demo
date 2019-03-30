@@ -1,5 +1,6 @@
-import { createDataModule, ILoadResult } from 'smartdok-sunshine';
+import { ILoadResult } from './types';
 import createBasicSort from './createBasicSort';
+import createDataModule from './createDataModule';
 
 const source = createDataModule({
   columns: [

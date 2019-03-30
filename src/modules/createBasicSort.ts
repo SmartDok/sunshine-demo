@@ -1,4 +1,6 @@
-import { ISortState, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
+import { ISortState, IItem } from 'smartdok-sunshine';
+import { ILoadResult, ILoadItemsPayload } from './types';
+
 type BasicFetch = () => Promise<ILoadResult>;
 
 export default (next: BasicFetch) => (

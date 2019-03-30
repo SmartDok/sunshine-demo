@@ -1,4 +1,6 @@
-import { createDataModule, ISortState, IItem, ILoadResult, ILoadItemsPayload, ILoadSubItemsPayload } from 'smartdok-sunshine';
+import { IItem } from 'smartdok-sunshine';
+import { ILoadItemsPayload, ILoadSubItemsPayload } from './types';
+import createDataModule from './createDataModule';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
 const kroner = (value: any) =>

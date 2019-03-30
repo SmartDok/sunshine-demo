@@ -1,11 +1,7 @@
-import {
-  createDataModule,
-  IItem,
-  ILoadResult,
-  IColumn,
-  ILoadItemsPayload,
-  ILoadSubItemsPayload,
-} from 'smartdok-sunshine';
+import { IItem } from 'smartdok-sunshine';
+import { ILoadResult, ILoadItemsPayload, ILoadSubItemsPayload } from './types';
+
+import createDataModule from './createDataModule';
 
 const BASEURL = 'https://web.trackthebox.com:5559/smartapi/';
 
