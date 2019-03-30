@@ -3,3 +3,6 @@ declare module '*.vue' {
 
   export default Vue;
 }
+
+declare module 'vue-highlight-component';
+declare module 'vue-global-events';
