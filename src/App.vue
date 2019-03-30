@@ -45,7 +45,6 @@
       <h3>Experimental</h3>
       <router-link to="/chart">DataChart</router-link>
       <router-link to="/calendar">Calendar</router-link>
-      <router-link to="/add-user">Add user</router-link>
 
     </div>
 
