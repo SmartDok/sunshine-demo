@@ -2,7 +2,11 @@
   <div>
     <h2>Radio buttons</h2>
 
-    <p class="help">To create a group of "connected" radio buttons, each of them must have a unique <b>value</b>, and they must all be bound to the same <b>v-model</b></p>
+    <p class="help">
+      To create a group of "connected" radio buttons, each of them must have
+      a unique <b>value</b>, and they must all be bound to the same
+      <b>v-model</b>.
+    </p>
 
     <example :code="template" :data="{option: '1'}" />
   </div>

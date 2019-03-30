@@ -11,7 +11,10 @@
     />
 
     <todo-list>
-      <todo>Decouple from vue-router, to support more use-cases, including a proper example page.</todo>
+      <todo>
+        Decouple from vue-router, to support more use-cases, including a
+        proper example page.
+      </todo>
       <todo>Responsive design, side scrolling when necessary.</todo>
     </todo-list>
   </div>

@@ -190,7 +190,7 @@ const source = createDataModule({
   ],
 
   actions: {
-    loadItems: async ({}, { skip }: ILoadItemsPayload) => {
+    loadItems: async (_, { skip }: ILoadItemsPayload) => {
       if (skip > 0) return { items: [], total: items.length };
       return { items, total: items.length };
     },

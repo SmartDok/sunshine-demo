@@ -53,22 +53,12 @@
 
     <todo-list>
       <todo>Resizable columns.</todo>
-      <todo done>Hooks for persisting column state, together with filters. <strike>(Move column state to store?)</strike></todo>
-      <todo done>Selected row state.</todo>
       <todo>[later] Keyboard selection.</todo>
-      <todo done>Multi-selection checkboxes.</todo>
-      <todo done>Select/unselect all.</todo>
-      <todo done>Prevent removing all columns.</todo>
-      <todo done>Prevent moving other columns to replace the first ("row title") column. (This might be generalized to say that a configurable number of columns are fixed, or "static").</todo>
-      <todo done>Optimize column operations when many rows are rendered.</todo>
-      <todo done>Smart loading when scrolling up (works only when scrolling down).</todo>
       <todo>[needs design] various loading indicators</todo>
       <todo>[needs design] "no data" display</todo>
-      <todo done>Possibility to include sub-items synchronously.</todo>
       <todo>Automatically scroll horizontally when dragging columns.</todo>
       <todo>Adjust padding of first column content, alignment of header content.</todo>
       <todo>Improve (or remove) display of "placeholder" rows when scrolling</todo>
-      <todo done>Change sorting indicator images, shown in design.</todo>
       <todo>Messages icons, shown in design.</todo>
     </todo-list>
   </div>

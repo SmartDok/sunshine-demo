@@ -13,7 +13,7 @@ const getJSON = async <T = any>(path: string): Promise<T> => {
     },
   });
   if (res.ok) {
-    return await res.json();
+    return res.json();
   } else {
     throw new Error('Request failed');
   }
@@ -83,13 +83,13 @@ const source = createDataModule({
   ],
 
   actions: {
-    loadItems: async ({}, { skip }: ILoadItemsPayload): Promise<ILoadResult> => {
+    loadItems: async (_, { skip }: ILoadItemsPayload): Promise<ILoadResult> => {
       if (skip > 0) return { items: [], total: -1 };
       const items = await fetchProjects();
       return { items, total: items.length };
     },
 
-    loadSubItems: async ({}, { keyPath }: ILoadSubItemsPayload): Promise<ILoadResult> => {
+    loadSubItems: async (_, { keyPath }: ILoadSubItemsPayload): Promise<ILoadResult> => {
       let items: IItem[] = [];
 
       if (keyPath.length === 1) {

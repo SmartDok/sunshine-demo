@@ -199,13 +199,13 @@ const source = createDataModule({
   ],
 
   actions: {
-    loadItems: async ({}, { skip }: ILoadItemsPayload) => {
+    loadItems: async (_, { skip }: ILoadItemsPayload) => {
       const items = data[''];
       if (skip > 0) return { items: [], total: items.length };
       return { items, total: items.length };
     },
 
-    loadSubItems: async ({}, { keyPath }: ILoadSubItemsPayload) => {
+    loadSubItems: async (_, { keyPath }: ILoadSubItemsPayload) => {
       await delay(500);
 
       const items = data[keyPath.join(':')];

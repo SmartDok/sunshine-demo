@@ -15,9 +15,25 @@
           {{ tab | uppercase }}
         </a>
       </div>
-      <highlight v-if="activeTab === 'code'" class="example-pre" language="html" :code="code" />
-      <highlight v-if="activeTab === 'state'" class="example-pre" language="json" :code="jsonState" />
-      <highlight v-if="activeTab === 'data'" class="example-pre" language="json" :code="jsonData" />
+
+      <highlight
+        v-if="activeTab === 'code'"
+        class="example-pre"
+        language="html"
+        :code="code"
+      />
+      <highlight
+        v-if="activeTab === 'state'"
+        class="example-pre"
+        language="json"
+        :code="jsonState"
+      />
+      <highlight
+        v-if="activeTab === 'data'"
+        class="example-pre"
+        language="json"
+        :code="jsonData"
+      />
     </div>
   </div>
 </template>

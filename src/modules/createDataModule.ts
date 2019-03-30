@@ -52,7 +52,7 @@ export interface WrappedModule<S, R> {
 }
 
 
-export const createDataModule = <ModuleState = {}, RootState = any>(
+const createDataModule = <ModuleState = {}, RootState = any>(
   options: WrappedModule<ModuleState, RootState> & IColumns,
 ): Module<ModuleState & IDataModuleState, RootState> => {
   const mutex = new Mutex();

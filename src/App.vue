@@ -1,7 +1,13 @@
 <template>
   <div id="app" class="main-layout">
     <div class="language-select">
-      <a v-for="locale in ['en', 'nb', 'sv']" :key="locale" href="#" @click="$i18n.locale = locale">{{ locale }}</a>
+      <a
+        v-for="locale in ['en', 'nb', 'sv']"
+        :key="locale" href="#"
+        @click="$i18n.locale = locale"
+      >
+        {{ locale }}
+      </a>
     </div>
 
     <div class="header">
