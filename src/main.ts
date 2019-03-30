@@ -6,6 +6,8 @@ import router from './router';
 import Example from './components/Example.vue';
 import TodoList from './components/TodoList.vue';
 import TodoItem from './components/TodoItem.vue';
+import PropsList from './components/PropsList.vue';
+import PropsItem from './components/PropsItem.vue';
 
 import store from './store';
 
@@ -20,6 +22,8 @@ Vue.use(SmartDokUI as any);
 Vue.component('example', Example);
 Vue.component('todo-list', TodoList);
 Vue.component('todo', TodoItem);
+Vue.component('props-list', PropsList);
+Vue.component('props-item', PropsItem);
 
 const i18n = new VueI18n({
   locale: 'en',

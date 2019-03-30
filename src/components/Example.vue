@@ -122,7 +122,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .example-panel {
-  min-height: 100px;
   margin-bottom: 20px;
   align-items: stretch;
 }
@@ -162,5 +161,6 @@ export default Vue.extend({
   margin: 0;
   flex: 1;
   min-height: 0;
+  font-family: monospace;
 }
 </style>

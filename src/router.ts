@@ -12,6 +12,7 @@ import InspectorDemo from './views/InspectorDemo.vue';
 import DialogDemo from '@/views/DialogDemo.vue';
 import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
+import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
 import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
 import FilterDemo from '@/views/FilterDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
@@ -98,6 +99,11 @@ export default new Router({
       path: '/table',
       name: 'table',
       component: TableDemo,
+    },
+    {
+      path: '/table-sources',
+      name: 'table-sources',
+      component: TableSourcesDemo,
     },
     {
       path: '/chart',
