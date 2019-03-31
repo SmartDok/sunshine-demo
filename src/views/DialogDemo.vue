@@ -6,16 +6,21 @@
       :code='`
   <s-button @click="visible = true">Show dialog</s-button>
 
-  <s-dialog v-model="visible">
+  <s-dialog v-model="visible" heading="I am a dialog" @submit.prevent="visible = false">
     <p>Enter your name:</p>
     <p><s-text-field label="Name" />
-    <p><s-drop-down :items="items" label="Select" />
-    <p><s-button primary @click="visible = false">OK</s-button></p>
+    <p><s-drop-down :items="data.items" label="Select" />
+    <p><s-button primary submit>OK</s-button></p>
   </s-dialog>
       `'
-      :data="{visible: false, items}"
-      :hiddenData="{items}"
+      :data="{visible: false, data: { items }}"
     />
+
+    <p class="help">
+      The dialog content is wrapped in a <b>form</b> element. Additional attributes and
+      event listeners are passed to this element. Most of the time, users would want to
+      handle the <b>submit</b> event, as in the example above.
+    </p>
 
     <todo-list>
       <todo>Prevent focus outside dialog with Tab key</todo>
