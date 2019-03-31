@@ -3,7 +3,10 @@
     <example :code='`
     <s-button @click="open = !open">Toggle inspector</s-button>
 
-    <s-inspector v-model="open">
+    <s-inspector
+      v-model="open"
+      @submit.prevent="open = false"
+    >
       <template v-slot:header>
         <h1>25.08.2018</h1>
         Tor Erik Olsen
@@ -11,7 +14,7 @@
 
       <template v-slot:footer>
         <div class="flex">
-          <s-button primary>Godkjenn</s-button>
+          <s-button primary submit>Godkjenn</s-button>
         </div>
       </template>
 
@@ -32,11 +35,12 @@
             <s-grid-item :span="3">
               <s-text-field inactive label="Timer" value="7,5" />
             </s-grid-item>
+
+            <s-grid-item :span="12">
+              <s-text-area label="Kommentar" />
+            </s-grid-item>
           </s-grid>
 
-          <p>
-            Dette er en kommentar
-          </p>
         </s-accordion-item>
 
         <s-accordion-item>
@@ -93,8 +97,14 @@
 
       </s-accordion>
     </s-inspector>`'
-    :data="$data"
+      :data="$data"
     />
+
+    <p class="help">
+      The inspector content is wrapped in a <b>form</b> element. Additional attributes and
+      event listeners are passed to this element. Most of the time, users would want to
+      handle the <b>submit</b> event, as in the example above.
+    </p>
 
     <todo-list>
       <todo>Define layout (width, margin, padding).</todo>
