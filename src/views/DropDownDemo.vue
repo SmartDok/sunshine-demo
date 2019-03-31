@@ -101,6 +101,7 @@
       <todo>
         Looks strange when single-select with search has a value selected,
         and receives focus, that the cursor starts blinking after the text.
+        (Try setting input to read-only when closed)
       </todo>
     </todo-list>
   </div>
