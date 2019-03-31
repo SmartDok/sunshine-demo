@@ -20,13 +20,15 @@ export default Vue.extend({
       },
     };
 
+    const slot = scopedSlots.default;
+
     return [
       h('dt', options, [
         h('span', { class: 'props-item__name' }, name),
         h('span', { class: 'props-item__type' }, type),
         required && h('span', { class: 'props-item__required' }, 'required!'),
       ]),
-      h('dd', { class: 'props-item__body' }, scopedSlots.default({})),
+      slot && h('dd', { class: 'props-item__body' }, slot({})),
     ];
   },
 });
@@ -40,7 +42,6 @@ export default Vue.extend({
 
   &:not(:first-child) {
     margin-top: .25rem;
-    border-top: 1px solid $gray;
   }
 }
 

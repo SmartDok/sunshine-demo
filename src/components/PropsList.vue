@@ -5,10 +5,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'smartdok-sunshine/src/style/settings.scss';
+@import 'smartdok-sunshine/src/style/tools.scss';
 
 .props-list {
-  padding: 0 1rem;
-  border-left: 1px solid $gray;
+  @include paragraph-font;
+  color: $grayest;
+  padding: 0 .5rem;
+  border-left: 3px solid $gray;
 }
 </style>
