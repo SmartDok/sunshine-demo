@@ -17,7 +17,7 @@
 import Vue from 'vue';
 
 const itemize = (names, category) => (
-  names.map(name => ({ key: name, label: name, extendedLabel: `${name} (${category})` }))
+  names.map(name => ({ key: name, label: name, category }))
 );
 
 export default Vue.extend({
