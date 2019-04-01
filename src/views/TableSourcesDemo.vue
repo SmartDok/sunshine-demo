@@ -6,7 +6,6 @@
       <div class="flex-grow" />
 
       <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
-      <s-checkbox v-model="checkable">Checkable rows</s-checkbox>&nbsp;
       <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
       <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
 
@@ -19,7 +18,6 @@
       :module="namespace"
       :outline="outline"
       :fixed="fixed"
-      :checkable="checkable"
       :draggable="draggable"
       :condensed="condensed"
       :sticky-column="stickyColumn"
@@ -71,7 +69,6 @@ export default Vue.extend({
     return {
       dataSource: this.$store.state.sources[0],
       draggable: true,
-      checkable: false,
       condensed: false,
       stickyColumn: false,
       sorting: {
