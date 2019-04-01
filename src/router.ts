@@ -15,6 +15,7 @@ import TableDemo from '@/views/TableDemo.vue';
 import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
 import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
 import FilterDemo from '@/views/FilterDemo.vue';
+import ValidationDemo from '@/views/ValidationDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
@@ -94,6 +95,10 @@ export default new Router({
       path: '/filter',
       name: 'filter',
       component: FilterDemo,
+    },
+    {
+      path: '/validation',
+      component: ValidationDemo,
     },
     {
       path: '/table',

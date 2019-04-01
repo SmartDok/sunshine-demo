@@ -18,7 +18,7 @@ Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
 Vue.use(VeeValidate, {
-  inject: false,
+  // inject: false,
   // errorBagName: '$errors',
   // fieldsBagName: '$fields',
 });
