@@ -20,6 +20,7 @@ import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
 import TextAreaDemo from '@/views/TextAreaDemo.vue';
 import TextAreaExtendedDemo from '@/views/TextAreaExtendedDemo.vue';
+import InputsExtendedDemo from '@/views/InputsExtendedDemo.vue';
 
 Vue.use(Router);
 
@@ -50,6 +51,11 @@ export default new Router({
       path: '/inputs',
       name: 'inputs',
       component: InputsDemo,
+    },
+    {
+      path: '/inputs-demo',
+      name: 'inputs-demo',
+      component: InputsExtendedDemo,
     },
     {
       path: '/dropdown',

@@ -3,17 +3,43 @@
     <h2>Standard inputs</h2>
     <example :code="standard" :data="{name: '', phone: '', number: '', email: '', password: ''}" />
 
-    <h2>Expected format</h2>
-    <example :code="expected" :data="{time: ''}" />
+    <p class="help">
+     For more examples: <router-link to="/inputs-demo">Inputs demo page</router-link>
+    </p>
 
-    <h2>With placeholder instead of label</h2>
-    <example :code='placeholder' />
+    <h2>Props</h2>
 
-    <h2>Read only</h2>
-    <example code='<s-text-field readonly value="Readonly"/>' />
-
-    <h2>Inactive inputs</h2>
-    <example :code="inactive" />
+    <props-list>
+      <props-item name="label" type="String">
+        The label shown in the input field.
+      </props-item>
+      <props-item name="placeholder" type="String">
+        The placeholder of the input. Disappears when user starts typing.
+      </props-item>
+      <props-item name="value" type="String">
+       Sets the content of the input. If v-model is used this prop is automatically
+       updated while typing.
+      </props-item>
+      <props-item name="format" type="String">
+        When the input area has focus, this is string is shown in the input area
+        as a guide for the user.
+      </props-item>
+      <props-item name="number" type="Boolean">
+        Sets the expected input type.
+      </props-item>
+      <props-item name="phone" type="Boolean">
+        Sets the expected input type.
+      </props-item>
+      <props-item name="password" type="Boolean">
+        Sets the expected input type.
+      </props-item>
+      <props-item name="email" type="Boolean">
+        Sets the expected input type.
+      </props-item>
+      <props-item name="inactive" type="Boolean">
+       Sets the input to an inactive state.
+      </props-item>
+    </props-list>
 
     <todo-list>
       <todo>Read-only state, shown in design.</todo>
@@ -50,31 +76,6 @@ export default Vue.extend({
   </p>
   <p>
     <s-text-field v-model="password" password label="Password" />
-  </p>`;
-    },
-
-    placeholder() {
-      return `\
-  <p>
-    <s-text-field placeholder="Placeholder" />
-     <s-text-field placeholder="Placeholder" label="Label" />
-  </p>`;
-    },
-
-    expected() {
-      return `\
-  <p>
-    <s-text-field v-model="time" format="00:00" label="Time" />
-  </p>`;
-    },
-
-    inactive() {
-      return `\
-  <p>
-    <s-text-field label="Inactive Input" inactive />
-  </p>
-  <p>
-    <s-text-field label="Inactive Input" value="With text" inactive />
   </p>`;
     },
   },

@@ -11,21 +11,21 @@
     <h2>Props</h2>
 
     <props-list>
-      <props-item name="intirows" type="Number">
-        The initial height of the textarea in rows. Default: 2.
+      <props-item name="label" type="String">
+        The label shown in the textarea.
       </props-item>
-      <props-item name="maxrows" type="Number">
-        The maximum height of the textarea in rows. Default: 10.
+      <props-item name="placeholder" type="String">
+        The placeholder of the textarea. Disappears when user starts typing.
       </props-item>
       <props-item name="value" type="String">
        Sets the content of the textarea. If v-model is used this
        prop is automatically updated while typing.
       </props-item>
-      <props-item name="label" type="String">
-        The shown label of the textarea.
+      <props-item name="intirows" type="Number">
+        The initial height of the textarea in rows. Default: 2.
       </props-item>
-      <props-item name="placeholder" type="String">
-        The placeholder of the textarea. Disappears when user starts typing.
+      <props-item name="maxrows" type="Number">
+        The maximum height of the textarea in rows. Default: 10.
       </props-item>
       <props-item name="inactive" type="Boolean">
        Sets the textarea to an inactive state.
