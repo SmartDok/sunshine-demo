@@ -19,6 +19,7 @@ import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
 import TextAreaDemo from '@/views/TextAreaDemo.vue';
+import TextAreaExtendedDemo from '@/views/TextAreaExtendedDemo.vue';
 
 Vue.use(Router);
 
@@ -124,6 +125,11 @@ export default new Router({
       path: '/textarea',
       name: 'textarea',
       component: TextAreaDemo,
+    },
+    {
+      path: '/textarea-demo',
+      name: 'textarea-demo',
+      component: TextAreaExtendedDemo,
     },
   ],
 });
