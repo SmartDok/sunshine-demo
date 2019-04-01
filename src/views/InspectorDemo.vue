@@ -6,7 +6,6 @@
     <s-inspector
       v-model="open"
       @submit.prevent="open = false"
-@click.prevent="$refs.observer1.validate()"
     >
       <template v-slot:header>
         <h1>25.08.2018</h1>
@@ -20,35 +19,31 @@
       </template>
 
       <s-accordion>
-        <ValidationObserver ref="observer1">
-          <template v-slot="{errors}">
-            <s-accordion-item heading="Timeføring" :invalid="Object.keys(errors).some(k => errors[k].length)">
-              <s-grid>
-                <s-grid-item :span="3">
-                  <s-text-field-with-validation rules="required" v-model="from" label="Fra" name="Fra" format="00:00" />
-                </s-grid-item>
-                <s-grid-item :span="3">
-                  <s-text-field-with-validation rules="required" v-model="to" label="Til" name="Til" format="00:00" />
-                </s-grid-item>
-                <s-grid-item :span="3">
-                  <s-text-field v-model="pause" label="Pause" />
-                </s-grid-item>
-                <s-grid-item :span="3">
-                  <s-text-field inactive label="Timer" value="7,5" />
-                </s-grid-item>
-              </s-grid>
+        <s-accordion-item heading="Timeføring">
+          <s-grid>
+            <s-grid-item :span="3">
+              <s-text-field v-model="from" label="Fra" name="Fra" format="00:00" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field v-model="to" label="Til" name="Til" format="00:00" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field v-model="pause" label="Pause" />
+            </s-grid-item>
+            <s-grid-item :span="3">
+              <s-text-field inactive label="Timer" value="7,5" />
+            </s-grid-item>
 
-              <s-grid-item :span="12">
-                <s-text-area label="Kommentar" />
-              </s-grid-item
-            </s-accordion-item>
-          </template>
-        </ValidationObserver>
+            <s-grid-item :span="12">
+              <s-text-area label="Kommentar" />
+            </s-grid-item>
+          </s-grid>
+        </s-accordion-item>
 
         <s-accordion-item>
           <template v-slot:heading>Prosjekt og aktivitet</template>
 
-          <div class="grid">
+          <s-grid>
             <s-grid-item :span="12">
               <s-drop-down :items="projects" label="Prosjekt" />
             </s-grid-item>
@@ -62,13 +57,13 @@
             </s-grid-item>
 
             <s-grid-item :span="6">
-              <s-text-field-with-validation rules="required" v-model="activity" label="Aktivitet" />
+              <s-text-field v-model="activity" label="Aktivitet" />
             </s-grid-item>
 
             <s-grid-item :span="6">
               <s-text-field v-model="area" label="Område" />
             </s-grid-item>
-          </div>
+          </s-grid>
         </s-accordion-item>
 
         <s-accordion-item>
@@ -76,7 +71,7 @@
 
           <s-grid>
             <s-grid-item :span="9">
-              <s-text-field-with-validation rules="required" v-model="wage" label="Lønnsart" />
+              <s-text-field v-model="wage" label="Lønnsart" />
             </s-grid-item>
 
             <s-grid-item :span="3">
@@ -99,7 +94,8 @@
 
       </s-accordion>
     </s-inspector>`'
-      :data="$data"
+      :data="{ ...$data, required: 'required' }"
+      max-width="16rem"
     />
 
     <p class="help">
@@ -119,14 +115,8 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
-
-import { withValidation, ValidationObserver } from 'vee-validate';
-import { STextField } from 'smartdok-sunshine';
-
-Vue.component('ValidationObserver', ValidationObserver);
-Vue.component('STextFieldWithValidation', withValidation(STextField));
 
 export default Vue.extend({
   name: 'InspectorDemo',
@@ -134,7 +124,7 @@ export default Vue.extend({
   data() {
     return {
       open: false,
-      from: '',
+      from: '08:00',
       to: '16:00',
       pause: '30',
       activity: 'Boring',
@@ -142,11 +132,11 @@ export default Vue.extend({
       area: '',
 
       projects: [
-        { label: 'Nybygg' },
-        { label: 'Gammelbygg' },
-        { label: 'Veiprosjekt' },
-        { label: 'Graveprosjekt' },
-        { label: 'Brøyteprosjekt' },
+        { key: 1, label: 'Nybygg' },
+        { key: 2, label: 'Gammelbygg' },
+        { key: 3, label: 'Veiprosjekt' },
+        { key: 4, label: 'Graveprosjekt' },
+        { key: 5, label: 'Brøyteprosjekt' },
       ],
 
       additions: [
