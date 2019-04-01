@@ -89,6 +89,29 @@
       :data="{ data, selected: null }"
     />
 
+    <h2>Dynamic content</h2>
+
+    <example
+      :code='`
+    <div>
+      <s-grid>
+        <s-grid-item span="6">
+          <s-drop-down v-model="selected" :items="data.items" multiple label="Available items" />
+        </s-grid-item>
+        <s-grid-item span="6">
+          <s-drop-down :items="selected.map(it => ({...it}))" multiple label="Selected items" />
+        </s-grid-item>
+      </s-grid>
+    </div>`'
+      :data="{ data: { items: data.countries }, selected: [] }"
+    />
+
+    <p class="help">
+      The available items in the right list, are those selected in the left list. If an item is
+      selected in the right list, and then removed from the left list, so that it is no longer
+      available, it should be removed from the selection in the right list.
+    </p>
+
     <todo-list>
       <todo>
         "Autocomplete" use-case (no items are present until we start typing
@@ -99,9 +122,8 @@
         actually more relevant for drop-down).
       </todo>
       <todo>
-        Looks strange when single-select with search has a value selected,
-        and receives focus, that the cursor starts blinking after the text.
-        (Try setting input to read-only when closed)
+        Manage selection with keys instead of object identity (currently,
+        if items are updated, selection is cleared).
       </todo>
     </todo-list>
   </div>
