@@ -10,6 +10,7 @@
   />`'
 
       :data="$data"
+      max-width="16rem"
     />
 
     <div class="help">
@@ -34,6 +35,7 @@
     :items="data.countries"
   />`'
       :data="$data"
+      max-width="16rem"
     />
 
     <p class="help">
@@ -51,6 +53,7 @@
     :max-selected-shown="8"
   />`'
       :data="{ data, selected: []}"
+      max-width="16rem"
     />
 
     <div class="help">
@@ -75,6 +78,7 @@
     :max-selected-shown="3"
   />`'
       :data="{ data, selected: []}"
+      max-width="16rem"
     />
 
     <p class="help">
@@ -87,6 +91,19 @@
     <example
       :code="slotted"
       :data="{ data, selected: null }"
+      max-width="16rem"
+    />
+
+    <h2>With error</h2>
+    <example
+      :code='`\
+  <s-drop-down
+    label="Select countries"
+    :items="data.countries"
+    error="This field is required"
+  />`'
+      :data="{ data }"
+      max-width="16rem"
     />
 
     <h2>Dynamic content</h2>
@@ -104,6 +121,7 @@
       </s-grid>
     </div>`'
       :data="{ data: { items: data.countries }, selected: [] }"
+      max-width="33rem"
     />
 
     <p class="help">

@@ -33,10 +33,8 @@ export default Vue.extend({
   computed: {
     multi() {
       return `\
-  <s-checkbox v-model="state">Multi-state</s-checkbox>&nbsp;
-  <p>
-    <s-button small @click="state = null">Reset</s-button>
-  </p>`;
+  <s-checkbox v-model="state">Multi-state</s-checkbox>
+  <div><s-button small @click="state = null">Reset</s-button></div>`;
     },
   },
 });

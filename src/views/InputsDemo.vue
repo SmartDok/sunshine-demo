@@ -1,19 +1,30 @@
 <template>
   <div>
+
     <h2>Standard inputs</h2>
-    <example :code="standard" :data="{name: '', phone: '', number: '', email: '', password: ''}" />
+    <example
+      :code="standard"
+      :data="{name: '', phone: '', number: '', email: '', password: ''}"
+      max-width="16rem"
+    />
 
     <h2>Expected format</h2>
-    <example :code="expected" :data="{time: ''}" />
+    <example :code="expected" :data="{time: ''}" max-width="16rem" />
 
     <h2>With placeholder instead of label</h2>
-    <example :code='placeholder' />
+    <example :code='placeholder' max-width="16rem" />
 
-    <h2>Read only</h2>
-    <example code='<s-text-field readonly value="Readonly"/>' />
+    <h2>With error</h2>
+    <example
+      code='<s-text-field label="Text field" error="Please enter the correct value" />'
+      max-width="16rem"
+    />
+
+    <h2>Read-only</h2>
+    <example code='<s-text-field readonly value="Readonly"/>' max-width="16rem" />
 
     <h2>Inactive inputs</h2>
-    <example :code="inactive" />
+    <example :code="inactive" max-width="16rem" />
 
     <todo-list>
       <todo>Read-only state, shown in design.</todo>
@@ -33,49 +44,36 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'InputsDemo',
 
+  data() {
+    return {
+      text: '',
+    };
+  },
+
   computed: {
     standard() {
       return `\
-  <p>
-    <s-text-field v-model="name" label="Project name" />
-  </p>
-  <p>
-    <s-text-field v-model="phone" phone label="Phone number" />
-  </p>
-  <p>
-    <s-text-field v-model="number" number label="Number" />
-  </p>
-  <p>
-    <s-text-field v-model="email" email label="Email" />
-  </p>
-  <p>
-    <s-text-field v-model="password" password label="Password" />
-  </p>`;
+  <s-text-field v-model="name" label="Project name" />
+  <s-text-field v-model="phone" phone label="Phone number" />
+  <s-text-field v-model="number" number label="Number" />
+  <s-text-field v-model="email" email label="Email" />
+  <s-text-field v-model="password" password label="Password" />`;
     },
 
     placeholder() {
       return `\
-  <p>
-    <s-text-field placeholder="Placeholder" />
-     <s-text-field placeholder="Placeholder" label="Label" />
-  </p>`;
+  <s-text-field placeholder="Placeholder" />
+  <s-text-field placeholder="Placeholder" label="Label" />`;
     },
 
     expected() {
-      return `\
-  <p>
-    <s-text-field v-model="time" format="00:00" label="Time" />
-  </p>`;
+      return '<s-text-field v-model="time" format="00:00" label="Time" />';
     },
 
     inactive() {
       return `\
-  <p>
-    <s-text-field label="Inactive Input" inactive />
-  </p>
-  <p>
-    <s-text-field label="Inactive Input" value="With text" inactive />
-  </p>`;
+  <s-text-field label="Inactive Input" inactive />
+  <s-text-field label="Inactive Input" value="With text" inactive />`;
     },
   },
 });

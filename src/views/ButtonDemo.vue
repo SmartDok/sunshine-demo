@@ -1,16 +1,16 @@
 <template>
   <div>
     <h2>Standard buttons</h2>
-    <example :code="standard" :data="{clicked: 0}" />
+    <example :code="standard" :data="{clicked: 0}" max-width="12rem" />
 
     <h2>Danger button</h2>
-    <example :code='`<s-button danger>Delete</s-button>`' />
+    <example :code='`<s-button danger>Delete</s-button>`' max-width="12rem" />
 
     <h2>Inactive buttons</h2>
-    <example :code="inactive" />
+    <example :code="inactive" max-width="12rem" />
 
     <h2>Smaller version</h2>
-    <example :code="smaller" />
+    <example :code="smaller" max-width="10rem" />
   </div>
 </template>
 

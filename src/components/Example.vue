@@ -61,6 +61,11 @@ export default Vue.extend({
       default: () => ({}),
     },
     methods: Object,
+
+    maxWidth: {
+      type: String,
+      default: '1fr',
+    },
   },
 
   data() {
@@ -94,9 +99,19 @@ export default Vue.extend({
     },
 
     component(): object {
+      const { maxWidth } = this;
       return {
         name: 'DynamicExampleComponent',
-        template: `<div>${this.code}</div>`,
+        template: `<div :style="style">${this.code}</div>`,
+        computed: {
+          style() {
+            return {
+              display: 'grid',
+              'grid-gap': '1rem',
+              'grid-template-columns': `minmax(0, ${maxWidth})`,
+            };
+          },
+        },
         methods: {
           log(arg: any) {
             console.log(arg);

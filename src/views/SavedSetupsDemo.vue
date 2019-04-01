@@ -5,6 +5,7 @@
       :code='`<s-saved-setups :items="items" @save="onSave" @delete="onDelete" />`'
       :data="{items}"
       :methods="{onSave, onDelete}"
+      max-width="16rem"
     />
 
     <todo-list>

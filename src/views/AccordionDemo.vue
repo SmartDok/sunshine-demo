@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Accordion</h2>
-    <example :code="code" />
+    <example :code="code" max-width="28rem" />
 
     <h2>Linked state</h2>
     <section class="help">
@@ -15,7 +15,7 @@
       </p>
     </section>
 
-    <example :code="linked" />
+    <example :code="linked" max-width="28rem" />
   </div>
 </template>
 

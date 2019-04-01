@@ -21,18 +21,10 @@ export default Vue.extend({
   computed: {
     template() {
       return `\
-  <p>
-    <s-radio-button v-model="option" value="1">Option 1</s-radio-button>
-  </p>
-  <p>
-    <s-radio-button v-model="option" value="2">Option 2</s-radio-button>
-  </p>
-  <p>
-    <s-radio-button v-model="option" inactive value="inactive">Inactive</s-radio-button>
-  </p>
-  <p>
-    <s-radio-button v-model="option" value="foobar">Option foobar</s-radio-button>
-  </p>`;
+  <s-radio-button v-model="option" value="1">Option 1</s-radio-button>
+  <s-radio-button v-model="option" value="2">Option 2</s-radio-button>
+  <s-radio-button v-model="option" inactive value="inactive">Inactive</s-radio-button>
+  <s-radio-button v-model="option" value="foobar">Option foobar</s-radio-button>`;
     },
   },
 });

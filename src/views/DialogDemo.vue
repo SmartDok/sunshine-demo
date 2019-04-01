@@ -14,6 +14,7 @@
   </s-dialog>
       `'
       :data="{visible: false, data: { items }}"
+      max-width="16rem"
     />
 
     <p class="help">
