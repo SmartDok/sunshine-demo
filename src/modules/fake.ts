@@ -1,10 +1,10 @@
-import { createDataModule, IItem, ILoadResult, ILoadItemsPayload } from 'smartdok-sunshine';
+import { IItem } from 'smartdok-sunshine';
+import { ILoadResult, ILoadItemsPayload } from './types';
+import createDataModule from './createDataModule';
 
-const delay = (milliseconds: number): Promise<void> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, milliseconds);
-  });
-};
+const delay = (milliseconds: number): Promise<void> => new Promise(resolve => {
+  setTimeout(resolve, milliseconds);
+});
 
 const data = {
   names: ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 'Patricia Lebsack',
@@ -53,7 +53,7 @@ export default (count: number | null = null) => createDataModule({
   ],
 
   actions: {
-    loadItems: async ({getters}, {skip, take}: ILoadItemsPayload): Promise<ILoadResult> => {
+    loadItems: async ({ getters }, { skip, take }: ILoadItemsPayload): Promise<ILoadResult> => {
       const items: IItem[] = [];
 
       for (let i = 0; i < take; i++) {
@@ -66,14 +66,14 @@ export default (count: number | null = null) => createDataModule({
             id: id + 1,
             number: id * 100 + id + 1,
             name: data.names[id % data.names.length],
-            company: data.companies[id * 3 % data.companies.length],
-            phone: data.phones[id * 5 % data.phones.length],
-            email: data.emails[id * 7 % data.emails.length],
-            street: data.streets[id * 11 % data.emails.length],
-            suite: data.suites[id * 13 % data.suites.length],
-            zipcode: data.zipcodes[id * 3 % data.zipcodes.length],
-            city: data.cities[id * 17 % data.suites.length],
-            website: data.websites[id * 7 % data.zipcodes.length],
+            company: data.companies[(id * 3) % data.companies.length],
+            phone: data.phones[(id * 5) % data.phones.length],
+            email: data.emails[(id * 7) % data.emails.length],
+            street: data.streets[(id * 11) % data.emails.length],
+            suite: data.suites[(id * 13) % data.suites.length],
+            zipcode: data.zipcodes[(id * 3) % data.zipcodes.length],
+            city: data.cities[(id * 17) % data.suites.length],
+            website: data.websites[(id * 7) % data.zipcodes.length],
           },
         };
       }

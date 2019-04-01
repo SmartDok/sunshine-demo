@@ -1,14 +1,13 @@
-import { createDataModule, ISortState, IItem, ILoadResult, ILoadItemsPayload, ILoadSubItemsPayload } from 'smartdok-sunshine';
+import { IItem } from 'smartdok-sunshine';
+import { ILoadItemsPayload, ILoadSubItemsPayload } from './types';
+import createDataModule from './createDataModule';
 
 const fmt = new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK' });
-const kroner = (value: any) =>
-  value == null ? null : fmt.format(value);
+const kroner = (value: any) => (value == null ? null : fmt.format(value));
 
-const delay = (milliseconds: number): Promise<void> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, milliseconds);
-  });
-};
+const delay = (milliseconds: number): Promise<void> => new Promise(resolve => {
+  setTimeout(resolve, milliseconds);
+});
 
 const data: {[key: string]: IItem[]} = {
 
@@ -70,7 +69,7 @@ const data: {[key: string]: IItem[]} = {
   ],
 
   // SubProjects
-  '5124': [
+  5124: [
     {
       key: '5124-1',
       subItems: null,
@@ -108,7 +107,7 @@ const data: {[key: string]: IItem[]} = {
     },
   ],
 
-  '5598': [
+  5598: [
     {
       key: '5124-1',
       icon: 'Folder-1',
@@ -190,26 +189,28 @@ const source = createDataModule({
     { key: 'place', title: 'Place' },
     { key: 'department', title: 'Department' },
     { key: 'responsible', title: 'Responsible' },
-    { key: 'ue_code', title: 'UE-code' },
+    { key: 'ue_code', title: 'UE-code', hidden: true },
     { key: 'calculated', title: 'Calculated', align: 'right' },
     { key: 'hours', title: 'Hours', align: 'right' },
     { key: 'invoiced', title: 'Invoiced', align: 'right' },
-    { key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner },
+    {
+      key: 'cost', title: 'Calculated cost', align: 'right', filter: kroner,
+    },
   ],
 
   actions: {
-    loadItems: async ({}, {skip}: ILoadItemsPayload) => {
+    loadItems: async (_, { skip }: ILoadItemsPayload) => {
       const items = data[''];
-      if (skip > 0) return {items: [], total: items.length};
-      return {items, total: items.length};
+      if (skip > 0) return { items: [], total: items.length };
+      return { items, total: items.length };
     },
 
-    loadSubItems: async ({}, {keyPath}: ILoadSubItemsPayload) => {
+    loadSubItems: async (_, { keyPath }: ILoadSubItemsPayload) => {
       await delay(500);
 
       const items = data[keyPath.join(':')];
-      if (!items) return {items: [], total: 0};
-      return {items, total: items.length};
+      if (!items) return { items: [], total: 0 };
+      return { items, total: items.length };
     },
   },
 

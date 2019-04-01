@@ -3,16 +3,14 @@
     <h2>Standard buttons</h2>
     <example :code="standard" :data="{clicked: 0}" />
 
+    <h2>Danger button</h2>
+    <example :code='`<s-button danger>Delete</s-button>`' />
+
     <h2>Inactive buttons</h2>
     <example :code="inactive" />
 
     <h2>Smaller version</h2>
     <example :code="smaller" />
-
-    <todo-list>
-      <todo done>Look into using <b>border</b> instead of <b>box-shadow</b>, because it looks strange in Edge when zooming.</todo>
-      <todo done>Investigate using semi-transparent overlay instead of color for hover effect.</todo>
-    </todo-list>
   </div>
 </template>
 

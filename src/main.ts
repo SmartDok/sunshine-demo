@@ -1,18 +1,20 @@
+import './demo.scss';
+
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
+import SmartDokUI from 'smartdok-sunshine';
 import App from './App.vue';
 import router from './router';
-import SmartDokUI from 'smartdok-sunshine';
 import Example from './components/Example.vue';
 import TodoList from './components/TodoList.vue';
 import TodoItem from './components/TodoItem.vue';
-
-import './demo.scss';
-
-Vue.config.productionTip = false;
+import PropsList from './components/PropsList.vue';
+import PropsItem from './components/PropsItem.vue';
 
 import store from './store';
+
+Vue.config.productionTip = false;
 
 Vue.use(VueI18n);
 Vue.use(VeeValidate, {
@@ -28,6 +30,8 @@ Vue.use(SmartDokUI as any);
 Vue.component('example', Example);
 Vue.component('todo-list', TodoList);
 Vue.component('todo', TodoItem);
+Vue.component('props-list', PropsList);
+Vue.component('props-item', PropsItem);
 
 const i18n = new VueI18n({
   locale: 'en',

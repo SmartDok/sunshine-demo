@@ -6,7 +6,7 @@
   <s-drop-down
     label="Select one country"
     v-model="country"
-    :items="countries"
+    :items="data.countries"
   />`'
 
       :data="$data"
@@ -31,7 +31,7 @@
     search
     label="Select one country"
     v-model="country"
-    :items="countries"
+    :items="data.countries"
   />`'
       :data="$data"
     />
@@ -47,10 +47,10 @@
     multiple
     label="Select countries"
     v-model="selected"
-    :items="countries"
+    :items="data.countries"
     :max-selected-shown="8"
   />`'
-      :data="{countries, selected: []}"
+      :data="{ data, selected: []}"
     />
 
     <div class="help">
@@ -71,10 +71,10 @@
     search
     label="Select countries"
     v-model="selected"
-    :items="countries"
+    :items="data.countries"
     :max-selected-shown="3"
   />`'
-      :data="{countries, selected: []}"
+      :data="{ data, selected: []}"
     />
 
     <p class="help">
@@ -83,15 +83,48 @@
       keys as above.
     </p>
 
+    <h2>Custom items</h2>
+    <example
+      :code="slotted"
+      :data="{ data, selected: null }"
+    />
+
+    <h2>Dynamic content</h2>
+
+    <example
+      :code='`
+    <div>
+      <s-grid>
+        <s-grid-item span="6">
+          <s-drop-down v-model="selected" :items="data.items" multiple label="Available items" />
+        </s-grid-item>
+        <s-grid-item span="6">
+          <s-drop-down :items="selected.map(it => ({...it}))" multiple label="Selected items" />
+        </s-grid-item>
+      </s-grid>
+    </div>`'
+      :data="{ data: { items: data.countries }, selected: [] }"
+    />
+
+    <p class="help">
+      The available items in the right list, are those selected in the left list. If an item is
+      selected in the right list, and then removed from the left list, so that it is no longer
+      available, it should be removed from the selection in the right list.
+    </p>
+
     <todo-list>
-      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
-      <todo>"Autocomplete" use-case (no items are present until we start typing something). Maybe as a separate component.</todo>
-      <todo done>Refactor keyboard interaction, so that it also works in table options menu.</todo>
-      <todo>Pending data/loading state (shown in design for text field, but actually more relevant for drop-down).</todo>
-      <todo>Looks strange when single-select with search has a value selected, and receives focus, that the cursor starts blinking after the text.</todo>
-      <todo done>Looks weird in multi-select when clicking an item and moving the mouse, that both the clicked and the hovered item is highlighted (<b>SList</b> component).</todo>
-      <todo done>When drop-down is opened close to the bottom of screen, the menu show be show above (<b>SMenu</b> component).</todo>
-      <todo done>If menu is re-rendered while open, it doesn't close when clicking outside (<b>SMenu</b> component)</todo>
+      <todo>
+        "Autocomplete" use-case (no items are present until we start typing
+        something). Maybe as a separate component.
+      </todo>
+      <todo>
+        Pending data/loading state (shown in design for text field, but
+        actually more relevant for drop-down).
+      </todo>
+      <todo>
+        Manage selection with keys instead of object identity (currently,
+        if items are updated, selection is cleared).
+      </todo>
     </todo-list>
   </div>
 </template>
@@ -124,8 +157,35 @@ export default Vue.extend({
   data() {
     return {
       country: null,
-      countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+      data: {
+        countries: COUNTRIES.map((c: string) => ({ key: c.toLowerCase(), label: c })),
+      },
     };
+  },
+
+
+  computed: {
+    slotted() {
+      return `\
+  <s-drop-down
+    search
+    label="Custom content"
+    v-model="selected"
+    :items="data.countries"
+  >
+    <template v-slot:above>
+      <s-list-item @click="log('Add new')">
+        <b>+ Add as new</b>
+      </s-list-item>
+      <s-list-separator />
+    </template>
+
+    <template v-slot="{label, item}">
+      <span class="flex-grow">{{ label }}</span>
+      <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
+    </template>
+  </s-drop-down>`;
+    },
   },
 });
 </script>

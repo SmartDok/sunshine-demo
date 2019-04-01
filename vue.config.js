@@ -1,5 +1,6 @@
 const path = require('path');
-const isProd = process.env.NODE_ENV === 'production'
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   indexPath: isProd ? '200.html' : 'index.html',
@@ -9,8 +10,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'vue': path.resolve(__dirname, './node_modules/vue'),
+        vue: path.resolve(__dirname, './node_modules/vue'),
       },
     },
   },
-}
+};

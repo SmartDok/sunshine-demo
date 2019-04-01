@@ -1,5 +1,6 @@
-import { createDataModule, ILoadResult } from 'smartdok-sunshine';
+import { ILoadResult } from './types';
 import createBasicSort from './createBasicSort';
+import createDataModule from './createDataModule';
 
 const source = createDataModule({
   columns: [
@@ -32,7 +33,7 @@ const source = createDataModule({
 
       const totalHeader = res.headers.get('x-total-count') as string;
       const total = totalHeader ? parseInt(totalHeader, 10) : items.length;
-      return {items, total};
+      return { items, total };
     }),
   },
 });

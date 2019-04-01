@@ -3,7 +3,11 @@
     <example :code='`
     <s-button @click="open = !open">Toggle inspector</s-button>
 
-    <s-inspector v-model="open">
+    <s-inspector
+      v-model="open"
+      @submit.prevent="open = false"
+@click.prevent="$refs.observer1.validate()"
+    >
       <template v-slot:header>
         <h1>25.08.2018</h1>
         Tor Erik Olsen
@@ -11,7 +15,7 @@
 
       <template v-slot:footer>
         <div class="flex">
-          <s-button primary @click.prevent="$refs.observer1.validate()">Godkjenn</s-button>
+          <s-button primary submit>Godkjenn</s-button>
         </div>
       </template>
 
@@ -34,9 +38,9 @@
                 </s-grid-item>
               </s-grid>
 
-              <p>
-                Dette er en kommentar
-              </p>
+              <s-grid-item :span="12">
+                <s-text-area label="Kommentar" />
+              </s-grid-item
             </s-accordion-item>
           </template>
         </ValidationObserver>
@@ -95,8 +99,14 @@
 
       </s-accordion>
     </s-inspector>`'
-    :data="$data"
+      :data="$data"
     />
+
+    <p class="help">
+      The inspector content is wrapped in a <b>form</b> element. Additional attributes and
+      event listeners are passed to this element. Most of the time, users would want to
+      handle the <b>submit</b> event, as in the example above.
+    </p>
 
     <todo-list>
       <todo>Define layout (width, margin, padding).</todo>
@@ -132,11 +142,11 @@ export default Vue.extend({
       area: '',
 
       projects: [
-        {label: 'Nybygg'},
-        {label: 'Gammelbygg'},
-        {label: 'Veiprosjekt'},
-        {label: 'Graveprosjekt'},
-        {label: 'Brøyteprosjekt'},
+        { label: 'Nybygg' },
+        { label: 'Gammelbygg' },
+        { label: 'Veiprosjekt' },
+        { label: 'Graveprosjekt' },
+        { label: 'Brøyteprosjekt' },
       ],
 
       additions: [
