@@ -19,6 +19,7 @@ import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
 import AddUserDemo from '@/views/AddUserDemo.vue';
 import TextAreaDemo from '@/views/TextAreaDemo.vue';
+import MultiSelectorDemo from '@/views/MultiSelectorDemo.vue';
 
 Vue.use(Router);
 
@@ -124,6 +125,11 @@ export default new Router({
       path: '/textarea',
       name: 'textarea',
       component: TextAreaDemo,
+    },
+    {
+      path: '/multiselector',
+      name: 'multiselector',
+      component: MultiSelectorDemo,
     }
   ],
 });
