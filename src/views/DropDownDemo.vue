@@ -10,7 +10,7 @@
   />`'
 
       :data="$data"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <div class="help">
@@ -35,7 +35,7 @@
     :items="data.countries"
   />`'
       :data="$data"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <p class="help">
@@ -50,10 +50,10 @@
     label="Select countries"
     v-model="selected"
     :items="data.countries"
-    :max-selected-shown="8"
+    :max-selected-shown="5"
   />`'
       :data="{ data, selected: []}"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <div class="help">
@@ -78,7 +78,7 @@
     :max-selected-shown="3"
   />`'
       :data="{ data, selected: []}"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <p class="help">
@@ -91,7 +91,7 @@
     <example
       :code="slotted"
       :data="{ data, selected: null }"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <h2>With error</h2>
@@ -103,7 +103,7 @@
     error="This field is required"
   />`'
       :data="{ data }"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <h2>Dynamic content</h2>
