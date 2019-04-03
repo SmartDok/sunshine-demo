@@ -20,6 +20,11 @@
        Sets the content of the input. If v-model is used this prop is automatically
        updated while typing.
       </props-item>
+      <props-item name="maxLength" type="Number">
+        Only available if label is set.<br>
+        A counter label will become visible when 80% of maxLength is used.<br>
+        If the input exceeds maxLength characters the counter label becomes red.
+      </props-item>
       <props-item name="format" type="String">
         When the input area has focus, this is string is shown in the input area
         as a guide for the user.

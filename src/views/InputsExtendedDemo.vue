@@ -9,6 +9,9 @@
     <h2>With placeholder instead of label</h2>
     <example :code='placeholder' />
 
+     <h2>With counter label</h2>
+    <example :code='counter' />
+
     <h2>Read only</h2>
     <example code='<s-text-field readonly value="Readonly"/>' />
 
@@ -58,6 +61,13 @@ export default Vue.extend({
   <p>
     <s-text-field placeholder="Placeholder" />
      <s-text-field placeholder="Placeholder" label="Label" />
+  </p>`;
+    },
+
+    counter() {
+      return `\
+  <p>
+     <s-text-field label="Counter label" maxLength="20" />
   </p>`;
     },
 

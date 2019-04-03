@@ -21,10 +21,15 @@
        Sets the content of the textarea. If v-model is used this
        prop is automatically updated while typing.
       </props-item>
-      <props-item name="intirows" type="Number">
+      <props-item name="maxLength" type="Number">
+        Only available if label is set.<br>
+        A counter label will become visible when 80% of maxLength is used.<br>
+        If the input exceeds maxLength characters the counter label becomes red.
+      </props-item>
+      <props-item name="intiRows" type="Number">
         The initial height of the textarea in rows. Default: 2.
       </props-item>
-      <props-item name="maxrows" type="Number">
+      <props-item name="maxRows" type="Number">
         The maximum height of the textarea in rows. Default: 10.
       </props-item>
       <props-item name="inactive" type="Boolean">
@@ -61,26 +66,6 @@ export default Vue.extend({
     standard() {
       return `\
         <s-text-area label="Comments" v-model="text" />
-      `;
-    },
-
-    placeholder() {
-      return `\
-        <p><s-text-area placeholder="Placeholder.." v-model="text" /></p>
-        <p><s-text-area placeholder="Placeholder.." label="Label" v-model="text" /></p>
-      `;
-    },
-
-    readonly() {
-      return `\
-        <s-text-area value="Lorum ipsum dolor sit amet." readonly />
-      `;
-    },
-
-    inactive() {
-      return `\
-        <p><s-text-area label="Inactive area" inactive/></p>
-        <p><s-text-area label="Inactive area" value="With text" inactive/></p>
       `;
     },
   },

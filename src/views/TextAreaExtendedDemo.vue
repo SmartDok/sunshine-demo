@@ -7,6 +7,9 @@
     <h2>With placeholder</h2>
     <example :code="placeholder" :data="{ text: '' }"/>
 
+      <h2>With counter label</h2>
+    <example :code="counter" :data="{ text: '' }"/>
+
     <h2>Read only</h2>
     <example :code="readonly"/>
 
@@ -37,7 +40,13 @@ export default Vue.extend({
     placeholder() {
       return `\
         <p><s-text-area placeholder="Placeholder.." v-model="text" /></p>
-        <p><s-text-area placeholder="Placeholder.." label="Label" v-model="text" /></p>
+        <p><s-text-area placeholder="Placeholder.." label="Label" v-model="text"/></p>
+      `;
+    },
+
+    counter() {
+      return `\
+        <p><s-text-area label="Counter label" v-model="text" maxLength="40" /></p>
       `;
     },
 
