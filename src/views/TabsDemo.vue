@@ -10,6 +10,18 @@
     `'
     />
 
+    <h2>Props s-tabs</h2>
+    <props-list>
+      None
+    </props-list>
+
+    <h2>Props s-tab</h2>
+    <props-list>
+      <props-item name="to" type="String">
+        The url the tab links to.
+      </props-item>
+    </props-list>
+
     <todo-list>
       <todo>
         Decouple from vue-router, to support more use-cases, including a

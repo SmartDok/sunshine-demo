@@ -14,7 +14,7 @@
         The label shown in the input field.
       </props-item>
       <props-item name="placeholder" type="String">
-        The placeholder of the input. Disappears when user starts typing.
+        The placeholder of the input. Disappears when the user starts typing.
       </props-item>
       <props-item name="value" type="String">
        Sets the content of the input. If v-model is used this prop is automatically
@@ -38,6 +38,13 @@
       </props-item>
       <props-item name="inactive" type="Boolean">
        Sets the input to an inactive state.
+      </props-item>
+    </props-list>
+
+    <h2>Events</h2>
+    <props-list>
+      <props-item name="@input">
+        The content of the input field has changed. The value prop is emitted.
       </props-item>
     </props-list>
 

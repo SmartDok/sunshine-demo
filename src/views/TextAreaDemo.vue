@@ -39,7 +39,7 @@
 
     <props-list>
       <props-item name="@input">
-        Fires when the value prop has changed, and passes by the value.
+        The content of the textarea has changed. The value prop is emitted.
       </props-item>
     </props-list>
 

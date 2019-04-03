@@ -22,6 +22,23 @@
       handle the <b>submit</b> event, as in the example above.
     </p>
 
+    <h2>Props</h2>
+    <props-list>
+      <props-item name="visible" type="Boolean">
+        Sets/Gets the visible state. Updatet dynamically when component is used with v-model.
+      </props-item>
+      <props-item name="heading" type="String">
+        The title of the dialog.
+      </props-item>
+    </props-list>
+
+    <h2>Events</h2>
+    <props-list>
+      <props-item name="@toggle">
+        Emits false when the dialog is closed.
+      </props-item>
+    </props-list>
+
     <todo-list>
       <todo>Prevent focus outside dialog with Tab key</todo>
     </todo-list>
