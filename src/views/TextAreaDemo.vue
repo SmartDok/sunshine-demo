@@ -29,7 +29,7 @@ export default Vue.extend({
 
   computed: {
     standard() {
-      return '<s-text-area label="Comments" v-model="text" />';
+      return '<s-text-area label="Comments" :max-length="200" v-model="text" />';
     },
 
     placeholder() {
