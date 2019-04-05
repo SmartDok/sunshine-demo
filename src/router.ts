@@ -12,15 +12,17 @@ import InspectorDemo from './views/InspectorDemo.vue';
 import DialogDemo from '@/views/DialogDemo.vue';
 import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
-import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
 import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
 import FilterDemo from '@/views/FilterDemo.vue';
 import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
 import TextAreaDemo from '@/views/TextAreaDemo.vue';
-import TextAreaExtendedDemo from '@/views/TextAreaExtendedDemo.vue';
-import InputsExtendedDemo from '@/views/InputsExtendedDemo.vue';
+import TextAreaDocs from '@/views/TextAreaDocs.vue';
+import InputsDocs from '@/views/InputsDocs.vue';
+import AlertsDocs from '@/views/AlertsDocs.vue';
+import DropDownDocs from '@/views/DropDownDocs.vue';
+import TableDocs from '@/views/TableDocs.vue';
 
 Vue.use(Router);
 
@@ -53,9 +55,9 @@ export default new Router({
       component: InputsDemo,
     },
     {
-      path: '/inputs-demo',
-      name: 'inputs-demo',
-      component: InputsExtendedDemo,
+      path: '/inputs-docs',
+      name: 'inputs-docs',
+      component: InputsDocs,
     },
     {
       path: '/dropdown',
@@ -63,9 +65,19 @@ export default new Router({
       component: DropDownDemo,
     },
     {
+      path: '/dropdown-docs',
+      name: 'dropdown-docs',
+      component: DropDownDocs,
+    },
+    {
       path: '/alerts',
       name: 'alerts',
       component: AlertsDemo,
+    },
+    {
+      path: '/alerts-docs',
+      name: 'alerts-docs',
+      component: AlertsDocs,
     },
     {
       path: '/icons',
@@ -108,9 +120,9 @@ export default new Router({
       component: TableDemo,
     },
     {
-      path: '/table-sources',
-      name: 'table-sources',
-      component: TableSourcesDemo,
+      path: '/table-docs',
+      name: 'table-docs',
+      component: TableDocs,
     },
     {
       path: '/chart',
@@ -133,9 +145,9 @@ export default new Router({
       component: TextAreaDemo,
     },
     {
-      path: '/textarea-demo',
-      name: 'textarea-demo',
-      component: TextAreaExtendedDemo,
+      path: '/textarea-docs',
+      name: 'textarea-docs',
+      component: TextAreaDocs,
     },
   ],
 });

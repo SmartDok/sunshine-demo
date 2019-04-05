@@ -25,7 +25,7 @@
     <h2>Props</h2>
     <props-list>
       <props-item name="visible" type="Boolean">
-        Sets/Gets the visible state. Updatet dynamically when component is used with v-model.
+        Sets/gets the visible state. Updatet dynamically when the component is used with v-model.
       </props-item>
       <props-item name="heading" type="String">
         The title of the dialog.
