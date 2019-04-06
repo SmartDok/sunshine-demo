@@ -4,3 +4,7 @@
   @include paragraph-font;
   color: $grayest;
 }
+
+code {
+  font-family: monospace;
+}

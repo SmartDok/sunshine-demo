@@ -2,8 +2,13 @@
   <div class="drop-down-demo">
     <h2>Saved setups</h2>
     <example
-      :code='`<s-saved-setups :items="items" @save="onSave" @delete="onDelete" />`'
-      :data="{items}"
+      :code='`
+  <s-saved-setups
+    :items="items"
+    @save="onSave"
+    @delete="onDelete"
+  />`'
+      :data="{ items }"
       :methods="{onSave, onDelete}"
       max-width="16rem"
     />

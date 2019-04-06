@@ -4,11 +4,11 @@
     <example
       code='
       <s-filter-drop-down
-        v-model="selected"
+        v-model="value"
         :sections="data.sections"
       />
       '
-      :data="{ data: { sections }, selected }"
+      :data="{ data: { sections }, value }"
     />
 
     <p class="help">
@@ -25,6 +25,11 @@
         <p>Each element contains the following attributes:</p>
 
         <props-list>
+          <props-item name="key" type="String" required>
+            A unique key for each section. The value emitted by the filter component will be
+            a list of concatenated keys on the form <code>section-key:item-key</code>.
+          </props-item>
+
           <props-item name="label" type="String" required>
             The name of the section, shown to the user.
           </props-item>
@@ -81,7 +86,7 @@
 import Vue from 'vue';
 
 const itemize = (names, category) => (
-  names.map(name => ({ key: name, label: name, category }))
+  names.map(name => ({ key: name.toLowerCase(), label: name, category }))
 );
 
 export default Vue.extend({
@@ -89,17 +94,23 @@ export default Vue.extend({
 
   data() {
     return {
-      selected: [],
+      value: {
+        filters: [],
+        search: '',
+      },
       sections: [
         {
+          key: 'departments',
           label: 'Departments',
           items: itemize(['Alta', 'Oslo', 'Fredrikstad', 'Stockholm'], 'Department'),
         },
         {
+          key: 'groups',
           label: 'Groups',
           items: itemize(['Workers', 'Other'], 'Group'),
         },
         {
+          key: 'projects',
           label: 'Projects',
           items: itemize(['Main road', 'Apartment building', 'Tunnel'], 'Project'),
         },

@@ -10,7 +10,7 @@
   />`'
 
       :data="$data"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <div class="help">
@@ -35,7 +35,7 @@
     :items="data.countries"
   />`'
       :data="$data"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <p class="help">
@@ -50,10 +50,10 @@
     label="Select countries"
     v-model="selected"
     :items="data.countries"
-    :max-selected-shown="8"
+    :max-selected-shown="5"
   />`'
       :data="{ data, selected: []}"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <div class="help">
@@ -78,7 +78,7 @@
     :max-selected-shown="3"
   />`'
       :data="{ data, selected: []}"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <p class="help">
@@ -91,7 +91,7 @@
     <example
       :code="slotted"
       :data="{ data, selected: null }"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <h2>With error</h2>
@@ -103,7 +103,7 @@
     error="This field is required"
   />`'
       :data="{ data }"
-      max-width="16rem"
+      max-width="24rem"
     />
 
     <h2>Dynamic content</h2>
@@ -116,7 +116,7 @@
           <s-drop-down v-model="selected" :items="data.items" multiple label="Available items" />
         </s-grid-item>
         <s-grid-item span="6">
-          <s-drop-down :items="selected.map(it => ({...it}))" multiple label="Selected items" />
+          <s-drop-down :items="selected.map(key => data.items.find(it => it.key === key))" multiple label="Selected items" />
         </s-grid-item>
       </s-grid>
     </div>`'
@@ -187,7 +187,7 @@ export default Vue.extend({
       return `\
   <s-drop-down
     search
-    label="Custom content"
+    label="Custom items"
     v-model="selected"
     :items="data.countries"
   >
@@ -198,9 +198,11 @@ export default Vue.extend({
       <s-list-separator />
     </template>
 
-    <template v-slot="{label, item}">
-      <span class="flex-grow">{{ label }}</span>
-      <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
+    <template v-slot="{label, item, onClick}">
+      <s-list-item @click="onClick">
+        <span class="flex-grow">{{ label }}</span>
+        <a tabIndex="-1" href="#" @click.prevent.stop="log(item)">Edit</a>
+      </s-list-item>
     </template>
   </s-drop-down>`;
     },
