@@ -21,6 +21,24 @@
     </p>
 
     <example :code="multi" :data="{state: null}" />
+
+  <h2>Props</h2>
+    <props-list>
+      <props-item name="checked" type="Boolean">
+        Read or the set the checked state. If set to null the checkbox shows an 'unknown' state.
+        If v-model is used this prop is automatically updated.
+      </props-item>
+      <props-item name="inactive" type="Boolean">
+        Sets the checkbox to an inactive state.
+      </props-item>
+    </props-list>
+
+   <h2>Events</h2>
+    <props-list>
+      <props-item name="@change">
+        The state of the checkbox has changed. The new state is emitted.
+      </props-item>
+    </props-list>
   </div>
 </template>
 

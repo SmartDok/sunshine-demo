@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <s-tabs>
+      <s-tab to="/table">Documentation</s-tab>
+      <s-tab to="/table-examples">Examples</s-tab>
+    </s-tabs>
+
     <div class="options">
       <s-drop-down v-model="dataSource" :items="$store.state.sources" label="Data source" />&nbsp;
 
@@ -67,7 +72,7 @@ export default Vue.extend({
 
   data() {
     return {
-      dataSource: this.$store.state.sources[0],
+      dataSource: 'projects',
       draggable: true,
       condensed: false,
       stickyColumn: false,
@@ -79,16 +84,20 @@ export default Vue.extend({
   },
 
   computed: {
+    selectedDataSource(): any {
+      return this.$store.state.sources.find(d => d.key === this.dataSource);
+    },
+
     namespace(): string {
-      return this.dataSource.namespace;
+      return this.dataSource;
     },
 
     outline(): boolean {
-      return this.dataSource.outline || false;
+      return this.selectedDataSource.outline || false;
     },
 
     fixed(): boolean {
-      return this.dataSource.fixed || false;
+      return this.selectedDataSource.fixed || false;
     },
   },
 

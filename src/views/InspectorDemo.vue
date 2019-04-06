@@ -104,6 +104,15 @@
       handle the <b>submit</b> event, as in the example above.
     </p>
 
+   <h2>Props</h2>
+    <props-list>
+      <props-item name="show" type="Boolean" required>
+        Sets the visible state of the inspector. Can be used with v-model. Default: false.
+      </props-item>
+      <br>This component has two named slots; header and footer. Use these to place
+      content above or/and below the main content of the inspector.
+    </props-list>
+
     <todo-list>
       <todo>Define layout (width, margin, padding).</todo>
       <todo>Inline layout (main page content and inspector side-by-side with spacing between.</todo>

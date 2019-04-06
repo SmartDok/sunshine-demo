@@ -1,5 +1,10 @@
 <template>
   <div class="drop-down-demo">
+    <s-tabs>
+      <s-tab to="/dropdown">Examples</s-tab>
+      <s-tab to="/dropdown-docs">Documentation</s-tab>
+    </s-tabs>
+
     <h2>Simple select</h2>
     <example
       :code='`\

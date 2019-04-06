@@ -1,5 +1,10 @@
 <template>
   <div>
+    <s-tabs>
+      <s-tab to="/alerts">Examples</s-tab>
+      <s-tab to="/alerts-docs">Documentation</s-tab>
+    </s-tabs>
+
     <h2>Basic alerts</h2>
     <example :code="basic" />
 

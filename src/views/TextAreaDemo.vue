@@ -1,11 +1,20 @@
 <template>
   <div>
+    <s-tabs>
+      <s-tab to="/textarea">Examples</s-tab>
+      <s-tab to="/textarea-docs">Documentation</s-tab>
+    </s-tabs>
+
+
     <h2>Standard inputs</h2>
     <p class="help">By default, text areas automatically get bigger when text is added.</p>
     <example :code="standard" :data="{ text: '' }" max-width="16rem" />
 
     <h2>With placeholder</h2>
     <example :code="placeholder" :data="{ text: '' }" max-width="16rem" />
+
+    <h2>With max-length</h2>
+    <example :code="counter" :data="{ text: '' }" max-width="16rem" />
 
     <h2>Read only</h2>
     <example :code="readonly" max-width="16rem" />
@@ -29,13 +38,20 @@ export default Vue.extend({
 
   computed: {
     standard() {
-      return '<s-text-area label="Comments" :max-length="200" v-model="text" />';
+      return '<s-text-area label="Comments" v-model="text" />';
     },
 
     placeholder() {
       return `\
-  <s-text-area placeholder="Placeholder.." v-model="text" />
-  <s-text-area placeholder="Placeholder.." label="Label" v-model="text" />`;
+        <s-text-area placeholder="Placeholder.." v-model="text" />
+        <s-text-area placeholder="Placeholder.." label="Label" v-model="text"/>
+      `;
+    },
+
+    counter() {
+      return `\
+        <s-text-area label="Enter up to 40 characters" v-model="text" :max-length="40" />
+      `;
     },
 
     readonly() {

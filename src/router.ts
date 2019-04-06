@@ -12,7 +12,6 @@ import InspectorDemo from './views/InspectorDemo.vue';
 import DialogDemo from '@/views/DialogDemo.vue';
 import TabsDemo from '@/views/TabsDemo.vue';
 import TableDemo from '@/views/TableDemo.vue';
-import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
 import SavedSetupsDemo from '@/views/SavedSetupsDemo.vue';
 import FilterDemo from '@/views/FilterDemo.vue';
 import ValidationDemo from '@/views/ValidationDemo.vue';
@@ -20,6 +19,11 @@ import ChartDemo from '@/views/ChartDemo.vue';
 import CalendarDemo from '@/views/CalendarDemo.vue';
 import DatepickerDemo from '@/views/DatepickerDemo.vue';
 import TextAreaDemo from '@/views/TextAreaDemo.vue';
+import TextAreaDocs from '@/views/TextAreaDocs.vue';
+import InputsDocs from '@/views/InputsDocs.vue';
+import AlertsDocs from '@/views/AlertsDocs.vue';
+import DropDownDocs from '@/views/DropDownDocs.vue';
+import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
 
 Vue.use(Router);
 
@@ -52,14 +56,29 @@ export default new Router({
       component: InputsDemo,
     },
     {
+      path: '/inputs-docs',
+      name: 'inputs-docs',
+      component: InputsDocs,
+    },
+    {
       path: '/dropdown',
       name: 'dropdown',
       component: DropDownDemo,
     },
     {
+      path: '/dropdown-docs',
+      name: 'dropdown-docs',
+      component: DropDownDocs,
+    },
+    {
       path: '/alerts',
       name: 'alerts',
       component: AlertsDemo,
+    },
+    {
+      path: '/alerts-docs',
+      name: 'alerts-docs',
+      component: AlertsDocs,
     },
     {
       path: '/icons',
@@ -106,8 +125,8 @@ export default new Router({
       component: TableDemo,
     },
     {
-      path: '/table-sources',
-      name: 'table-sources',
+      path: '/table-examples',
+      name: 'table-examples',
       component: TableSourcesDemo,
     },
     {
@@ -129,6 +148,11 @@ export default new Router({
       path: '/textarea',
       name: 'textarea',
       component: TextAreaDemo,
+    },
+    {
+      path: '/textarea-docs',
+      name: 'textarea-docs',
+      component: TextAreaDocs,
     },
   ],
 });

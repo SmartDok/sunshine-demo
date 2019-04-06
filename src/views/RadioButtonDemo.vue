@@ -9,6 +9,29 @@
     </p>
 
     <example :code="template" :data="{option: '1'}" />
+
+    <h2>Props</h2>
+    <props-list>
+      <props-item name="name" type="String">
+        Sets the radiobuttons name attribute.
+      </props-item>
+      <props-item name="value" type="String">
+        The value of the radio button.
+      </props-item>
+      <props-item name="choice" type="String">
+        The value of the selected radio button. Automatically updates when used with v-model.
+      </props-item>
+      <props-item name="inactive" type="Boolean">
+        Sets the radio button to an inactive state.
+      </props-item>
+    </props-list>
+
+    <h2>Events</h2>
+    <props-list>
+      <props-item name="@input">
+        The state has changed. The value of the selected radio button is emitted.
+      </props-item>
+    </props-list>
   </div>
 </template>
 

@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h2>Data table component</h2>
+    <s-tabs>
+      <s-tab to="/table">Documentation</s-tab>
+      <s-tab to="/table-examples">Examples</s-tab>
+    </s-tabs>
 
     <example
       :code='`
@@ -66,10 +69,6 @@
     <p class="help">
       This is a simple example of a table, with all the required props. The details of
       each prop are described below.
-    </p>
-
-    <p class="help">
-      See also: <router-link to="/table-sources">Demo page with example sources</router-link>
     </p>
 
     <h2>Props</h2>
@@ -206,9 +205,60 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {
+  ISortState,
+  IItem,
+} from 'smartdok-sunshine';
+import STableVuexWrapper from '../components/STableVuexWrapper.vue';
 
 export default Vue.extend({
   name: 'TableDemo',
+
+  components: {
+    STableVuexWrapper,
+  },
+
+  data() {
+    return {
+      dataSource: this.$store.state.sources[0],
+      draggable: true,
+      checkable: false,
+      condensed: false,
+      stickyColumn: false,
+      sorting: {
+        key: null,
+        reverse: false,
+      } as ISortState,
+    };
+  },
+
+  computed: {
+    namespace(): string {
+      return this.dataSource.namespace;
+    },
+
+    outline(): boolean {
+      return this.dataSource.outline || false;
+    },
+
+    fixed(): boolean {
+      return this.dataSource.fixed || false;
+    },
+  },
+
+  methods: {
+    onEdit(item: IItem) {
+      console.log('edit', item);
+    },
+
+    onSave() {
+      this.$store.dispatch(`${this.namespace}/saveState`, { namespace: this.namespace });
+    },
+
+    onRestore() {
+      this.$store.dispatch(`${this.namespace}/loadState`, { namespace: this.namespace });
+    },
+  },
 });
 </script>
 

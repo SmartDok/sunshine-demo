@@ -17,25 +17,25 @@ const store = new Vuex.Store({
   state: {
     sources: compact([
       {
-        label: 'Projects', namespace: 'projects', fixed: false, outline: true,
+        label: 'Projects', key: 'projects', fixed: false, outline: true,
       },
       {
-        label: 'Projects (synchronous)', namespace: 'projectsSync', fixed: false, outline: true,
+        label: 'Projects (synchronous)', key: 'projectsSync', fixed: false, outline: true,
       },
-      { label: 'Users', namespace: 'jsonplaceholder' },
-      { label: 'Github', namespace: 'github' },
-      { label: 'Infinite rows', namespace: 'fakeinf' },
-      { label: '75 rows', namespace: 'fake75' },
-      { label: '999 rows', namespace: 'fake999' },
-      { label: '1000000 rows', namespace: 'fake1M' },
+      { label: 'Users', key: 'jsonplaceholder' },
+      { label: 'Github', key: 'github' },
+      { label: 'Infinite rows', key: 'fakeinf' },
+      { label: '75 rows', key: 'fake75' },
+      { label: '999 rows', key: 'fake999' },
+      { label: '1000000 rows', key: 'fake1M' },
       (
         // Show "SmartDok" source only if Token exists
         localStorage.getItem('SmartApiToken') &&
         {
-          label: 'SmartDok Project Tree', namespace: 'smartdok', fixed: true, outline: true,
+          label: 'SmartDok Project Tree', key: 'smartdok', fixed: true, outline: true,
         }
       ),
-      { label: 'Empty', namespace: 'empty' },
+      { label: 'Empty', key: 'empty' },
     ]),
   },
 

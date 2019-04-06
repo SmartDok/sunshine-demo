@@ -1,5 +1,9 @@
 <template>
   <div>
+    <s-tabs>
+      <s-tab to="/inputs">Examples</s-tab>
+      <s-tab to="/inputs-docs">Documentation</s-tab>
+    </s-tabs>
 
     <h2>Standard inputs</h2>
     <example
@@ -20,7 +24,10 @@
       max-width="16rem"
     />
 
-    <h2>Read-only</h2>
+    <h2>With counter label</h2>
+    <example :code='counter' max-width="16rem" />
+
+    <h2>Read only</h2>
     <example code='<s-text-field readonly value="Readonly"/>' max-width="16rem" />
 
     <h2>Inactive inputs</h2>
@@ -64,6 +71,12 @@ export default Vue.extend({
       return `\
   <s-text-field placeholder="Placeholder" />
   <s-text-field placeholder="Placeholder" label="Label" />`;
+    },
+
+    counter() {
+      return `\
+     <s-text-field label="Counter label" :max-length="20" />
+  `;
     },
 
     expected() {
