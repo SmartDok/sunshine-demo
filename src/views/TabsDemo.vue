@@ -1,13 +1,14 @@
 <template>
   <div>
     <h2>Tabs</h2>
-    <example :code='`\
+    <example
+      :code="`\
     <s-tabs>
-      <s-tab to="?first">First</s-tab>
-      <s-tab to="?second">Second</s-tab>
-      <s-tab to="?third">Third</s-tab>
+      <s-tab to=&quot;?first&quot;>First</s-tab>
+      <s-tab to=&quot;?second&quot;>Second</s-tab>
+      <s-tab to=&quot;?third&quot;>Third</s-tab>
     </s-tabs>
-    `'
+    `"
     />
 
     <h2>Props s-tabs</h2>
@@ -17,7 +18,10 @@
 
     <h2>Props s-tab</h2>
     <props-list>
-      <props-item name="to" type="String">
+      <props-item
+        name="to"
+        type="String"
+      >
         The url the tab links to.
       </props-item>
     </props-list>

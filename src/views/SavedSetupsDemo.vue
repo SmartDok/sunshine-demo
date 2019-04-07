@@ -2,24 +2,26 @@
   <div class="drop-down-demo">
     <h2>Saved setups</h2>
     <example
-      :code='`
+      :code="`
   <s-saved-setups
-    :items="items"
-    @save="onSave"
-    @delete="onDelete"
-  />`'
+    :items=&quot;items&quot;
+    @save=&quot;onSave&quot;
+    @delete=&quot;onDelete&quot;
+  />`"
       :data="{ items }"
       :methods="{onSave, onDelete}"
       max-width="16rem"
     />
 
-    <todo-list>
-    </todo-list>
+    <todo-list />
 
     <h2>Props</h2>
     <props-list>
-      <props-item name="items" type="Array<key: String, label: String>">
-          An array of objects where each object is an item in the list.
+      <props-item
+        name="items"
+        type="Array<key: String, label: String>"
+      >
+        An array of objects where each object is an item in the list.
       </props-item>
     </props-list>
 

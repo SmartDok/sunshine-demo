@@ -8,7 +8,7 @@ module.exports = {
   },
 
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/strongly-recommended',
     '@vue/airbnb',
     '@vue/typescript',
   ],
@@ -25,7 +25,7 @@ module.exports = {
     'prefer-destructuring': ['error', { object: true, array: false }],
     'no-plusplus': 'off',
     'default-case': 'off',
-    'linebreak-style': [1, 'windows'],
+    'linebreak-style': [1, os.platform() === 'win32' ? 'windows' : 'unix'],
     'no-restricted-syntax': 'off',
     'no-param-reassign': [2, {
       ignorePropertyModificationsFor: [

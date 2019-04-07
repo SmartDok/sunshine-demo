@@ -2,13 +2,13 @@
   <div>
     <h2>Standard checkbox</h2>
     <example
-      :code='`<s-checkbox v-model="checked">Checkbox</s-checkbox>`'
+      :code="`<s-checkbox v-model=&quot;checked&quot;>Checkbox</s-checkbox>`"
       :data="{checked: false}"
     />
 
     <h2>Inactive checkbox</h2>
     <example
-      :code='`<s-checkbox inactive>Inactive</s-checkbox>`'
+      :code="`<s-checkbox inactive>Inactive</s-checkbox>`"
     />
 
     <h2>Multiple state checkbox</h2>
@@ -20,20 +20,29 @@
       <b>null</b>.
     </p>
 
-    <example :code="multi" :data="{state: null}" />
+    <example
+      :code="multi"
+      :data="{state: null}"
+    />
 
-  <h2>Props</h2>
+    <h2>Props</h2>
     <props-list>
-      <props-item name="checked" type="Boolean">
+      <props-item
+        name="checked"
+        type="Boolean"
+      >
         Read or the set the checked state. If set to null the checkbox shows an 'unknown' state.
         If v-model is used this prop is automatically updated.
       </props-item>
-      <props-item name="inactive" type="Boolean">
+      <props-item
+        name="inactive"
+        type="Boolean"
+      >
         Sets the checkbox to an inactive state.
       </props-item>
     </props-list>
 
-   <h2>Events</h2>
+    <h2>Events</h2>
     <props-list>
       <props-item name="@change">
         The state of the checkbox has changed. The new state is emitted.

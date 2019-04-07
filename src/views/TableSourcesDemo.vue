@@ -1,21 +1,45 @@
 <template>
   <div class="container">
     <s-tabs>
-      <s-tab to="/table">Documentation</s-tab>
-      <s-tab to="/table-examples">Examples</s-tab>
+      <s-tab to="/table">
+        Documentation
+      </s-tab>
+      <s-tab to="/table-examples">
+        Examples
+      </s-tab>
     </s-tabs>
 
     <div class="options">
-      <s-drop-down v-model="dataSource" :items="$store.state.sources" label="Data source" />&nbsp;
+      <s-drop-down
+        v-model="dataSource"
+        :items="$store.state.sources"
+        label="Data source"
+      />&nbsp;
 
       <div class="flex-grow" />
 
-      <s-checkbox v-model="draggable">Draggable columns</s-checkbox>&nbsp;
-      <s-checkbox v-model="condensed">Condensed</s-checkbox>&nbsp;
-      <s-checkbox v-model="stickyColumn">Sticky first column</s-checkbox>&nbsp;
+      <s-checkbox v-model="draggable">
+        Draggable columns
+      </s-checkbox>&nbsp;
+      <s-checkbox v-model="condensed">
+        Condensed
+      </s-checkbox>&nbsp;
+      <s-checkbox v-model="stickyColumn">
+        Sticky first column
+      </s-checkbox>&nbsp;
 
-      <s-button small @click="onSave">{{ $t('save') }}</s-button>&nbsp;
-      <s-button small @click="onRestore">{{ $t('restore') }}</s-button>
+      <s-button
+        small
+        @click="onSave"
+      >
+        {{ $t('save') }}
+      </s-button>&nbsp;
+      <s-button
+        small
+        @click="onRestore"
+      >
+        {{ $t('restore') }}
+      </s-button>
     </div>
 
     <s-table-vuex-wrapper
@@ -27,24 +51,37 @@
       :condensed="condensed"
       :sticky-column="stickyColumn"
     >
-
       <!-- Override cell to show email address as link -->
       <template v-slot:~email="{ value }">
-        <a class="s-link" :href="'mailto:' + value">{{ value }}</a>
+        <a
+          class="s-link"
+          :href="'mailto:' + value"
+        >{{ value }}</a>
       </template>
 
       <!-- Override cell to show website as link -->
       <template v-slot:~website="{ value }">
-        <a class="s-link" :href="'http://' + value">{{ value }}</a>
+        <a
+          class="s-link"
+          :href="'http://' + value"
+        >{{ value }}</a>
       </template>
 
       <!-- Override cell to show a button -->
       <template v-slot:~actions="{ item }">
-        <s-button small @click="onEdit(item)">Edit</s-button>
+        <s-button
+          small
+          @click="onEdit(item)"
+        >
+          Edit
+        </s-button>
       </template>
 
       <template v-slot:~ue_code="{ value }">
-        <a class="s-link" href="#">{{ value }}</a>
+        <a
+          class="s-link"
+          href="#"
+        >{{ value }}</a>
       </template>
 
       <!-- Override content to show when there is no data -->

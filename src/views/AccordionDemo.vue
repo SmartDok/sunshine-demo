@@ -1,7 +1,10 @@
 <template>
   <div>
     <h2>Accordion</h2>
-    <example :code="code" max-width="28rem" />
+    <example
+      :code="code"
+      max-width="28rem"
+    />
 
     <h2>Linked state</h2>
     <section class="help">
@@ -15,27 +18,38 @@
       </p>
     </section>
 
-    <example :code="linked" max-width="28rem" />
+    <example
+      :code="linked"
+      max-width="28rem"
+    />
 
     <h2>Props s-accordion</h2>
     <props-list>
-      <props-item name="linked" type="Boolean">
+      <props-item
+        name="linked"
+        type="Boolean"
+      >
         If linked, only one s-accordion-item will be open at a time.
       </props-item>
     </props-list>
 
     <h2>Props s-accordion-item</h2>
     <props-list>
-      <props-item name="heading" type="String">
+      <props-item
+        name="heading"
+        type="String"
+      >
         The title of the item.
       </props-item>
-      <props-item name="defaultOpen" type="Boolean">
+      <props-item
+        name="defaultOpen"
+        type="Boolean"
+      >
         Sets the item to start off in open state. Default: false.
       </props-item>
       <br>A header can be placed over the main content shown in open state,
       by using the named slot 'heading'.
     </props-list>
-
   </div>
 </template>
 

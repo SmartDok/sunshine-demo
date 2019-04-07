@@ -1,33 +1,61 @@
 <template>
   <div>
     <h2>Standard buttons</h2>
-    <example :code="standard" :data="{clicked: 0}" max-width="12rem" />
+    <example
+      :code="standard"
+      :data="{clicked: 0}"
+      max-width="12rem"
+    />
 
     <h2>Danger button</h2>
-    <example :code='`<s-button danger>Delete</s-button>`' max-width="12rem" />
+    <example
+      :code="`<s-button danger>Delete</s-button>`"
+      max-width="12rem"
+    />
 
     <h2>Inactive buttons</h2>
-    <example :code="inactive" max-width="12rem" />
+    <example
+      :code="inactive"
+      max-width="12rem"
+    />
 
     <h2>Smaller version</h2>
-    <example :code="smaller" max-width="10rem" />
+    <example
+      :code="smaller"
+      max-width="10rem"
+    />
 
     <h2>Props</h2>
     <props-list>
-      <props-item name="small" type="Boolean">
+      <props-item
+        name="small"
+        type="Boolean"
+      >
         Shows the small version.
       </props-item>
-      <props-item name="primary" type="Boolean">
+      <props-item
+        name="primary"
+        type="Boolean"
+      >
         Shows the primary version.
       </props-item>
-      <props-item name="danger" type="Boolean">
+      <props-item
+        name="danger"
+        type="Boolean"
+      >
         Shows the danger version.
       </props-item>
-      <props-item name="inactive" type="Boolean">
+      <props-item
+        name="inactive"
+        type="Boolean"
+      >
         Shows the button in an inactive state.
       </props-item>
-      <props-item name="submit" type="Boolean">
-       Sets the button type to submit.
+      <props-item
+        name="submit"
+        type="Boolean"
+      >
+        Sets the button type to submit.
       </props-item>
     </props-list>
   </div>

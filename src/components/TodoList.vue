@@ -1,10 +1,19 @@
 <template>
-  <div v-show="isVisible" class="todo" @click="isOpen = !isOpen">
-    <ul v-if="isOpen" class="todo-list">
+  <div
+    v-show="isVisible"
+    class="todo"
+    @click="isOpen = !isOpen"
+  >
+    <ul
+      v-if="isOpen"
+      class="todo-list"
+    >
       <slot />
     </ul>
 
-    <div class="toggle">TODO</div>
+    <div class="toggle">
+      TODO
+    </div>
   </div>
 </template>
 

@@ -16,8 +16,14 @@
     v-bind="$attrs"
   >
     <!-- Pass on all slots -->
-    <template v-for="slot in Object.keys($scopedSlots)" v-slot:[slot]="scope">
-      <slot :name="slot" v-bind="scope"/>
+    <template
+      v-for="slot in Object.keys($scopedSlots)"
+      v-slot:[slot]="scope"
+    >
+      <slot
+        :name="slot"
+        v-bind="scope"
+      />
     </template>
   </s-table>
 </template>
@@ -48,7 +54,7 @@ const mapToStore = (keys: string[]) => {
 };
 
 export default Vue.extend({
-  name: 's-table-vuex-wrapper',
+  name: 'STableVuexWrapper',
   inheritAttrs: false,
 
   props: {

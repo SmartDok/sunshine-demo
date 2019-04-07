@@ -8,20 +8,35 @@
       <b>v-model</b>.
     </p>
 
-    <example :code="template" :data="{option: '1'}" />
+    <example
+      :code="template"
+      :data="{option: '1'}"
+    />
 
     <h2>Props</h2>
     <props-list>
-      <props-item name="name" type="String">
+      <props-item
+        name="name"
+        type="String"
+      >
         Sets the radiobuttons name attribute.
       </props-item>
-      <props-item name="value" type="String">
+      <props-item
+        name="value"
+        type="String"
+      >
         The value of the radio button.
       </props-item>
-      <props-item name="choice" type="String">
+      <props-item
+        name="choice"
+        type="String"
+      >
         The value of the selected radio button. Automatically updates when used with v-model.
       </props-item>
-      <props-item name="inactive" type="Boolean">
+      <props-item
+        name="inactive"
+        type="Boolean"
+      >
         Sets the radio button to an inactive state.
       </props-item>
     </props-list>

@@ -1,9 +1,15 @@
 <template>
   <div>
     <div class="options">
-      <s-button @click="onPrevClick">&lt;&lt;</s-button>
-      <s-button @click="onTodayClick">{{ today }}</s-button>
-      <s-button @click="onNextClick">&gt;&gt;</s-button>
+      <s-button @click="onPrevClick">
+        &lt;&lt;
+      </s-button>
+      <s-button @click="onTodayClick">
+        {{ today }}
+      </s-button>
+      <s-button @click="onNextClick">
+        &gt;&gt;
+      </s-button>
     </div>
 
     <s-calendar :date="date" />
@@ -19,7 +25,10 @@
     -->
     <h2>Props</h2>
     <props-list>
-      <props-item name="date" type="moment.Moment">
+      <props-item
+        name="date"
+        type="moment.Moment"
+      >
         Sets the calendar date.
       </props-item>
     </props-list>

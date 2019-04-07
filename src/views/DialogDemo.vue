@@ -3,16 +3,20 @@
     <h2>Dialog</h2>
 
     <example
-      :code='`
-  <s-button @click="visible = true">Show dialog</s-button>
+      :code="`
+  <s-button @click=&quot;visible = true&quot;>Show dialog</s-button>
 
-  <s-dialog v-model="visible" heading="I am a dialog" @submit.prevent="visible = false">
+  <s-dialog
+    v-model=&quot;visible&quot;
+    heading=&quot;I am a dialog&quot;
+    @submit.prevent=&quot;visible = false&quot;
+  >
     <p>Enter your name:</p>
-    <p><s-text-field label="Name" />
-    <p><s-drop-down :items="data.items" label="Select" />
+    <p><s-text-field label=&quot;Name&quot; />
+    <p><s-drop-down :items=&quot;data.items&quot; label=&quot;Select&quot; />
     <p><s-button primary submit>OK</s-button></p>
   </s-dialog>
-      `'
+      `"
       :data="{visible: false, data: { items }}"
       max-width="16rem"
     />
@@ -25,10 +29,16 @@
 
     <h2>Props</h2>
     <props-list>
-      <props-item name="visible" type="Boolean">
+      <props-item
+        name="visible"
+        type="Boolean"
+      >
         Sets/gets the visible state. Updatet dynamically when the component is used with v-model.
       </props-item>
-      <props-item name="heading" type="String">
+      <props-item
+        name="heading"
+        type="String"
+      >
         The title of the dialog.
       </props-item>
     </props-list>

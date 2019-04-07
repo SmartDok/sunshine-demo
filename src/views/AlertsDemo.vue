@@ -1,8 +1,12 @@
 <template>
   <div>
     <s-tabs>
-      <s-tab to="/alerts">Examples</s-tab>
-      <s-tab to="/alerts-docs">Documentation</s-tab>
+      <s-tab to="/alerts">
+        Examples
+      </s-tab>
+      <s-tab to="/alerts-docs">
+        Documentation
+      </s-tab>
     </s-tabs>
 
     <h2>Basic alerts</h2>
@@ -13,14 +17,16 @@
 
     <h2>Alert with progress indicator</h2>
     <example
-      :code='`\
+      :code="`\
   <s-alert progress> 38% completed </s-alert>
   <s-alert progress warning>Important process running</s-alert>
-      `'
+      `"
     />
 
     <todo-list>
-      <todo done>Progress indicator.</todo>
+      <todo done>
+        Progress indicator.
+      </todo>
       <todo>(later) Dismiss button w/event.</todo>
       <todo>Neutral alert design may be changed.</todo>
     </todo-list>

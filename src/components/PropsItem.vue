@@ -5,8 +5,16 @@ export default Vue.extend({
   functional: true,
 
   props: {
-    name: String,
-    type: String,
+    name: {
+      type: String,
+      required: true,
+    },
+
+    type: {
+      type: String,
+      required: true,
+    },
+
     required: Boolean,
   },
 

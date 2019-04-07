@@ -1,8 +1,12 @@
 <template>
   <div>
     <s-tabs>
-      <s-tab to="/inputs">Examples</s-tab>
-      <s-tab to="/inputs-docs">Documentation</s-tab>
+      <s-tab to="/inputs">
+        Examples
+      </s-tab>
+      <s-tab to="/inputs-docs">
+        Documentation
+      </s-tab>
     </s-tabs>
 
     <h2>Standard inputs</h2>
@@ -13,31 +17,53 @@
     />
 
     <h2>Expected format</h2>
-    <example :code="expected" :data="{time: ''}" max-width="16rem" />
+    <example
+      :code="expected"
+      :data="{time: ''}"
+      max-width="16rem"
+    />
 
     <h2>With placeholder instead of label</h2>
-    <example :code='placeholder' max-width="16rem" />
+    <example
+      :code="placeholder"
+      max-width="16rem"
+    />
 
     <h2>With error</h2>
     <example
-      code='<s-text-field label="Text field" error="Please enter the correct value" />'
+      :code="`
+  <s-text-field
+    label=&quot;Text field&quot;
+    error=&quot;Please enter the correct value&quot;
+  />`"
       max-width="16rem"
     />
 
     <h2>With counter label</h2>
-    <example :code='counter' max-width="16rem" />
+    <example
+      :code="counter"
+      max-width="16rem"
+    />
 
     <h2>Read only</h2>
-    <example code='<s-text-field readonly value="Readonly"/>' max-width="16rem" />
+    <example
+      code="<s-text-field readonly value=&quot;Readonly&quot;/>"
+      max-width="16rem"
+    />
 
     <h2>Inactive inputs</h2>
-    <example :code="inactive" max-width="16rem" />
+    <example
+      :code="inactive"
+      max-width="16rem"
+    />
 
     <todo-list>
       <todo>Read-only state, shown in design.</todo>
       <todo>Caution/warning/confirmation state, shown in design.</todo>
       <todo>Pending data/loading state, shown in design.</todo>
-      <todo done>Make <b>v-model</b>/<b>value</b> optional?</todo>
+      <todo done>
+        Make <b>v-model</b>/<b>value</b> optional?
+      </todo>
       <todo>Positioning of expected format is not accurate.</todo>
       <todo>Issues with expected format and panning.</todo>
       <todo>Validation of expected format.</todo>

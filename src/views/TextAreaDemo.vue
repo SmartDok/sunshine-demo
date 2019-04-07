@@ -1,26 +1,50 @@
 <template>
   <div>
     <s-tabs>
-      <s-tab to="/textarea">Examples</s-tab>
-      <s-tab to="/textarea-docs">Documentation</s-tab>
+      <s-tab to="/textarea">
+        Examples
+      </s-tab>
+      <s-tab to="/textarea-docs">
+        Documentation
+      </s-tab>
     </s-tabs>
 
 
     <h2>Standard inputs</h2>
-    <p class="help">By default, text areas automatically get bigger when text is added.</p>
-    <example :code="standard" :data="{ text: '' }" max-width="16rem" />
+    <p class="help">
+      By default, text areas automatically get bigger when text is added.
+    </p>
+    <example
+      :code="standard"
+      :data="{ text: '' }"
+      max-width="16rem"
+    />
 
     <h2>With placeholder</h2>
-    <example :code="placeholder" :data="{ text: '' }" max-width="16rem" />
+    <example
+      :code="placeholder"
+      :data="{ text: '' }"
+      max-width="16rem"
+    />
 
     <h2>With max-length</h2>
-    <example :code="counter" :data="{ text: '' }" max-width="16rem" />
+    <example
+      :code="counter"
+      :data="{ text: '' }"
+      max-width="16rem"
+    />
 
     <h2>Read only</h2>
-    <example :code="readonly" max-width="16rem" />
+    <example
+      :code="readonly"
+      max-width="16rem"
+    />
 
     <h2>Inactive inputs</h2>
-    <example :code="inactive" max-width="16rem" />
+    <example
+      :code="inactive"
+      max-width="16rem"
+    />
 
     <todo-list>
       <todo>Fit content attribute? Given content as value, TextArea displays all the content.</todo>

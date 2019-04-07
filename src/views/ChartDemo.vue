@@ -3,26 +3,49 @@
     <div class="layout">
       <form class="form">
         <label>Size</label>
-        <input type="range" min="50" max="500" step="50" v-model.number="size"/>
+        <input
+          type="range"
+          min="50"
+          max="500"
+          step="50"
+          v-model.number="size"
+        >
 
         <template v-for="(item, i) in items">
           <label :key="`label-${i}`">{{ item.label }}</label>
-          <input :key="`input-${i}`" type="range" v-model.number="item.value"/>
+          <input
+            :key="`input-${i}`"
+            type="range"
+            v-model.number="item.value"
+          >
         </template>
       </form>
 
-      <s-pie-chart class="chart" :size="size" :data="items" />
+      <s-pie-chart
+        class="chart"
+        :size="size"
+        :data="items"
+      />
     </div>
 
     <h2>Props</h2>
     <props-list>
-      <props-item name="data" type="Array<label: String, value: Number>">
+      <props-item
+        name="data"
+        type="Array<label: String, value: Number>"
+      >
         An array of objects, where each object corresponds to a slice of the pie.
       </props-item>
-      <props-item name="scheme" type="Array<String>">
+      <props-item
+        name="scheme"
+        type="Array<String>"
+      >
         Color scheme. Default: d3.schemeDark2
       </props-item>
-      <props-item name="size" type="Number">
+      <props-item
+        name="size"
+        type="Number"
+      >
         Scalar. Default: 400
       </props-item>
     </props-list>

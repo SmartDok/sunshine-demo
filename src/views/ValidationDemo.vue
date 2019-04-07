@@ -27,7 +27,6 @@
     <todo-list>
       <todo>SDropDown renders the menu below the error text.</todo>
     </todo-list>
-
   </div>
 </template>
 

@@ -1,18 +1,22 @@
 <template>
   <div class="drop-down-demo">
     <s-tabs>
-      <s-tab to="/dropdown">Examples</s-tab>
-      <s-tab to="/dropdown-docs">Documentation</s-tab>
+      <s-tab to="/dropdown">
+        Examples
+      </s-tab>
+      <s-tab to="/dropdown-docs">
+        Documentation
+      </s-tab>
     </s-tabs>
 
     <h2>Simple select</h2>
     <example
-      :code='`\
+      :code="`\
   <s-drop-down
-    label="Select one country"
-    v-model="country"
-    :items="data.countries"
-  />`'
+    label=&quot;Select one country&quot;
+    v-model=&quot;country&quot;
+    :items=&quot;data.countries&quot;
+  />`"
 
       :data="$data"
       max-width="24rem"
@@ -32,13 +36,13 @@
 
     <h2>Single select w/search</h2>
     <example
-      :code='`\
+      :code="`\
   <s-drop-down
     search
-    label="Select one country"
-    v-model="country"
-    :items="data.countries"
-  />`'
+    label=&quot;Select one country&quot;
+    v-model=&quot;country&quot;
+    :items=&quot;data.countries&quot;
+  />`"
       :data="$data"
       max-width="24rem"
     />
@@ -49,14 +53,14 @@
 
     <h2>Multi select</h2>
     <example
-      :code='`\
+      :code="`\
   <s-drop-down
     multiple
-    label="Select countries"
-    v-model="selected"
-    :items="data.countries"
-    :max-selected-shown="5"
-  />`'
+    label=&quot;Select countries&quot;
+    v-model=&quot;selected&quot;
+    :items=&quot;data.countries&quot;
+    :max-selected-shown=&quot;5&quot;
+  />`"
       :data="{ data, selected: []}"
       max-width="24rem"
     />
@@ -73,15 +77,15 @@
 
     <h2>Multi select w/search</h2>
     <example
-      :code='`\
+      :code="`\
   <s-drop-down
     multiple
     search
-    label="Select countries"
-    v-model="selected"
-    :items="data.countries"
-    :max-selected-shown="3"
-  />`'
+    label=&quot;Select countries&quot;
+    v-model=&quot;selected&quot;
+    :items=&quot;data.countries&quot;
+    :max-selected-shown=&quot;3&quot;
+  />`"
       :data="{ data, selected: []}"
       max-width="24rem"
     />
@@ -101,12 +105,12 @@
 
     <h2>With error</h2>
     <example
-      :code='`\
+      :code="`\
   <s-drop-down
-    label="Select countries"
-    :items="data.countries"
-    error="This field is required"
-  />`'
+    label=&quot;Select countries&quot;
+    :items=&quot;data.countries&quot;
+    error=&quot;This field is required&quot;
+  />`"
       :data="{ data }"
       max-width="24rem"
     />
@@ -114,17 +118,26 @@
     <h2>Dynamic content</h2>
 
     <example
-      :code='`
+      :code="`
     <div>
       <s-grid>
-        <s-grid-item span="6">
-          <s-drop-down v-model="selected" :items="data.items" multiple label="Available items" />
+        <s-grid-item span=&quot;6&quot;>
+          <s-drop-down
+            v-model=&quot;selected&quot;
+            :items=&quot;data.items&quot;
+            multiple
+            label=&quot;Available items&quot;
+          />
         </s-grid-item>
-        <s-grid-item span="6">
-          <s-drop-down :items="selected.map(key => data.items.find(it => it.key === key))" multiple label="Selected items" />
+        <s-grid-item span=&quot;6&quot;>
+          <s-drop-down
+            :items=&quot;selected.map(key => data.items.find(it => it.key === key))&quot;
+            multiple
+            label=&quot;Selected items&quot;
+          />
         </s-grid-item>
       </s-grid>
-    </div>`'
+    </div>`"
       :data="{ data: { items: data.countries }, selected: [] }"
       max-width="33rem"
     />

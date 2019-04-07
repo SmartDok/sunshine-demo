@@ -55,12 +55,20 @@ export default Vue.extend({
   },
 
   props: {
-    code: String,
+    code: {
+      type: String,
+      required: true,
+    },
+
     data: {
       type: Object,
       default: () => ({}),
     },
-    methods: Object,
+
+    methods: {
+      type: Object,
+      default: () => {},
+    },
 
     maxWidth: {
       type: String,

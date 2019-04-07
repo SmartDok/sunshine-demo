@@ -2,14 +2,14 @@
   <div>
     <s-datepicker />
 
-   <h2>Props</h2>
+    <h2>Props</h2>
     <props-list>
       None exposed at the time.
     </props-list>
 
     <h2>Events</h2>
     <props-list>
-     None exposed at the time.
+      None exposed at the time.
     </props-list>
     <todo-list>
       <todo>Toggle datepicker with a SMenu component or an input-field</todo>
