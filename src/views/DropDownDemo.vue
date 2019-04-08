@@ -115,6 +115,17 @@
       max-width="24rem"
     />
 
+    <h2>Pre-selected value, no label</h2>
+    <example
+      :code="`\
+  <s-drop-down
+    v-model=&quot;country&quot;
+    :items=&quot;data.countries&quot;
+  />`"
+      :data="{ country: 'norway', data: { countries: data.countries } }"
+      max-width="24rem"
+    />
+
     <h2>Dynamic content</h2>
 
     <example
