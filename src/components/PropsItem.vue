@@ -12,7 +12,7 @@ export default Vue.extend({
 
     type: {
       type: String,
-      required: true,
+      default: '',
     },
 
     required: Boolean,
@@ -33,7 +33,7 @@ export default Vue.extend({
     return [
       h('dt', options, [
         h('span', { class: 'props-item__name' }, name),
-        h('span', { class: 'props-item__type' }, type),
+        type && h('span', { class: 'props-item__type' }, type),
         required && h('span', { class: 'props-item__required' }, 'required!'),
       ]),
       slot && h('dd', { class: 'props-item__body' }, slot({})),
