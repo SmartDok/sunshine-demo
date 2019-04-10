@@ -29,7 +29,7 @@
       <router-link to="/radio">
         Radio button
       </router-link>
-      <router-link to="/inputs">
+      <router-link to="/textfield">
         Text field
       </router-link>
       <router-link to="/textarea">
@@ -45,7 +45,7 @@
       </router-link>
 
       <h3>Structural</h3>
-      <router-link to="/tabs?second">
+      <router-link to="/tabs">
         Tabs
       </router-link>
       <router-link to="/accordion">
@@ -75,6 +75,9 @@
       </router-link>
       <router-link to="/filter">
         Filter
+      </router-link>
+      <router-link to="/multiselect">
+        Multiselect
       </router-link>
       <router-link to="/validation">
         Validation
