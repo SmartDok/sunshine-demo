@@ -79,6 +79,9 @@
       <router-link to="/validation">
         Validation
       </router-link>
+      <router-link to="/multiselect">
+        Multiselect
+      </router-link>
 
       <h3>Experimental</h3>
       <router-link to="/chart">

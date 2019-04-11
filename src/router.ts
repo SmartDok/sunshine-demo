@@ -24,6 +24,7 @@ import InputsDocs from '@/views/InputsDocs.vue';
 import AlertsDocs from '@/views/AlertsDocs.vue';
 import DropDownDocs from '@/views/DropDownDocs.vue';
 import TableSourcesDemo from '@/views/TableSourcesDemo.vue';
+import MultiSelectDemo from '@/views/MultiSelectDemo.vue';
 
 Vue.use(Router);
 
@@ -153,6 +154,11 @@ export default new Router({
       path: '/textarea-docs',
       name: 'textarea-docs',
       component: TextAreaDocs,
+    },
+    {
+      path: '/multiselect',
+      name: 'multiselect',
+      component: MultiSelectDemo,
     },
   ],
 });
