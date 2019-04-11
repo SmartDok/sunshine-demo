@@ -15,11 +15,21 @@ export default Vue.extend({
       default: '',
     },
 
+    defaultValue: {
+      type: String,
+      default: '',
+    },
+
     required: Boolean,
   },
 
   render(h, { props, scopedSlots }) {
-    const { name, type, required } = props;
+    const {
+      name,
+      type,
+      defaultValue,
+      required,
+    } = props;
 
     const options = {
       class: {
@@ -34,6 +44,7 @@ export default Vue.extend({
       h('dt', options, [
         h('span', { class: 'props-item__name' }, name),
         type && h('span', { class: 'props-item__type' }, type),
+        defaultValue && h('span', { class: 'props-item__required' }, `Default: ${defaultValue}`),
         required && h('span', { class: 'props-item__required' }, 'required!'),
       ]),
       slot && h('dd', { class: 'props-item__body' }, slot({})),
