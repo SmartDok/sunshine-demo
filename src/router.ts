@@ -1,14 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import AccordionDemo from '@/views/AccordionDemo/AccordionDemo.vue';
+import AccordionExamples from '@/views/AccordionDemo/AccordionExamples.vue';
 import AccordionEvents from '@/views/AccordionDemo/AccordionEvents.vue';
 import AccordionProps from '@/views/AccordionDemo/AccordionProps.vue';
 import AccordionSlots from '@/views/AccordionDemo/AccordionSlots.vue';
 import AlertsDemo from '@/views/AlertsDemo/AlertsDemo.vue';
+import AlertsExamples from '@/views/AlertsDemo/AlertsExamples.vue';
 import AlertsEvents from '@/views/AlertsDemo/AlertsEvents.vue';
 import AlertsProps from '@/views/AlertsDemo/AlertsProps.vue';
 import AlertsSlots from '@/views/AlertsDemo/AlertsSlots.vue';
 import ButtonDemo from '@/views/ButtonDemo/ButtonDemo.vue';
+import ButtonExamples from '@/views/ButtonDemo/ButtonExamples.vue';
 import ButtonEvents from '@/views/ButtonDemo/ButtonEvents.vue';
 import ButtonProps from '@/views/ButtonDemo/ButtonProps.vue';
 import ButtonSlots from '@/views/ButtonDemo/ButtonSlots.vue';
@@ -20,6 +23,7 @@ import ChartDemo from '@/views/ChartDemo/ChartDemo.vue';
 import ChartEvents from '@/views/ChartDemo/ChartEvents.vue';
 import ChartProps from '@/views/ChartDemo/ChartProps.vue';
 import ChartSlots from '@/views/ChartDemo/ChartSlots.vue';
+import CheckboxExamples from '@/views/CheckboxDemo/CheckboxExamples.vue';
 import CheckboxDemo from '@/views/CheckboxDemo/CheckboxDemo.vue';
 import CheckboxEvents from '@/views/CheckboxDemo/CheckboxEvents.vue';
 import CheckboxProps from '@/views/CheckboxDemo/CheckboxProps.vue';
@@ -33,6 +37,7 @@ import DialogEvents from '@/views/DialogDemo/DialogEvents.vue';
 import DialogProps from '@/views/DialogDemo/DialogProps.vue';
 import DialogSlots from '@/views/DialogDemo/DialogSlots.vue';
 import DropDownDemo from '@/views/DropDownDemo/DropDownDemo.vue';
+import DropDownExamples from '@/views/DropDownDemo/DropDownExamples.vue';
 import DropDownEvents from '@/views/DropDownDemo/DropDownEvents.vue';
 import DropDownProps from '@/views/DropDownDemo/DropDownProps.vue';
 import DropDownSlots from '@/views/DropDownDemo/DropDownSlots.vue';
@@ -48,7 +53,6 @@ import InspectorDemo from './views/InspectorDemo/InspectorDemo.vue';
 import InspectorEvents from './views/InspectorDemo/InspectorEvents.vue';
 import InspectorProps from './views/InspectorDemo/InspectorProps.vue';
 import InspectorSlots from './views/InspectorDemo/InspectorSlots.vue';
-import MultiSelectDemo from '@/views/MultiSelectDemo.vue';
 import MultiselectDemo from '@/views/MultiselectDemo/MultiselectDemo.vue';
 import MultiselectEvents from '@/views/MultiselectDemo/MultiselectEvents.vue';
 import MultiselectProps from '@/views/MultiselectDemo/MultiselectProps.vue';
@@ -62,6 +66,7 @@ import SavedSetupsEvents from '@/views/SavedSetupsDemo/SavedSetupsEvents.vue';
 import SavedSetupsProps from '@/views/SavedSetupsDemo/SavedSetupsProps.vue';
 import SavedSetupsSlots from '@/views/SavedSetupsDemo/SavedSetupsSlots.vue';
 import TableDemo from '@/views/TableDemo/TableDemo.vue';
+import TableSourcesDemo from '@/views/TableDemo/TableSourcesDemo.vue';
 import TableEvents from '@/views/TableDemo/TableEvents.vue';
 import TableProps from '@/views/TableDemo/TableProps.vue';
 import TableSlots from '@/views/TableDemo/TableSlots.vue';
@@ -70,10 +75,12 @@ import TabsEvents from '@/views/TabsDemo/TabsEvents.vue';
 import TabsProps from '@/views/TabsDemo/TabsProps.vue';
 import TabsSlots from '@/views/TabsDemo/TabsSlots.vue';
 import TextAreaDemo from '@/views/TextAreaDemo/TextAreaDemo.vue';
+import TextAreaExamples from '@/views/TextAreaDemo/TextAreaExamples.vue';
 import TextAreaEvents from '@/views/TextAreaDemo/TextAreaEvents.vue';
 import TextAreaProps from '@/views/TextAreaDemo/TextAreaProps.vue';
 import TextAreaSlots from '@/views/TextAreaDemo/TextAreaSlots.vue';
 import TextFieldDemo from '@/views/TextFieldDemo/TextFieldDemo.vue';
+import TextFieldExamples from '@/views/TextFieldDemo/TextFieldExamples.vue';
 import TextFieldEvents from '@/views/TextFieldDemo/TextFieldEvents.vue';
 import TextFieldProps from '@/views/TextFieldDemo/TextFieldProps.vue';
 import TextFieldSlots from '@/views/TextFieldDemo/TextFieldSlots.vue';
@@ -532,10 +539,53 @@ export default new Router({
         },
       ],
     },
+
+    //
+    // We want the example pages to be displayed in the router-view in app.vue - not in the
+    // tab router-view in the demo pages. Therefore the below routes are not children. At the same
+    // time we want it to appear like they are children, to keep the chosen menu item active,
+    // therefore an alias is used.
+    //
+
     {
-      path: '/multiselect',
-      name: 'multiselect',
-      component: MultiSelectDemo,
+      path: '/examples-button',
+      alias: '/button/examples',
+      component: ButtonExamples,
+    },
+    {
+      path: '/examples-checkbox',
+      alias: '/checkbox/examples',
+      component: CheckboxExamples,
+    },
+    {
+      path: '/examples-textfield',
+      alias: '/textfield/examples',
+      component: TextFieldExamples,
+    },
+    {
+      path: '/examples-textarea',
+      alias: '/textarea/examples',
+      component: TextAreaExamples,
+    },
+    {
+      path: '/examples-alerts',
+      alias: '/alerts/examples',
+      component: AlertsExamples,
+    },
+    {
+      path: '/examples-accordion',
+      alias: '/accordion/examples',
+      component: AccordionExamples,
+    },
+    {
+      path: '/examples-dropdown',
+      alias: '/dropdown/examples',
+      component: DropDownExamples,
+    },
+    {
+      path: '/examples-table',
+      alias: '/table/examples',
+      component: TableSourcesDemo,
     },
   ],
 });

@@ -1,12 +1,9 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Chart</h1>
-    </div>
-
+    <h1>Chart</h1>
     <p class="help">
-      The <b>s-pie-chart</b> component show a pie with slices in different colors. Corresponding
-      labels can also be added.
+      The <code>s-pie-chart</code> component show a pie with slices in different colors.
+      Corresponding labels can also be added.
     </p>
 
     <br>
@@ -39,10 +36,7 @@
       />
     </div>
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props

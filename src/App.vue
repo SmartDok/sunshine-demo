@@ -137,6 +137,7 @@ export default Vue.extend({
 
 .menu {
   grid-area: sidebar;
+  overflow: auto;
 
   a {
     @include action-font;

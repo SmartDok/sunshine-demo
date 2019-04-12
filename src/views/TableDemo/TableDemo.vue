@@ -1,19 +1,18 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Table</h1>
+    <h1>Table</h1>
+    <div class="help">
+      <p>
+        The <code>s-table</code> component is a table with several
+        features. At the top left corner a menu is available, and
+        among the options <br> presented here, one is to show or
+        hide columns to customize what's shown in the table.
+      </p>
+      <p>
+        The table also support (if set) draggable columns, sticky columns,
+        and a condensed view.
+      </p>
     </div>
-
-    <p class="help">
-      The <b>s-table</b> component is a table with several features. At the top left corner a menu
-      is available, and among the options <br> presented here, one is to show or hide columns to
-      customize what's shown in the table.
-    </p>
-    <p class="help">
-      The table also support (if set) draggable columns, sticky columns, and a condensed view.
-
-      *** Slots *** line 125
-    </p>
 
     <br>
 
@@ -79,10 +78,14 @@
       }"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
+    <router-link
+      to="examples"
+      class="s-link"
+    >
+      View example with sources
+    </router-link>
 
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -96,14 +99,6 @@
     </s-tabs>
 
     <router-view />
-
-    <div class="header">
-      <h1>Examples</h1>
-    </div>
-
-    <div class="space">
-      <table-sources-demo />
-    </div>
 
     <todo-list>
       <todo>Resizable columns.</todo>
@@ -124,14 +119,9 @@ import {
   ISortState,
   IItem,
 } from 'smartdok-sunshine';
-import TableSourcesDemo from './TableSourcesDemo.vue';
 
 export default Vue.extend({
   name: 'TableDemo',
-
-  components: {
-    TableSourcesDemo,
-  },
 
   data() {
     return {
@@ -199,7 +189,4 @@ export default Vue.extend({
   flex-direction: column;
 }
 
-.space {
-  min-height: 45rem;
-}
 </style>

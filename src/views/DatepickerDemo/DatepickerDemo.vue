@@ -1,20 +1,15 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Datepicker</h1>
-    </div>
+    <h1>Datepicker</h1>
     <p class="help">
-      The <b>s-datepicker</b> component is for selecting a date or a range of dates.
+      The <code>s-datepicker</code> component is for selecting a date or a range of dates.
     </p>
 
     <br>
 
     <s-datepicker />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props

@@ -1,12 +1,9 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Radio button</h1>
-    </div>
-
+    <h1>Radio button</h1>
     <p class="help">
       Radio buttons are used to present a group of possible options.
-      The <b>s-radio-button</b> component is an <br>
+      The <code>s-radio-button</code> component is an <br>
       item/option in such a group. Several radio buttons can be placed in a connected
       group by giving each a <br> <b>unique value</b>, and binding them to the same <b>v-model</b>.
     </p>
@@ -17,7 +14,7 @@
       :data="{option: '1'}"
     />
 
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -31,10 +28,6 @@
     </s-tabs>
 
     <router-view />
-
-    <!--div class="header">
-      <h1>Examples</h1>
-    </div-->
   </div>
 </template>
 

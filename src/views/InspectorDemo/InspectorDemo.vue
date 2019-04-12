@@ -1,26 +1,25 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Inspector</h1>
+    <h1>Inspector</h1>
+    <div class="help">
+      <p>
+        A view that slides in from the left. This view can e. g. be used
+        to create forms for registering and edit user data.
+      </p>
+
+      <p>
+        The <code>s-inspector-page</code> component defines the layout of the
+        content inside the inspector. It is a separate component, because we
+        ofter want to have <b>one</b> inspector, that can display different
+        content, in different scenarios.
+      </p>
+
+      <p>
+        The inspector page content is wrapped in a <b>form</b> element. Additional attributes and
+        event listeners are passed to this element. Most of the time, users would want to
+        handle the <b>submit</b> event, as in the example above.
+      </p>
     </div>
-
-    <p class="help">
-      A view that slides in from the left. This view can e. g. be used
-      to create forms for registering and edit user data.
-    </p>
-
-    <p class="help">
-      The <code>s-inspector-page</code> component defines the layout of the
-      content inside the inspector. It is a separate component, because we
-      ofter want to have <b>one</b> inspector, that can display different
-      content, in different scenarios.
-    </p>
-
-    <p class="help">
-      The inspector page content is wrapped in a <b>form</b> element. Additional attributes and
-      event listeners are passed to this element. Most of the time, users would want to
-      handle the <b>submit</b> event, as in the example above.
-    </p>
 
     <h2>Example</h2>
     <example
@@ -164,10 +163,7 @@
       max-width="16rem"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props

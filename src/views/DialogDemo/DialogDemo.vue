@@ -1,18 +1,17 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Dialog</h1>
+    <h1>Dialog</h1>
+    <div class="help">
+      <p>
+        The <code>s-dialog</code> component displays a dialog with a header and a 'close' icon
+        in the top right corner.
+      </p>
+      <p>
+        The dialog content is wrapped in a <b>form</b> element. Additional attributes and
+        event listeners are passed to this element. <br> Most of the time, users would want to
+        handle the <b>submit</b> event, as in the example below.
+      </p>
     </div>
-
-    <p class="help">
-      The <b>s-dialog</b> component displays a dialog with a header and a 'close' icon
-      in the top right corner.
-    </p>
-    <p class="help">
-      The dialog content is wrapped in a <b>form</b> element. Additional attributes and
-      event listeners are passed to this element. <br> Most of the time, users would want to
-      handle the <b>submit</b> event, as in the example below.
-    </p>
 
     <h2>Example</h2>
     <example
@@ -34,10 +33,7 @@
       max-width="16rem"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -51,11 +47,6 @@
     </s-tabs>
 
     <router-view />
-
-    <!--div class="header">
-      <h1>Examples</h1>
-    </div-->
-
 
     <todo-list>
       <todo>Prevent focus outside dialog with Tab key</todo>

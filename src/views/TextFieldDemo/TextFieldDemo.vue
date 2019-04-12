@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Text Field</h1>
-    </div>
-
+    <h1>Text Field</h1>
     <p class="help">
-      The component <b>s-text-field</b> is an input field with the ability to
+      The component <code>s-text-field</code> is an input field with the ability to
       restrict input to certain types and formats, <br> and give visual cues like
       showing a label and error messages.
     </p>
@@ -17,10 +14,14 @@
       max-width="16rem"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
+    <router-link
+      to="examples"
+      class="s-link"
+    >
+      View more examples
+    </router-link>
 
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -34,51 +35,6 @@
     </s-tabs>
 
     <router-view />
-
-    <div class="header">
-      <h1>Examples</h1>
-    </div>
-
-    <h2>Expected format</h2>
-    <example
-      :code="expected"
-      :data="{time: ''}"
-      max-width="16rem"
-    />
-
-    <h2>With placeholder instead of label</h2>
-    <example
-      :code="placeholder"
-      max-width="16rem"
-    />
-
-    <h2>With error</h2>
-    <example
-      :code="`
-  <s-text-field
-    label=&quot;Text field&quot;
-    error=&quot;Please enter the correct value&quot;
-  />`"
-      max-width="16rem"
-    />
-
-    <h2>With counter label</h2>
-    <example
-      :code="counter"
-      max-width="16rem"
-    />
-
-    <h2>Read only</h2>
-    <example
-      code="<s-text-field readonly value=&quot;Readonly&quot;/>"
-      max-width="16rem"
-    />
-
-    <h2>Inactive inputs</h2>
-    <example
-      :code="inactive"
-      max-width="16rem"
-    />
 
     <todo-list>
       <todo>Read-only state, shown in design.</todo>
@@ -98,7 +54,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'InputsDemo',
+  name: 'TextFieldDemo',
 
   data() {
     return {
@@ -114,28 +70,6 @@ export default Vue.extend({
   <s-text-field v-model="number" number label="Number" />
   <s-text-field v-model="email" email label="Email" />
   <s-text-field v-model="password" password label="Password" />`;
-    },
-
-    placeholder() {
-      return `\
-  <s-text-field placeholder="Placeholder" />
-  <s-text-field placeholder="Placeholder" label="Label" />`;
-    },
-
-    counter() {
-      return `\
-     <s-text-field label="Counter label" :max-length="20" />
-  `;
-    },
-
-    expected() {
-      return '<s-text-field v-model="time" format="00:00" label="Time" />';
-    },
-
-    inactive() {
-      return `\
-  <s-text-field label="Inactive Input" inactive />
-  <s-text-field label="Inactive Input" value="With text" inactive />`;
     },
   },
 });

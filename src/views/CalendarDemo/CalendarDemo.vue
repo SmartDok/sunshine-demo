@@ -8,10 +8,7 @@
 
 <template>
   <div>
-    <div class="header">
-      <h1>Calendar</h1>
-    </div>
-
+    <h1>Calendar</h1>
     <p class="help">
       A calendar.
     </p>
@@ -30,10 +27,7 @@
     <s-calendar :date="date" />
 
     <div class="position">
-      <div class="header">
-        <h1>API</h1>
-      </div>
-
+      <h1>API</h1>
       <s-tabs>
         <s-tab to="props">
           Props

@@ -1,14 +1,11 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Multiple list selector</h1>
-    </div>
-
+    <h1>Multiple list selector</h1>
     <p class="help">
-      The <b>s-multiselect</b> component allows selecting items by moving them from one list to
-      the other. The left list contains the possible choices and the right list contains <br>
-      the selected items. Buttons are provided as a fast track for for selecting and moving
-      several (CTRL + click) or all items from one list to the other in one go.
+      The <code>s-multiselect</code> component allows selecting items by moving them from one
+      list to the other. The left list contains the possible choices and the right list
+      contains <br>  the selected items. Buttons are provided as a fast track for for selecting
+      and moving several (CTRL + click) or all items from one list to the other in one go.
     </p>
 
     <br>
@@ -18,10 +15,7 @@
       :data="{ items, selected }"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -87,7 +81,7 @@ export default Vue.extend({
     standard() {
       return `\
   <p style="width: 60rem;">
-    <s-multiselect left-label="Left" right-label="Right" :items="items" v-model="selected">
+    <s-multiselect left-label="Left" right-label="Right" :items="items" v-model="selected" />
   </p>`;
     },
   },
