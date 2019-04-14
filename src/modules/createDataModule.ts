@@ -32,7 +32,7 @@ const getItems = (keyPath: string[], state: IDataModuleState): IItem[] | null =>
   if (items == null) return null;
 
   const nodes = items.map((item: IItem) => {
-    let itemKeyPath = keyPath.concat(item.key);
+    let itemKeyPath = keyPath.concat(item.id);
     let subItems = item.subItems || (item.subItems === null ? getItems(itemKeyPath, state) : []);
     return {
       ...item,
@@ -127,7 +127,7 @@ const createDataModule = <ModuleState = {}, RootState = any>(
         if (active && selected.length === 0) {
           selected = [active];
         }
-        return state.items[''].filter(item => selected.includes(item.key) !== state.selection.inverted);
+        return state.items[''].filter(item => selected.includes(item.id) !== state.selection.inverted);
       },
 
       offset(state) {
