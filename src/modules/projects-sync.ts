@@ -11,7 +11,7 @@ const delay = (milliseconds: number): Promise<void> => new Promise(resolve => {
 
 const items: IItem[] = [
   {
-    key: '5124',
+    id: '5124',
     icon: 'Briefcase-1',
     data: {
       name: 'First project',
@@ -28,7 +28,7 @@ const items: IItem[] = [
 
     subItems: [
       {
-        key: '5124-1',
+        id: '5124-1',
         icon: 'Folder-1',
         data: {
           name: 'Underprosjekt 1',
@@ -45,7 +45,7 @@ const items: IItem[] = [
       },
 
       {
-        key: '5124-2',
+        id: '5124-2',
         icon: 'Folder-1',
         data: {
           name: 'Underprosjekt 2',
@@ -62,7 +62,7 @@ const items: IItem[] = [
 
         subItems: [
           {
-            key: '5124-1200',
+            id: '5124-1200',
             icon: 'Focus-Center',
             data: {
               name: 'Område 3',
@@ -83,7 +83,7 @@ const items: IItem[] = [
   },
 
   {
-    key: '5598',
+    id: '5598',
     icon: 'Briefcase-1',
     data: {
       name: 'Second project',
@@ -100,7 +100,7 @@ const items: IItem[] = [
 
     subItems: [
       {
-        key: '5124-1',
+        id: '5124-1',
         icon: 'Folder-1',
         data: {
           name: 'Underprosjektnavn',
@@ -116,7 +116,7 @@ const items: IItem[] = [
 
         subItems: [
           {
-            key: '5124-1100',
+            id: '5124-1100',
             icon: 'Focus-Center',
             data: {
               name: 'Område 1',
@@ -133,7 +133,7 @@ const items: IItem[] = [
           },
 
           {
-            key: '5124-1200',
+            id: '5124-1200',
             icon: 'Focus-Center',
             data: {
               name: 'Område 2',
@@ -154,7 +154,7 @@ const items: IItem[] = [
   },
 
   {
-    key: '2934',
+    id: '2934',
     icon: 'Briefcase-1',
     data: {
       name: 'Third project',

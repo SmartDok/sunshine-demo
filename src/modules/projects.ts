@@ -14,7 +14,7 @@ const data: {[key: string]: IItem[]} = {
   // Projects
   '': [
     {
-      key: '5124',
+      id: '5124',
       subItems: null,
       icon: 'Briefcase-1',
       data: {
@@ -32,7 +32,7 @@ const data: {[key: string]: IItem[]} = {
     },
 
     {
-      key: '5598',
+      id: '5598',
       subItems: null,
       icon: 'Briefcase-1',
       data: {
@@ -50,7 +50,7 @@ const data: {[key: string]: IItem[]} = {
     },
 
     {
-      key: '2934',
+      id: '2934',
       subItems: [],
       icon: 'Briefcase-1',
       data: {
@@ -71,7 +71,7 @@ const data: {[key: string]: IItem[]} = {
   // SubProjects
   5124: [
     {
-      key: '5124-1',
+      id: '5124-1',
       subItems: null,
       icon: 'Folder-1',
       data: {
@@ -89,7 +89,7 @@ const data: {[key: string]: IItem[]} = {
     },
 
     {
-      key: '5124-2',
+      id: '5124-2',
       subItems: null,
       icon: 'Folder-1',
       data: {
@@ -109,7 +109,7 @@ const data: {[key: string]: IItem[]} = {
 
   5598: [
     {
-      key: '5124-1',
+      id: '5124-1',
       icon: 'Folder-1',
       data: {
         name: 'Underprosjektnavn',
@@ -128,7 +128,7 @@ const data: {[key: string]: IItem[]} = {
   // Areas
   '5124:5124-1': [
     {
-      key: '5124-1100',
+      id: '5124-1100',
       icon: 'Focus-Center',
       data: {
         name: 'Område 1',
@@ -145,7 +145,7 @@ const data: {[key: string]: IItem[]} = {
     },
 
     {
-      key: '5124-1200',
+      id: '5124-1200',
       icon: 'Focus-Center',
       data: {
         name: 'Område 2',
@@ -164,7 +164,7 @@ const data: {[key: string]: IItem[]} = {
 
   '5124:5124-2': [
     {
-      key: '5124-1200',
+      id: '5124-1200',
       icon: 'Focus-Center',
       data: {
         name: 'Område 3',

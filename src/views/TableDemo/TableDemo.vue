@@ -33,7 +33,7 @@
         data: {
           items: [
             {
-              key: 'r2-d2',
+              id: 'r2-d2',
               data: {
                 name: 'R2-D2',
                 role: 'Droid',
@@ -42,7 +42,7 @@
               },
             },
             {
-              key: 'luke',
+              id: 'luke',
               data: {
                 name: 'Luke Skywalker',
                 role: 'Jedi',
@@ -51,7 +51,7 @@
               },
             },
             {
-              key: 'vader',
+              id: 'vader',
               data: {
                 name: 'Darth Vader',
                 role: 'Sith Lord',
@@ -60,7 +60,7 @@
               },
             },
             {
-              key: 'yoda',
+              id: 'yoda',
               data: {
                 name: 'Yoda',
                 role: 'Master Jedi',
