@@ -113,7 +113,7 @@ export default Vue.extend({
 
   computed: {
     selectedDataSource(): any {
-      return this.$store.state.sources.find(d => d.key === this.dataSource);
+      return this.$store.state.sources.find((d: any) => d.key === this.dataSource);
     },
 
     namespace(): string {
