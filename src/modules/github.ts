@@ -1,4 +1,4 @@
-import { ISortState, IItemData } from 'smartdok-sunshine';
+import { ISortingState, IItemData } from 'smartdok-sunshine';
 import { ILoadResult, ILoadItemsPayload } from './types';
 import createDataModule from './createDataModule';
 
@@ -19,9 +19,9 @@ const source = createDataModule({
     loadItems: async ({ getters }, { skip, take }: ILoadItemsPayload): Promise<ILoadResult> => {
       if (skip % take !== 0) console.warn(`Expected skip (${skip}) to be a multiple of take (${take})`);
 
-      const sorting = getters.sorting as ISortState;
-      let direction = sorting.reverse ? 'desc' : 'asc';
-      let sort = sorting.key;
+      const sortingState = getters.sortingState as ISortingState;
+      let direction = sortingState.reverse ? 'desc' : 'asc';
+      let sort = sortingState.key;
       if (sort === 'created_at') sort = 'created';
       if (sort === 'updated_at') sort = 'updated';
       const page = Math.floor(skip / take) + 1;

@@ -86,7 +86,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {
-  ISortState,
+  ISortingState,
   IItem,
 } from 'smartdok-sunshine';
 import STableVuexWrapper from '../../components/STableVuexWrapper.vue';
@@ -104,10 +104,6 @@ export default Vue.extend({
       draggable: true,
       condensed: false,
       stickyColumn: false,
-      sorting: {
-        key: null,
-        reverse: false,
-      } as ISortState,
     };
   },
 

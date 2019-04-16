@@ -1,5 +1,5 @@
 import {
-  ISortState,
+  ISortingState,
   IColumnState,
   IItem,
   ISelection,
@@ -8,7 +8,7 @@ import {
 export interface IDataModuleState {
   isLoading: boolean;
   offset: number;
-  sorting: ISortState;
+  sortingState: ISortingState;
   filter: any[], // TODO type
   items: { [key: string]: IItem[] };
   total: number | null;
@@ -25,7 +25,7 @@ export interface ILoadItemsPayload {
 export type FetchData = (
   skip: number,
   take: number,
-  sorting: ISortState,
+  sortingState: ISortingState,
 ) => Promise<ILoadResult>;
 export type FetchChildren = (keyPath: string[]) => Promise<ILoadResult>;
 

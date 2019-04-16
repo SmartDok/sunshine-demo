@@ -7,7 +7,7 @@ import {
 } from 'vuex';
 import { Mutex } from 'async-mutex';
 import {
-  ISortState,
+  ISortingState,
   IItem,
   IColumn,
   IColumns,
@@ -90,10 +90,10 @@ const createDataModule = <ModuleState = {}, RootState = any>(
         total: null,
         isLoading: false,
         items: { '': [] },
-        sorting: {
+        sortingState: {
           key: null,
           reverse: false,
-        } as ISortState,
+        } as ISortingState,
         filter: [],
 
         columnsState: [],
@@ -138,19 +138,16 @@ const createDataModule = <ModuleState = {}, RootState = any>(
         return state.total;
       },
 
-      sorting(state) {
-        return state.sorting;
+      sortingState(state) {
+        return state.sortingState;
       },
 
       ...options.getters,
     },
 
     mutations: {
-      sorting: (state, key: string) => {
-        state.sorting = {
-          key,
-          reverse: state.sorting.key === key ? !state.sorting.reverse : false,
-        };
+      sortingState: (state, sortingState: ISortingState) => {
+        state.sortingState = sortingState;
       },
 
       filter(state, filter) {
@@ -198,8 +195,8 @@ const createDataModule = <ModuleState = {}, RootState = any>(
     },
 
     actions: {
-      async sort({ commit, dispatch }, key: string) {
-        commit('sorting', key);
+      async sort({ commit, dispatch }, sortingState: ISortingState) {
+        commit('sortingState', sortingState);
         await dispatch('init');
       },
 

@@ -34,7 +34,6 @@
         <props-item
           name="sortable"
           type="Boolean"
-          optional
         >
           True if it is possible to sort by this column.
         </props-item>
@@ -42,7 +41,6 @@
         <props-item
           name="hidden"
           type="Boolean"
-          optional
         >
           True if item should be hidden in the default setup.
         </props-item>
@@ -50,7 +48,6 @@
         <props-item
           name="width"
           type="Number"
-          optional
         >
           Used to set a fixed width to the column. See <b>fixed</b> prop for table.
         </props-item>
@@ -58,7 +55,6 @@
         <props-item
           name="align"
           type="String"
-          optional
         >
           Text alignment. Possible values are "left", "right" and "center".
         </props-item>
@@ -66,7 +62,6 @@
         <props-item
           name="filter"
           type="Function"
-          optional
         >
           A function that receives the data value for each cell, and returns a string
           that is used to represent the value in the table.
@@ -108,7 +103,6 @@
         <props-item
           name="icon"
           type="String"
-          optional
         >
           If the <b>outline</b> prop is true on the table, an icon is shown for each row.
           This attribute specifies the name of the icon, in the icon54 icon pack.
@@ -117,7 +111,6 @@
         <props-item
           name="subItems"
           type="Array | null"
-          optional
         >
           An array of sub-items, with the same structure as the <b>items</b> prop of the
           table itself. If undefined, or and empty array, the item has no sub-items. If
@@ -129,7 +122,6 @@
     <props-item
       name="total"
       type="Number"
-      optional
     >
       Total number of rows available. This may not be the same as the length of the current
       items, in case of incremental loading. If not defined, the number of rows is unbound,
@@ -140,7 +132,6 @@
     <props-item
       name="draggable"
       type="Boolean"
-      optional
     >
       True if it should be possible to re-order columns by dragging.
     </props-item>
@@ -148,7 +139,6 @@
     <props-item
       name="condensed"
       type="Boolean"
-      optional
     >
       True if the table should be shown in "condensed" mode, with less
       height per row.
@@ -157,10 +147,38 @@
     <props-item
       name="fixed"
       type="Boolean"
-      optional
     >
       True if table should have fixed columns widths. This requires all columns
       to have the <b>width</b> attribute set.
+    </props-item>
+
+    <props-item
+      name="sorting-state"
+      type="Object"
+    >
+      How the items are sorted. The table component itself doesn't implement
+      sorting, but it communicates to the owner how items should be sorted using
+      this prop, which supports the <code>sync</code> modifier.
+
+      <p>The object contains the following properties:</p>
+
+      <props-list>
+        <props-item
+          name="key"
+          type="String|null"
+          required
+        >
+          <b>key</b> of the columns to sort by.
+        </props-item>
+
+        <props-item
+          name="reverse"
+          type="Boolean"
+          required
+        >
+          True if sorting is reversed.
+        </props-item>
+      </props-list>
     </props-item>
   </props-list>
 </template>

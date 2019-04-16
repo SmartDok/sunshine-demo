@@ -1,4 +1,4 @@
-import { ISortState, IItem } from 'smartdok-sunshine';
+import { ISortingState, IItem } from 'smartdok-sunshine';
 import { ILoadResult, ILoadItemsPayload } from './types';
 
 type BasicFetch = () => Promise<ILoadResult>;
@@ -9,10 +9,10 @@ export default (next: BasicFetch) => (
 
     let result: ILoadResult = await next();
 
-    const sorting = getters.sorting as ISortState;
-    if (sorting.key === null) return result;
+    const sortingState = getters.sortingState as ISortingState;
+    if (sortingState.key === null) return result;
 
-    const { key, reverse } = sorting;
+    const { key, reverse } = sortingState;
 
     const keyFunc = (item: IItem) => item.data[key];
     const sortFunc = (a: IItem, b: IItem) => {

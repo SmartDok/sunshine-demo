@@ -121,7 +121,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {
-  ISortState,
+  ISortingState,
   IItem,
 } from 'smartdok-sunshine';
 import TableSourcesDemo from './TableSourcesDemo.vue';
@@ -140,10 +140,10 @@ export default Vue.extend({
       checkable: false,
       condensed: false,
       stickyColumn: false,
-      sorting: {
+      sortingState: {
         key: null,
         reverse: false,
-      } as ISortState,
+      } as ISortingState,
     };
   },
 

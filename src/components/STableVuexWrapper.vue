@@ -4,12 +4,11 @@
     :items="items"
     :total="total"
     :offset="offset"
-    :sorting="sorting"
     :columns="columns"
     :checkable="checkable"
     :selection.sync="selection"
     :columns-state.sync="columnsState"
-    @sort="onSort"
+    :sorting-state.sync="sortingState"
     @visible-rows="onVisibleRows"
     @open-item="onOpenItem"
 
@@ -31,7 +30,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {
-  ISortState, IItem, IColumn, IOrderedColumn,
+  ISortingState, IItem, IColumn, IOrderedColumn,
 } from 'smartdok-sunshine';
 import { IRequestLoadItemsPayload } from '../modules/types';
 
@@ -86,8 +85,13 @@ export default Vue.extend({
       return this.getState('total');
     },
 
-    sorting(): ISortState {
-      return this.getState('sorting');
+    sortingState: {
+      get(): ISortingState {
+        return this.getState('sortingState');
+      },
+      set(val) {
+        this.dispatchAction('sort', val);
+      },
     },
 
     ...mapToStore([
@@ -124,10 +128,6 @@ export default Vue.extend({
 
     onOpenItem(keyPath: string) {
       this.dispatchAction('requestLoadSubItems', { keyPath });
-    },
-
-    onSort(key: string) {
-      this.dispatchAction('sort', key);
     },
 
     onMoveColumn({ from, to }: {from: number, to: number}) {
