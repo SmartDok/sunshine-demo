@@ -89,7 +89,7 @@ export default Vue.extend({
       get(): ISortingState {
         return this.getState('sortingState');
       },
-      set(val) {
+      set(val: ISortingState) {
         this.dispatchAction('sort', val);
       },
     },
