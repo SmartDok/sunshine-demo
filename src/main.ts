@@ -5,6 +5,7 @@ import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
 import SmartDokUI from 'smartdok-sunshine';
 import locizer from 'locizer';
+import locizeEditor from 'locize-editor';
 import App from './App.vue';
 import router from './router';
 import Example from './components/Example.vue';
@@ -46,6 +47,13 @@ locizer.load('translations', (err, translations, detectedLng) => {
   const messages = {
     [detectedLng]: translations,
   };
+
+  locizeEditor.init({
+    lng: detectedLng,
+    defaultNS: 'translations',
+    referenceLng: 'en',
+    projectId: '3773bbf9-2768-4712-9eba-d2bd5d73601c',
+  });
 
   // Create VueI18n instance with options
   const i18n = new VueI18n({
