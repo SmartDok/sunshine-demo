@@ -1,11 +1,8 @@
 <template>
   <div>
-    <h1>Accordion</h1>
-    <p class="help">
-      The <code>s-accordion</code> is a vertically stacked list of one or several
-      <code>s-accordion-item</code>(s). Each item can be expanded or collapsed to reveal
-      the content of that item.
-    </p>
+    <s-breadcrumb to="/accordion">
+      Accordion
+    </s-breadcrumb>
 
     <h2>Basic</h2>
     <example
@@ -13,27 +10,22 @@
       max-width="28rem"
     />
 
-    <router-link
-      to="examples"
-      class="s-link"
-    >
-      View more examples
-    </router-link>
+    <h2>Linked state</h2>
+    <section class="help">
+      <p>
+        In a linked accordion, only one item can be open at a time.
+        When opening one item, the other ones are closed.
+      </p>
 
-    <h1>API</h1>
-    <s-tabs>
-      <s-tab to="props">
-        Props
-      </s-tab>
-      <s-tab to="slots">
-        Slots
-      </s-tab>
-      <s-tab to="events">
-        Events
-      </s-tab>
-    </s-tabs>
+      <p>
+        Using heading props instead of slots.
+      </p>
+    </section>
 
-    <router-view />
+    <example
+      :code="linked"
+      max-width="28rem"
+    />
   </div>
 </template>
 
@@ -41,7 +33,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'AccordionDemo',
+  name: 'AccordionExamples',
 
   computed: {
     code() {
@@ -90,6 +82,33 @@ export default Vue.extend({
     </s-accordion>
       `;
     },
+
+    linked() {
+      return `\
+    <s-accordion linked>
+      <s-accordion-item heading="First">
+        <s-alert success>First content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Second">
+        <s-alert warning>Second content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Third">
+        <s-alert error>Third content</s-alert>
+      </s-accordion-item>
+    </s-accordion>
+      `;
+    },
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import 'smartdok-sunshine/src/style/tools.scss';
+
+.help {
+  @include paragraph-font;
+  color: $grayer;
+}
+</style>

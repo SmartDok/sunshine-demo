@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div class="flex-column">
+    <s-breadcrumb to="/table">
+      Table
+    </s-breadcrumb>
+
     <div class="options">
       <s-drop-down
         v-model="dataSource"

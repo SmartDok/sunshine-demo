@@ -1,24 +1,23 @@
 <template>
   <div>
-    <div class="header">
-      <h1>Filter</h1>
+    <h1>Filter</h1>
+    <div class="help">
+      <p>
+        The <code>s-filter-drop-down</code> component is a filter with predefined groups,
+        and items to filter by in these groups. The available groups and theire <br>
+        respective filter items is accessed by using the components dropdown list.
+        When typing in the input field suggestions will pop up in the dropdown list.
+      </p>
+      <p>
+        Several filter items can be active at the same time. When a filter item
+        is chosen its visually represented as a 'box' in the input field. <br>
+        A filter item can be removed by closing the 'box' or using the backspace key.
+      </p>
+      <p>
+        The component supports navigation and selection of filter items by using the arrow,
+        enter, space and escape key(s).
+      </p>
     </div>
-
-    <p class="help">
-      The <b>s-filter-drop-down</b> component is a filter with predefined groups,
-      and items to filter by in these groups. The available groups and theire <br>
-      respective filter items is accessed by using the components dropdown list.
-      When typing in the input field suggestions will pop up in the dropdown list.
-    </p>
-    <p class="help">
-      Several filter items can be active at the same time. When a filter item
-      is chosen its visually represented as a 'box' in the input field. <br>
-      A filter item can be removed by closing the 'box' or using the backspace key.
-    </p>
-    <p class="help">
-      The component supports navigation and selection of filter items by using the arrow,
-      enter, space and escape key(s).
-    </p>
 
     <br>
 
@@ -39,10 +38,7 @@
 
     <br>
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -204,3 +200,12 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import 'smartdok-sunshine/src/style/tools.scss';
+
+.help {
+  @include paragraph-font;
+  color: $grayer;
+}
+</style>

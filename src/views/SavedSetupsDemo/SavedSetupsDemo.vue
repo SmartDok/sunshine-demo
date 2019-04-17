@@ -1,17 +1,16 @@
 <template>
   <div class="drop-down-demo">
-    <div class="header">
-      <h1>Saved setups</h1>
+    <h1>Saved setups</h1>
+    <div class="help">
+      <p>
+        The <code>s-saved-setups</code> component adds the ability to save, edit and retrieve
+        settings  for the <a href="http://localhost:8080/table/props"><code>s-table</code></a> component.
+      </p>
+      <p>
+        Creation of a new setup or editing an existing one is done in a dialog, which is visible
+        after one of these options has been selected in the components dropdown list.
+      </p>
     </div>
-
-    <p class="help">
-      The <b>s-saved-setups</b> component adds the ability to save, edit and retrieve settings
-      for the <a href="http://localhost:8080/table/props"><b>s-table</b></a> component.
-    </p>
-    <p class="help">
-      Creation of a new setup or editing an existing one is done in a dialog, which is visible
-      after one of these options has been selected in the components dropdown list.
-    </p>
 
     <br>
 
@@ -27,10 +26,7 @@
       max-width="16rem"
     />
 
-    <div class="header">
-      <h1>API</h1>
-    </div>
-
+    <h1>API</h1>
     <s-tabs>
       <s-tab to="props">
         Props
@@ -44,11 +40,6 @@
     </s-tabs>
 
     <router-view />
-
-    <!--div class="header">
-      <h1>Examples</h1>
-    </div-->
-
     <todo-list />
   </div>
 </template>
