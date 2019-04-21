@@ -5,9 +5,34 @@
       The <code>s-datepicker</code> component is for selecting a date or a range of dates.
     </p>
 
-    <br>
+    <h2>With range</h2>
 
-    <s-datepicker />
+    <example
+      :code="`\
+  <s-date-range
+    withMenu
+    v-model=&quot;period&quot;
+    :filter=&quot;filter&quot;
+    label=&quot;Period&quot;
+    localeString=&quot;nb&quot;
+  />`"
+      :data="{
+        period: { from: {}, to: {} },
+        filter: { option: 'Current', period: 'Month' },
+      }"
+      max-width="24rem"
+    />
+
+    <h2>Single date</h2>
+    <example
+      :code="`\
+  <s-date-single
+    v-model=&quot;date&quot;
+    label=&quot;Dato&quot;
+  />`"
+      :data="{ date: {} }"
+      max-width="24rem"
+    />
 
     <h1>API</h1>
     <s-tabs>
@@ -25,12 +50,17 @@
     <router-view />
 
     <todo-list>
-      <todo>Toggle datepicker with a SMenu component or an input-field</todo>
-      <todo>Move info about selected period to input-field</todo>
+      <todo>
+        Selected current month should send filter "current month" and not
+        just dates (ie. 01.03.2019 - 31.03.2019)
+      </todo>
       <todo>Scroll to month if selected period is outside viewable months</todo>
+      <todo>Add ability to zoom out: month-view, year-view</todo>
+      <todo>Styling of multiple inputs</todo>
       <todo>Add arrow-navigation on focus</todo>
       <todo>Make sure text wraps correctly if datepicker width changes</todo>
       <todo>Add possibilities to choose user-defined periods in menu</todo>
+      <todo>Handle toDate before fromDate</todo>
     </todo-list>
   </div>
 </template>
