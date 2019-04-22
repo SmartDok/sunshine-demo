@@ -12,13 +12,11 @@
   <s-date-range
     withMenu
     v-model=&quot;period&quot;
-    :filter=&quot;filter&quot;
     label=&quot;Period&quot;
     localeString=&quot;nb&quot;
   />`"
       :data="{
-        period: { from: {}, to: {} },
-        filter: { option: 'Current', period: 'Month' },
+        period: { from: null, to: null, preset: null },
       }"
       max-width="24rem"
     />

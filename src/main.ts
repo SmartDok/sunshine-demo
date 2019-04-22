@@ -39,6 +39,19 @@ const i18n = new VueI18n({
     en: {
       save: 'Save',
       restore: 'Restore',
+
+      datepicker: {
+        option: {
+          current: 'Current',
+          next: 'Next',
+          previous: 'Previous',
+        },
+        period: {
+          day: 'Day',
+          month: 'Month',
+          week: 'Week',
+        },
+      },
     },
 
     nb: {
