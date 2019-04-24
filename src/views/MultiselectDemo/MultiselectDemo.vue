@@ -12,7 +12,7 @@
 
     <example
       :code="standard"
-      :data="{ items, selected }"
+      :data="{ data: { items }, selected }"
     />
 
     <h1>API</h1>
@@ -32,8 +32,9 @@
 
     <todo-list>
       <todo>Clarify design issues. Buttons, icons, SEARCHBAR! </todo>
+      <todo>Hover effect is ugly.</todo>
       <todo>Add drag and drop</todo>
-      <todo>Add shift +  click</todo>
+      <todo>Add shift + click</todo>
     </todo-list>
   </div>
 </template>
@@ -81,7 +82,7 @@ export default Vue.extend({
     standard() {
       return `\
   <p style="width: 60rem;">
-    <s-multiselect left-label="Left" right-label="Right" :items="items" v-model="selected" />
+    <s-multiselect left-label="Left" right-label="Right" :items="data.items" v-model="selected" />
   </p>`;
     },
   },

@@ -179,9 +179,7 @@
     <router-view />
 
     <todo-list>
-      <todo>Define layout (width, margin, padding).</todo>
       <todo>Inline layout (main page content and inspector side-by-side with spacing between.</todo>
-      <todo>Proper layout on legacy pages, with space for SmartDok header above.</todo>
       <todo>Responsive layout (switch to modal on small screens?)</todo>
       <todo>Define inspector header according to design (back arrow etc.)</todo>
     </todo-list>

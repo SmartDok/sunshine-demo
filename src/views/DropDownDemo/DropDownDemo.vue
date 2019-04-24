@@ -66,10 +66,6 @@
         Pending data/loading state (shown in design for text field, but
         actually more relevant for drop-down).
       </todo>
-      <todo>
-        Manage selection with keys instead of object identity (currently,
-        if items are updated, selection is cleared).
-      </todo>
     </todo-list>
   </div>
 </template>

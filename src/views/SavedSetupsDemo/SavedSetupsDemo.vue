@@ -40,7 +40,6 @@
     </s-tabs>
 
     <router-view />
-    <todo-list />
   </div>
 </template>
 

@@ -23,12 +23,14 @@
     checkable
     draggable
     sticky-column
+    :selection.sync=&quot;selection&quot;
     :columns=&quot;data.columns&quot;
     :items=&quot;data.items&quot;
     :total=&quot;data.items.length&quot;
   />
       `"
       :data="{
+        selection: undefined,
         data: {
           items: [
             {
