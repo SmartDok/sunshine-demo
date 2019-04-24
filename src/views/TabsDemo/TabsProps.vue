@@ -1,16 +1,14 @@
 <template>
   <div>
-    <h2 class="help">
+    <h2>
       s-tabs
     </h2>
 
     <props-list>
-      <props-item name="">
-        None
-      </props-item>
+      None
     </props-list>
 
-    <h2 class="help">
+    <h2>
       s-tab
     </h2>
 

@@ -8,7 +8,7 @@
 
     <h2>Standard checkbox</h2>
     <example
-      :code="`<s-checkbox v-model=&quot;checked&quot;>Checkbox</s-checkbox>`"
+      :code="code"
       :data="{checked: false}"
     />
 
@@ -41,5 +41,13 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'CheckboxDemo',
+
+  data() {
+    return {
+      code: `
+        <s-checkbox v-model="checked">Checkbox</s-checkbox>
+      `,
+    };
+  },
 });
 </script>

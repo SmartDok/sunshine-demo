@@ -1,8 +1,6 @@
 <template>
   <props-list>
-    <props-item name="">
-      None exposed at the time.
-    </props-item>
+    TODO
   </props-list>
 </template>
 

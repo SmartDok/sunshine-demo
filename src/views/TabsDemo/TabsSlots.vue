@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="help">
+    <h2>
       s-tabs
     </h2>
 
@@ -10,7 +10,7 @@
       </props-item>
     </props-list>
 
-    <h2 class="help">
+    <h2>
       s-tab
     </h2>
 

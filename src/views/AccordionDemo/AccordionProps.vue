@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="help">
+    <h2>
       s-accordion
     </h2>
 
@@ -13,7 +13,7 @@
       </props-item>
     </props-list>
 
-    <h2 class="help">
+    <h2>
       s-accordion-item
     </h2>
 

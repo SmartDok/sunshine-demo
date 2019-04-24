@@ -20,7 +20,7 @@
         v-if="activeTab === 'code'"
         class="example-pre"
         language="html"
-        :code="code"
+        :code="cleanCode"
       />
       <highlight
         v-if="activeTab === 'state'"
@@ -42,6 +42,33 @@
 import Vue from 'vue';
 import Highlight from 'vue-highlight-component';
 import 'highlight.js/styles/vs2015.css';
+
+const cleanUpWhiteSpace = (code: string): string => {
+  let lines = code.replace(/\r\n/g, '\n').split('\n');
+
+  let indent: number | null = null;
+
+  // Remove extra indentation
+  lines = lines.map(l => {
+    const ind = l.search(/[^\s]/);
+    if (ind === -1) return '';
+    if (indent !== null) {
+      return l.slice(Math.min(ind, indent));
+    } else {
+      indent = ind;
+      return l.slice(indent);
+    }
+  });
+
+  // Remove leading and trailing empty lines
+  const isNoneEmpty = (l: string) => l.length !== 0;
+  lines = lines.filter((l, i) => (
+    lines.findIndex(isNoneEmpty) <= i &&
+    lines.slice(i).findIndex(isNoneEmpty) !== -1
+  ));
+
+  return lines.join('\n');
+};
 
 export default Vue.extend({
   name: 'Example',
@@ -84,6 +111,10 @@ export default Vue.extend({
   },
 
   computed: {
+    cleanCode(): string {
+      return cleanUpWhiteSpace(this.code);
+    },
+
     tabs(): string[] {
       const tabs = ['code'];
       const { data, ...state } = this.componentData;

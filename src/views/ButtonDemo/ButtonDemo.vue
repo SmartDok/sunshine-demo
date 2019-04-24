@@ -45,9 +45,10 @@ export default Vue.extend({
 
   computed: {
     standard() {
-      return `\
-  <s-button @click="clicked -= 1">Normal button</s-button>
-  <s-button primary @click="clicked += 1">Primary button</s-button>`;
+      return `
+        <s-button @click="clicked -= 1">Normal button</s-button>
+        <s-button primary @click="clicked += 1">Primary button</s-button>
+      `;
     },
   },
 });

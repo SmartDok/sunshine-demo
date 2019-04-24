@@ -7,10 +7,9 @@
       showing a label and error messages.
     </p>
 
-    <h2>Standard inputs</h2>
     <example
-      :code="standard"
-      :data="{name: '', phone: '', number: '', email: '', password: ''}"
+      :code="code"
+      :data="{text: ''}"
       max-width="16rem"
     />
 
@@ -51,19 +50,16 @@ export default Vue.extend({
 
   data() {
     return {
-      text: '',
+      code: `
+        <s-text-field
+          v-model="name"
+          label="Field label"
+        />
+      `,
     };
   },
 
   computed: {
-    standard() {
-      return `\
-  <s-text-field v-model="name" label="Project name" />
-  <s-text-field v-model="phone" phone label="Phone number" />
-  <s-text-field v-model="number" number label="Number" />
-  <s-text-field v-model="email" email label="Email" />
-  <s-text-field v-model="password" password label="Password" />`;
-    },
   },
 });
 </script>

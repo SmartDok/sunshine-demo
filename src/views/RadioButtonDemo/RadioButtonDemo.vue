@@ -39,11 +39,12 @@ export default Vue.extend({
 
   computed: {
     template() {
-      return `\
-  <s-radio-button v-model="option" value="1">Option 1</s-radio-button>
-  <s-radio-button v-model="option" value="2">Option 2</s-radio-button>
-  <s-radio-button v-model="option" inactive value="inactive">Inactive</s-radio-button>
-  <s-radio-button v-model="option" value="foobar">Option foobar</s-radio-button>`;
+      return `
+        <s-radio-button v-model="option" value="1">Option 1</s-radio-button>
+        <s-radio-button v-model="option" value="2">Option 2</s-radio-button>
+        <s-radio-button v-model="option" inactive value="inactive">Inactive</s-radio-button>
+        <s-radio-button v-model="option" value="foobar">Option foobar</s-radio-button>
+      `;
     },
   },
 });

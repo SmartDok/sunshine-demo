@@ -1,9 +1,7 @@
 <template>
   <div>
     <props-list>
-      <props-item name="">
-        None
-      </props-item>
+      None
     </props-list>
   </div>
 </template>

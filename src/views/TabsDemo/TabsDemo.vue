@@ -22,6 +22,19 @@
       :code="standard"
     />
 
+    <s-tabs>
+      <s-tab to="props">
+        Props
+      </s-tab>
+      <s-tab to="slots">
+        Slots
+      </s-tab>
+      <s-tab to="events">
+        Events
+      </s-tab>
+    </s-tabs>
+    <router-view />
+
     <todo-list>
       <todo>
         Decouple from vue-router, to support more use-cases, including a
@@ -41,13 +54,20 @@ export default Vue.extend({
   computed: {
     standard() {
       return `\
-    <s-tabs>
-      <s-tab to="props">Props</s-tab>
-      <s-tab to="slots">Slots</s-tab>
-      <s-tab to="events">Events</s-tab>
-    </s-tabs>
-    <router-view />
-    `;
+        <s-tabs>
+          <s-tab to="?one">
+            One
+          </s-tab>
+
+          <s-tab to="?two">
+            Two
+          </s-tab>
+
+          <s-tab to="?three">
+            Three
+          </s-tab>
+        </s-tabs>
+      `;
     },
   },
 });
