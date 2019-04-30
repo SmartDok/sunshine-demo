@@ -99,7 +99,12 @@ export default Vue.extend({
 
     maxWidth: {
       type: String,
-      default: '1fr',
+      default: 'auto',
+    },
+
+    inline: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -138,15 +143,20 @@ export default Vue.extend({
     },
 
     component(): object {
-      const { maxWidth } = this;
+      const { maxWidth, inline } = this;
       return {
         name: 'DynamicExampleComponent',
-        template: `<div :style="style">${this.code}</div>`,
+        template: `<div :class="classes" :style="style">${this.code}</div>`,
         computed: {
+          classes() {
+            return {
+              'example-component': true,
+              'example-component--inline': inline,
+            };
+          },
+
           style() {
             return {
-              display: 'grid',
-              'grid-gap': '1rem',
               'grid-template-columns': `minmax(0, ${maxWidth})`,
             };
           },
@@ -216,5 +226,21 @@ export default Vue.extend({
   flex: 1;
   min-height: 0;
   font-family: monospace;
+}
+</style>
+
+<style lang="scss">
+.example-component {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-columns: auto;
+}
+
+.example-component--inline {
+  display: inline-grid;
+
+  > * {
+    grid-row: 1;
+  }
 }
 </style>
