@@ -18,7 +18,7 @@
       :data="{
         period: { from: null, to: null, preset: null },
       }"
-      max-width="24rem"
+      max-width="14rem"
     />
 
     <h2>Single date</h2>
@@ -29,7 +29,7 @@
     label=&quot;Dato&quot;
   />`"
       :data="{ date: {} }"
-      max-width="24rem"
+      max-width="12rem"
     />
 
     <h1>API</h1>
