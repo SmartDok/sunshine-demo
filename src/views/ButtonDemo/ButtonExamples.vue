@@ -8,25 +8,31 @@
     <example
       :code="standard"
       :data="{clicked: 0}"
-      max-width="12rem"
+      inline
     />
 
-    <h2>Danger button</h2>
+    <h2>Dangerous button</h2>
     <example
-      :code="`<s-button danger>Delete</s-button>`"
-      max-width="12rem"
+      code="<s-button danger>Delete</s-button>"
+      inline
+    />
+
+    <h2>Special buttons</h2>
+    <example
+      :code="special"
+      inline
     />
 
     <h2>Inactive buttons</h2>
     <example
       :code="inactive"
-      max-width="12rem"
+      inline
     />
 
     <h2>Smaller version</h2>
     <example
       :code="smaller"
-      max-width="10rem"
+      inline
     />
   </div>
 </template>
@@ -39,21 +45,58 @@ export default Vue.extend({
 
   computed: {
     standard() {
-      return `\
-  <s-button @click="clicked -= 1">Normal button</s-button>
-  <s-button primary @click="clicked += 1">Primary button</s-button>`;
+      return `
+        <s-button @click="clicked -= 1">Normal button</s-button>
+        <s-button primary @click="clicked += 1">Primary button</s-button>
+      `;
     },
 
     inactive() {
-      return `\
-  <s-button inactive>Secondary inactive</s-button>
-  <s-button primary inactive>Primary inactive</s-button>`;
+      return `
+        <s-button inactive>Secondary inactive</s-button>
+        <s-button primary inactive>Primary inactive</s-button>
+      `;
     },
 
     smaller() {
-      return `\
-  <s-button small>Secondary</s-button>
-  <s-button small primary>Primary</s-button>`;
+      return `
+        <s-button small>Secondary</s-button>
+        <s-button small primary>Primary</s-button>
+      `;
+    },
+
+    special() {
+      return `
+        <s-button square>
+          <s-icon
+            :rotate="90"
+            name="arrow"
+            package="sunshine24"
+          />
+        </s-button>
+
+        <s-button square>
+          <s-icon
+            :rotate="-90"
+            name="arrow"
+            package="sunshine24"
+          />
+        </s-button>
+
+        <s-button round>
+          <s-icon
+            name="export"
+            package="sunshine24"
+          />
+        </s-button>
+
+        <s-button round>
+          <s-icon
+            name="more"
+            package="sunshine24"
+          />
+        </s-button>
+      `;
     },
   },
 });
