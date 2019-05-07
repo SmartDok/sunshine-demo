@@ -92,11 +92,6 @@
         Toogle inspector
       </s-button>
     </div>
-
-    <!-- <example
-      :code="example"
-      :data="$data"
-    /> -->
   </div>
 </template>
 
@@ -135,9 +130,11 @@ export default Vue.extend({
   // import from inspector.scss or import inspector.scss into demo?
   $inspector-width: base-spacing(46);
   $inspector-padding: base-spacing(4);
+  $duration-normal: 0.15s;
 
   .container {
     margin-right: auto;
+    transition: left $duration-normal;
     &--resize {
       margin-right: $inspector-width - $inspector-padding;
     }
