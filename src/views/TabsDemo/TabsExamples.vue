@@ -110,7 +110,9 @@ export default Vue.extend({
   watch: {
     open(val, oldVal) {
       if (val !== oldVal) {
-        window.dispatchEvent(new Event('resize'));
+        // Hack. We must wait until transition is done before Stabs recalculates.
+        // Vue.nextTick doesnt help. Use <transition> ?
+        setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 200);
       }
     },
   },
