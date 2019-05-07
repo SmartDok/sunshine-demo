@@ -3,44 +3,43 @@
     <s-breadcrumb to="/tabs">
       Tabs
     </s-breadcrumb>
-
-    <p class="help">
-      If the <code>s-tabs</code> component contains more <code>s-tab</code>
-      items than the components can show scroll buttons becomes visible.
-      <br> This <code>s-tabs</code> component reacts to both screen resizing and e.g. when the
-      <code>s-inspector</code> becomes visible. <br> <br>
-      Walking through the <code>s-tab</code> items by pressing tab is also supported.
-    </p>
-
-    <s-inspector v-model="open">
-      <s-inspector-page
-        @submit.prevent="open = false"
-      >
-        <template v-slot:header>
-          <h1>Inspector</h1>
-          <h2>02.05.2019</h2>
-        </template>
-
-        <template v-slot:footer>
-          <div style="text-align: center;">
-            <s-button
-              primary
-              submit
-            >
-              Lukk
-            </s-button>
-          </div>
-        </template>
-
-        <img
-          height="370"
-          width="300"
-          src="./gul_logo_rgb.png"
-        >
-      </s-inspector-page>
-    </s-inspector>
-
     <div :class="{ 'container' : true, 'container--resize' : this.open }">
+      <p class="help">
+        If the <code>s-tabs</code> component contains more <code>s-tab</code>
+        items than the components can show scroll buttons becomes visible.
+        <br> This <code>s-tabs</code> component reacts to both screen resizing and e.g. when the
+        <code>s-inspector</code> becomes visible. <br> <br>
+        Walking through the <code>s-tab</code> items by pressing tab is also supported.
+      </p>
+
+      <s-inspector v-model="open">
+        <s-inspector-page
+          @submit.prevent="open = false"
+        >
+          <template v-slot:header>
+            <h1>Inspector</h1>
+            <h2>02.05.2019</h2>
+          </template>
+
+          <template v-slot:footer>
+            <div style="text-align: center;">
+              <s-button
+                primary
+                submit
+              >
+                Lukk
+              </s-button>
+            </div>
+          </template>
+
+          <img
+            height="370"
+            width="300"
+            src="./gul_logo_rgb.png"
+          >
+        </s-inspector-page>
+      </s-inspector>
+
       <s-tabs>
         <s-tab to="?1">
           Menu item 1
@@ -126,17 +125,14 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   @import '../../demo.scss';
-
-  // import from inspector.scss or import inspector.scss into demo?
-  $inspector-width: base-spacing(46);
-  $inspector-padding: base-spacing(4);
-  $duration-normal: 0.15s;
+  @import '../../../../sunshine/src/style/components/inspector.scss';
+  @import '../../../../sunshine/src/style/transitions.scss';
 
   .container {
-    margin-right: auto;
-    transition: left $duration-normal;
+    margin-right: 0;
+    transition: margin-right $duration-normal;
     &--resize {
-      margin-right: $inspector-width - $inspector-padding;
+      margin-right: $inspector-width;
     }
   }
 </style>
