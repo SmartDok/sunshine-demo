@@ -15,6 +15,7 @@
     "highlight.js": "^9.14.2",
     "moment": "^2.24.0",
     "smartdok-sunshine": "smartdok/sunshine#v0.13.0",
+    "v-tooltip": "^2.0.2",
     "vee-validate": "^2.1.7",
     "vue": "^2.6.6",
     "vue-highlight-component": "^1.0.0",

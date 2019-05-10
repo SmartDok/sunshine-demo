@@ -43,6 +43,9 @@
       <router-link to="/alerts">
         Alert
       </router-link>
+      <router-link to="/tooltip">
+        Tooltip
+      </router-link>
 
       <h3>Structural</h3>
       <router-link to="/tabs">

@@ -85,6 +85,9 @@ import TextFieldEvents from '@/views/TextFieldDemo/TextFieldEvents.vue';
 import TextFieldProps from '@/views/TextFieldDemo/TextFieldProps.vue';
 import TextFieldSlots from '@/views/TextFieldDemo/TextFieldSlots.vue';
 import ValidationDemo from '@/views/ValidationDemo/ValidationDemo.vue';
+import TooltipDemo from '@/views/TooltipDemo/TooltipDemo.vue';
+import TooltipExamples from '@/views/TooltipDemo/TooltipExamples.vue';
+import TooltipDocs from '@/views/TooltipDemo/TooltipDocs.vue';
 
 
 Vue.use(Router);
@@ -96,6 +99,21 @@ export default new Router({
     {
       path: '/',
       redirect: '/button',
+    },
+    {
+      path: '/tooltip',
+      component: TooltipDemo,
+      children: [
+        {
+          path: '',
+          name: 'tooltip',
+          redirect: 'docs',
+        },
+        {
+          path: 'docs',
+          component: TooltipDocs,
+        },
+      ],
     },
     {
       path: '/button',
@@ -586,6 +604,11 @@ export default new Router({
       path: '/examples-table',
       alias: '/table/examples',
       component: TableSourcesDemo,
+    },
+    {
+      path: '/examples-tooltip',
+      alias: '/tooltip/examples',
+      component: TooltipExamples,
     },
   ],
 });

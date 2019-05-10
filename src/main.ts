@@ -3,6 +3,7 @@ import './demo.scss';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
+import { VTooltip, VPopover, VClosePopover } from 'v-tooltip';
 import SmartDokUI from 'smartdok-sunshine';
 import App from './App.vue';
 import router from './router';
@@ -14,7 +15,16 @@ import PropsItem from './components/PropsItem.vue';
 
 import store from './store';
 
+// Import the VTooltip scss
+require('../../sunshine/src/style/components/tooltip.scss');
+
+// Set the VTooltip scss
+VTooltip.options.defaultClass = 'tooltip';
 Vue.config.productionTip = false;
+
+Vue.directive('tooltip', VTooltip);
+Vue.directive('close-popover', VClosePopover);
+Vue.component('v-popover', VPopover);
 
 Vue.use(VueI18n);
 Vue.use(VeeValidate, {
