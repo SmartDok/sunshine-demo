@@ -123,11 +123,8 @@ const createDataModule = <ModuleState = {}, RootState = any>(
 
       selectedItems: state => {
         // TODO Include sub-items
-        let { active, selected } = state.selection;
-        if (active && selected.length === 0) {
-          selected = [active];
-        }
-        return state.items[''].filter(item => selected.includes(item.id) !== state.selection.inverted);
+        const { selected, inverted } = state.selection;
+        return state.items[''].filter(item => selected.includes(item.id) !== inverted);
       },
 
       offset(state) {
