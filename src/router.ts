@@ -71,6 +71,7 @@ import TableEvents from '@/views/TableDemo/TableEvents.vue';
 import TableProps from '@/views/TableDemo/TableProps.vue';
 import TableSlots from '@/views/TableDemo/TableSlots.vue';
 import TabsDemo from '@/views/TabsDemo/TabsDemo.vue';
+import TabsExamples from '@/views/TabsDemo/TabsExamples.vue';
 import TabsEvents from '@/views/TabsDemo/TabsEvents.vue';
 import TabsProps from '@/views/TabsDemo/TabsProps.vue';
 import TabsSlots from '@/views/TabsDemo/TabsSlots.vue';
@@ -586,6 +587,11 @@ export default new Router({
       path: '/examples-table',
       alias: '/table/examples',
       component: TableSourcesDemo,
+    },
+    {
+      path: '/examples-tabs',
+      alias: '/tabs/examples',
+      component: TabsExamples,
     },
   ],
 });
