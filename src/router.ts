@@ -49,10 +49,11 @@ import IconDemo from '@/views/IconDemo/IconDemo.vue';
 import IconEvents from '@/views/IconDemo/IconEvents.vue';
 import IconProps from '@/views/IconDemo/IconProps.vue';
 import IconSlots from '@/views/IconDemo/IconSlots.vue';
-import InspectorDemo from './views/InspectorDemo/InspectorDemo.vue';
-import InspectorEvents from './views/InspectorDemo/InspectorEvents.vue';
-import InspectorProps from './views/InspectorDemo/InspectorProps.vue';
-import InspectorSlots from './views/InspectorDemo/InspectorSlots.vue';
+import InspectorDemo from '@/views/InspectorDemo/InspectorDemo.vue';
+import InspectorExample from '@/views/InspectorDemo/InspectorExample.vue';
+import InspectorEvents from '@/views/InspectorDemo/InspectorEvents.vue';
+import InspectorProps from '@/views/InspectorDemo/InspectorProps.vue';
+import InspectorSlots from '@/views/InspectorDemo/InspectorSlots.vue';
 import MultiselectDemo from '@/views/MultiselectDemo/MultiselectDemo.vue';
 import MultiselectEvents from '@/views/MultiselectDemo/MultiselectEvents.vue';
 import MultiselectProps from '@/views/MultiselectDemo/MultiselectProps.vue';
@@ -75,6 +76,7 @@ import TabsExamples from '@/views/TabsDemo/TabsExamples.vue';
 import TabsEvents from '@/views/TabsDemo/TabsEvents.vue';
 import TabsProps from '@/views/TabsDemo/TabsProps.vue';
 import TabsSlots from '@/views/TabsDemo/TabsSlots.vue';
+import TabsInspectorExample from '@/views/TabsDemo/InspectorExample.vue';
 import TextAreaDemo from '@/views/TextAreaDemo/TextAreaDemo.vue';
 import TextAreaExamples from '@/views/TextAreaDemo/TextAreaExamples.vue';
 import TextAreaEvents from '@/views/TextAreaDemo/TextAreaEvents.vue';
@@ -284,7 +286,10 @@ export default new Router({
     },
     {
       path: '/inspector',
-      component: InspectorDemo,
+      components: {
+        default: InspectorDemo,
+        inspector: InspectorExample,
+      },
       children: [
         {
           path: '',
@@ -591,7 +596,10 @@ export default new Router({
     {
       path: '/examples-tabs',
       alias: '/tabs/examples',
-      component: TabsExamples,
+      components: {
+        default: TabsExamples,
+        inspector: TabsInspectorExample,
+      },
     },
   ],
 });

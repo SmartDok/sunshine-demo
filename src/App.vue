@@ -1,7 +1,8 @@
 <template>
-  <div
+  <s-page-layout
     id="app"
     class="main-layout"
+    :show-inspector="$root.showInspector"
   >
     <div class="language-select">
       <a
@@ -97,7 +98,13 @@
         <router-view />
       </transition>
     </div>
-  </div>
+
+    <template v-slot:inspector>
+      <router-view name="inspector">
+        No content
+      </router-view>
+    </template>
+  </s-page-layout>
 </template>
 
 <script lang="ts">

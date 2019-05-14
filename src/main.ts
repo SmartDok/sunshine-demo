@@ -66,10 +66,23 @@ const i18n = new VueI18n({
   },
 });
 
-new Vue({
+const vm = new Vue({
   router,
   store,
   i18n,
 
+  data: {
+    showInspector: false,
+  },
+
   render: (h) => h(App),
 }).$mount('#app');
+
+// Hide inspector when changing page
+router.beforeEach((to, from, next) => {
+  if (to.path !== from.path) {
+    vm.showInspector = false;
+  }
+
+  next();
+});

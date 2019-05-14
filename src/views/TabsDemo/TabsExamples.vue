@@ -3,42 +3,19 @@
     <s-breadcrumb to="/tabs">
       Tabs
     </s-breadcrumb>
-    <div :class="{ 'container' : true, 'container--resize' : this.open }">
+
+    <div>
       <p class="help">
         If the <code>s-tabs</code> component contains more <code>s-tab</code>
-        items than the components can show scroll buttons becomes visible.
-        <br> This <code>s-tabs</code> component reacts to both screen resizing and e.g. when the
-        <code>s-inspector</code> becomes visible. <br> <br>
-        Walking through the <code>s-tab</code> items by pressing tab is also supported.
+        items than the component can show, then scroll buttons become visible.
+        The component reacts to both screen resizing and e.g. when the
+        <code>s-inspector</code> becomes visible.
       </p>
 
-      <s-inspector v-model="open">
-        <s-inspector-page
-          @submit.prevent="open = false"
-        >
-          <template v-slot:header>
-            <h1>Inspector</h1>
-            <h2>02.05.2019</h2>
-          </template>
-
-          <template v-slot:footer>
-            <div style="text-align: center;">
-              <s-button
-                primary
-                submit
-              >
-                Lukk
-              </s-button>
-            </div>
-          </template>
-
-          <img
-            height="370"
-            width="300"
-            src="./gul_logo_rgb.png"
-          >
-        </s-inspector-page>
-      </s-inspector>
+      <p class="help">
+        Walking through the <code>s-tab</code> items by pressing the tab key
+        is also supported.
+      </p>
 
       <s-tabs>
         <s-tab to="?1">
@@ -87,7 +64,8 @@
           Menu item 15
         </s-tab>
       </s-tabs>
-      <s-button @click="open = !open">
+
+      <s-button @click="$root.showInspector = !$root.showInspector">
         Toogle inspector
       </s-button>
     </div>
@@ -99,42 +77,5 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'TabsExamples',
-
-  data() {
-    return {
-      text: '',
-      open: false,
-    };
-  },
-
-  watch: {
-    open(val, oldVal) {
-      if (val !== oldVal) {
-        // Hack. We must wait until transition is done before Stabs recalculates.
-        // Vue.nextTick doesnt help. Use <transition> ?
-        setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 200);
-      }
-    },
-  },
-
-  computed: {
-    example() {
-      return '';
-    },
-  },
 });
 </script>
-
-<style lang="scss" scoped>
-  @import '../../demo.scss';
-  @import '../../../../sunshine/src/style/components/inspector.scss';
-  @import '../../../../sunshine/src/style/transitions.scss';
-
-  .container {
-    margin-right: 0;
-    transition: margin-right $duration-normal;
-    &--resize {
-      margin-right: $inspector-width;
-    }
-  }
-</style>
