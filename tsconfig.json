@@ -27,6 +27,9 @@
       "scripthost"
     ]
   },
+  "files": [
+    "node_modules/smartdok-sunshine/src/shims-classHelper.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
