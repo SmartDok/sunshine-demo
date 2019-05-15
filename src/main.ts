@@ -35,14 +35,25 @@ Vue.component('todo', TodoItem);
 Vue.component('props-list', PropsList);
 Vue.component('props-item', PropsItem);
 
+const ProjectId = '3773bbf9-2768-4712-9eba-d2bd5d73601c';
+const ApiKey = process.env.VUE_APP_LOCIZE_API_KEY || undefined;
+const Namespace = 'translations';
+
+// Reference language is the original language used during development
+const ReferenceLng = 'en';
+
+// Fallback language is the language that is used in production, if the detected
+// language is not supported
+const FallbackLng = 'en';
+
 locizer.init({
-  fallbackLng: 'en', // load this if detected lng is not support
-  referenceLng: 'en', // the source language
-  projectId: '3773bbf9-2768-4712-9eba-d2bd5d73601c', // your locize project id
-  apiKey: 'f9a57b12-5a45-4daa-8beb-c3433ba4a5a3', // your locize api key
+  fallbackLng: FallbackLng,
+  referenceLng: ReferenceLng,
+  projectId: ProjectId,
+  apiKey: ApiKey,
 });
 
-locizer.load('translations', (err, translations, detectedLng) => {
+locizer.load(Namespace, (err: Error | undefined, translations: any, detectedLng: string) => {
   // build message catalog format
   const messages = {
     [detectedLng]: translations,
@@ -50,9 +61,9 @@ locizer.load('translations', (err, translations, detectedLng) => {
 
   locizeEditor.init({
     lng: detectedLng,
-    defaultNS: 'translations',
-    referenceLng: 'en',
-    projectId: '3773bbf9-2768-4712-9eba-d2bd5d73601c',
+    defaultNS: Namespace,
+    referenceLng: ReferenceLng,
+    projectId: ProjectId,
   });
 
   // Create VueI18n instance with options
@@ -61,7 +72,11 @@ locizer.load('translations', (err, translations, detectedLng) => {
     messages, // set locale messages
     missing: (locale, path, vue) => {
       // pipe to locize - that key will be created for you
-      locizer.add('translations', path, path);
+      if (ApiKey) {
+        locizer.add(Namespace, path);
+      } else {
+        console.warn(`Set VUE_APP_LOCIZE_API_KEY to add translation key: ${path}`);
+      }
     },
   });
 
@@ -74,23 +89,3 @@ locizer.load('translations', (err, translations, detectedLng) => {
     render: (h) => h(App),
   }).$mount('#app');
 });
-
-// const i18n = new VueI18n({
-//   locale: 'en',
-//   messages: {
-//     en: {
-//       save: 'Save',
-//       restore: 'Restore',
-//     },
-
-//     nb: {
-//       save: 'Lagre',
-//       restore: 'Gjenopprett',
-//     },
-
-//     sv: {
-//       save: 'Spara',
-//       restore: 'Gjenopprett',
-//     },
-//   },
-// });
