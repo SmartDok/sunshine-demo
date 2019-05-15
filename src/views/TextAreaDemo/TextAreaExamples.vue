@@ -64,7 +64,23 @@ export default Vue.extend({
     },
 
     readonly() {
-      return '<s-text-area value="Lorum ipsum dolor sit amet." readonly />';
+      return `
+        <s-text-area
+          readonly
+          value="Lorum ipsum dolor sit amet."
+        />
+
+        <s-text-area
+          readonly
+          label="With label"
+        />
+
+        <s-text-area
+          readonly
+          label="With label and value"
+          value="Lorum ipsum dolor sit amet."
+        />
+      `;
     },
 
     inactive() {

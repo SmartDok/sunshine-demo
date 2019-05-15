@@ -121,6 +121,17 @@ export default Vue.extend({
           readonly
           value="Readonly"
         />
+
+        <s-text-field
+          readonly
+          label="Readonly with label"
+        />
+
+        <s-text-field
+          readonly
+          label="Readonly with label and value"
+          value="Readonly"
+        />
       `,
 
       expected: `
