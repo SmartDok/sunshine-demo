@@ -16,7 +16,7 @@
     </div>
 
     <div class="header">
-      <h1>Sunshine component library</h1>
+      <h1>{{ $t('sunshine-component-library') }}</h1>
     </div>
 
     <div class="menu">
