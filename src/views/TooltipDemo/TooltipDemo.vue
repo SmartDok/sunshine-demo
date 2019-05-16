@@ -29,7 +29,16 @@
     <router-view />
 
     <todo-list>
-      <todo />
+      <todo>
+        The arrow svg and the tooltip doesnt seem to scale/or move at the same ratio.
+        Noticeable at +150 zoom.
+      </todo>
+      <todo>
+        Tooltip and popover uses the same margins from the element they 'serve', but they behave
+        differently (notice distance from arrow tip to element) Popover seems to take the elements
+        margin + margin from arrow tip to element ($tooltip-arrow-margin) into consideration,
+        while tooltip only considers $tooltip-arrow-margin.
+      </todo>
     </todo-list>
   </div>
 </template>

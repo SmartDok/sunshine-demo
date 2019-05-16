@@ -6,3 +6,4 @@ declare module '*.vue' {
 
 declare module 'vue-highlight-component';
 declare module 'vue-global-events';
+declare module 'v-tooltip';

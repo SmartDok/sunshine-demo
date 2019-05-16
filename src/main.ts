@@ -15,11 +15,9 @@ import PropsItem from './components/PropsItem.vue';
 
 import store from './store';
 
-// Import the VTooltip scss
-// require('smartdok-sunshine/src/style/components/tooltip.scss');
-
 // Set the VTooltip scss
 VTooltip.options.defaultClass = 's-tooltip';
+VTooltip.options.popover.defaultBaseClass = 's-tooltip';
 Vue.config.productionTip = false;
 
 Vue.directive('tooltip', VTooltip);

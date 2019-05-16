@@ -9,7 +9,7 @@
       :code="standard"
     />
 
-    <h2>With components</h2>
+    <h2>Advanced tooltips</h2>
     <example
       :code="component"
     />
@@ -56,7 +56,7 @@ export default Vue.extend({
     <v-popover trigger="hover">
         <s-text-area
             readonly
-            value="For more advanced tooltips, use the v-popover component.."
+            value="For more advanced tooltips, you can use the v-popover component.."
         />
         <template slot="popover">
             <div style="display: flex; align-items: flex-start;">
@@ -70,7 +70,7 @@ export default Vue.extend({
     <v-popover>
         <s-text-area
             readonly
-            value="Popovers can also become visible by click instead of mouse hover."
+            value="..popovers can also become visible by click instead of mouse hover."
         />
         <template slot="popover">
             <div style="display: flex; align-items: center;">
