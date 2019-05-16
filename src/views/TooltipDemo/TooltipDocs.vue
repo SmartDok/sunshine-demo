@@ -5,6 +5,6 @@
     <br><br>
     The custom css class tooltip in the file 'tooltip.scss' is to be used with this package:
     <br>
-    <code>VTooltip.options.defaultClass = 'tooltip'</code>
+    <code>VTooltip.options.defaultClass = 's-tooltip'</code>
   </p>
 </template>
