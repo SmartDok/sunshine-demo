@@ -25,6 +25,12 @@
       max-width="16rem"
     />
 
+    <h2>With error</h2>
+    <example
+      :code="error"
+      max-width="16rem"
+    />
+
     <h2>Read only</h2>
     <example
       :code="readonly"
@@ -60,6 +66,22 @@ export default Vue.extend({
     counter() {
       return `\
         <s-text-area label="Enter up to 40 characters" v-model="text" :max-length="40" />
+      `;
+    },
+
+    error() {
+      return `\
+        <s-text-area
+          label="label"
+          value="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          error="Unsolvable error."
+        />
+        <s-text-area
+          label="With counter"
+          :max-length="55"
+          value="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          error="The mother of all errors."
+        />
       `;
     },
 

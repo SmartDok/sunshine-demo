@@ -24,15 +24,15 @@
       max-width="16rem"
     />
 
-    <h2>With error</h2>
-    <example
-      :code="withError"
-      max-width="16rem"
-    />
-
     <h2>With counter label</h2>
     <example
       :code="counter"
+      max-width="16rem"
+    />
+
+    <h2>With error</h2>
+    <example
+      :code="withError"
       max-width="16rem"
     />
 
@@ -105,8 +105,19 @@ export default Vue.extend({
       withError: `
         <s-text-field
           label="Text field"
-          error="Please enter the correct value"
+          v-validate="'required'"
+          name="text"
+          :error="errors.first('text')"
         />
+         <s-text-field
+          label="With counter"
+          :max-length="20"
+          value="Lorem ipsum dolor sit amet, ..."
+          name="counter"
+          v-validate="'max:20'"
+          :error="errors.first('counter')"
+        />
+        <s-button @click="$validator.validate()">Validate</s-button>
       `,
 
       counter: `
