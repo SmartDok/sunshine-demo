@@ -2,7 +2,7 @@
   <div>
     <h1>Tooltip</h1>
     <p class="help">
-      Tooltips becomes visible when hovering an element. Use the <code>v-tooltip</code>
+      Tooltips becomes visible when hovering over an element. Use the <code>v-tooltip</code>
       directive to create a tooltip.<br> For more advanced tooltips - e.g containing icons
       or other components - use the <code>v-popover</code> component.
     </p>
