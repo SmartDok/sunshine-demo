@@ -3,7 +3,7 @@ import './demo.scss';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
-import SmartDokUI from 'smartdok-sunshine';
+import Sunshine from 'smartdok-sunshine';
 import locizer from 'locizer';
 import locizeEditor from 'locize-editor';
 import App from './App.vue';
@@ -27,7 +27,7 @@ Vue.use(VeeValidate, {
 
 // Casting to any here, because TypeScript apparently doesn't care about
 // webpack's module resolution rules
-Vue.use(SmartDokUI as any);
+Vue.use(Sunshine as any);
 
 Vue.component('example', Example);
 Vue.component('todo-list', TodoList);
