@@ -4,7 +4,9 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
 import { VTooltip, VPopover, VClosePopover } from 'v-tooltip';
-import SmartDokUI from 'smartdok-sunshine';
+import Sunshine from 'smartdok-sunshine';
+import locizer from 'locizer';
+import locizeEditor from 'locize-editor';
 import App from './App.vue';
 import router from './router';
 import Example from './components/Example.vue';
@@ -33,7 +35,7 @@ Vue.use(VeeValidate, {
 
 // Casting to any here, because TypeScript apparently doesn't care about
 // webpack's module resolution rules
-Vue.use(SmartDokUI as any);
+Vue.use(Sunshine as any);
 
 Vue.component('example', Example);
 Vue.component('todo-list', TodoList);
@@ -41,43 +43,70 @@ Vue.component('todo', TodoItem);
 Vue.component('props-list', PropsList);
 Vue.component('props-item', PropsItem);
 
-const i18n = new VueI18n({
-  locale: 'en',
-  messages: {
-    en: {
-      save: 'Save',
-      restore: 'Restore',
+const ProjectId = '3773bbf9-2768-4712-9eba-d2bd5d73601c';
+const ApiKey = process.env.VUE_APP_LOCIZE_API_KEY || undefined;
+const Namespace = 'translations';
 
-      datepicker: {
-        option: {
-          current: 'Current',
-          next: 'Next',
-          previous: 'Previous',
-        },
-        period: {
-          day: 'Day',
-          month: 'Month',
-          week: 'Week',
-        },
-      },
-    },
+// Reference language is the original language used during development
+const ReferenceLng = 'en';
 
-    nb: {
-      save: 'Lagre',
-      restore: 'Gjenopprett',
-    },
+// Fallback language is the language that is used in production, if the detected
+// language is not supported
+const FallbackLng = 'en';
 
-    sv: {
-      save: 'Spara',
-      restore: 'Gjenopprett',
-    },
-  },
+locizer.init({
+  fallbackLng: FallbackLng,
+  referenceLng: ReferenceLng,
+  projectId: ProjectId,
+  apiKey: ApiKey,
 });
 
-new Vue({
-  router,
-  store,
-  i18n,
+locizer.load(Namespace, (err: Error | undefined, translations: any, detectedLng: string) => {
+  // build message catalog format
+  const messages = {
+    [detectedLng]: translations,
+  };
 
-  render: (h) => h(App),
-}).$mount('#app');
+  locizeEditor.init({
+    lng: detectedLng,
+    defaultNS: Namespace,
+    referenceLng: ReferenceLng,
+    projectId: ProjectId,
+  });
+
+  // Create VueI18n instance with options
+  const i18n = new VueI18n({
+    locale: detectedLng, // set locale
+    messages, // set locale messages
+    missing: (locale, path, vue) => {
+      // pipe to locize - that key will be created for you
+      if (ApiKey) {
+        locizer.add(Namespace, path);
+      } else {
+        console.warn(`Set VUE_APP_LOCIZE_API_KEY to add translation key: ${path}`);
+      }
+    },
+  });
+
+  // Create a Vue instance with `i18n` option
+  const vm = new Vue({
+    router,
+    store,
+    i18n,
+
+    data: {
+      showInspector: false,
+    },
+
+    render: (h) => h(App),
+  }).$mount('#app');
+
+  // Hide inspector when changing page
+  router.beforeEach((to, from, next) => {
+    if (to.path !== from.path) {
+      vm.showInspector = false;
+    }
+
+    next();
+  });
+});

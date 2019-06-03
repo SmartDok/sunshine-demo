@@ -81,7 +81,7 @@ export default Vue.extend({
   computed: {
     standard() {
       return `\
-  <p style="width: 60rem;">
+  <p style="width: 50rem;">
     <s-multiselect left-label="Left" right-label="Right" :items="data.items" v-model="selected" />
   </p>`;
     },

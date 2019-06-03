@@ -8,6 +8,17 @@
       </p>
 
       <p>
+        In practice, most of the time we don't actually use the
+        <code>s-inspector</code> component directly, but we use the
+        <code>s-base-layout</code> component, and we put the content for the
+        inspector inside the <code>inspector</code> slot. In this demo page,
+        the entire page is wrapped in <code>s-page-layout</code>, and the
+        actual inspector content is injected from the Vue router. This is not
+        part of the example code that is seen below, but instead the example
+        code includes a hidden section that shows the basic structure.
+      </p>
+
+      <p>
         The <code>s-inspector-page</code> component defines the layout of the
         content inside the inspector. It is a separate component, because we
         ofter want to have <b>one</b> inspector, that can display different
@@ -23,143 +34,7 @@
 
     <h2>Example</h2>
     <example
-      :code="`
-    <s-button @click=&quot;open = !open&quot;>
-      Toggle inspector
-    </s-button>
-
-    <s-inspector v-model=&quot;open&quot;>
-      <s-inspector-page
-        @submit.prevent=&quot;open = false&quot;
-      >
-        <template v-slot:header>
-          <h1>25.08.2018</h1>
-          <h2>Tor Erik Olsen</h2>
-        </template>
-
-        <template v-slot:footer>
-          <div class=&quot;flex&quot;>
-            <s-button primary submit>Godkjenn</s-button>
-          </div>
-        </template>
-
-        <s-accordion>
-          <s-accordion-item heading=&quot;Timeføring&quot;>
-            <s-grid>
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                  v-model=&quot;from&quot;
-                  label=&quot;Fra&quot;
-                  name=&quot;Fra&quot;
-                  format=&quot;00:00&quot;
-                />
-              </s-grid-item>
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                v-model=&quot;to&quot;
-                label=&quot;Til&quot;
-                name=&quot;Til&quot;
-                format=&quot;00:00&quot;
-              />
-              </s-grid-item>
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                  v-model=&quot;pause&quot;
-                  label=&quot;Pause&quot;
-                />
-              </s-grid-item>
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                  inactive
-                  label=&quot;Timer&quot;
-                  value=&quot;7,5&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;12&quot;>
-                <s-text-area label=&quot;Kommentar&quot; />
-              </s-grid-item>
-            </s-grid>
-          </s-accordion-item>
-
-          <s-accordion-item>
-            <template v-slot:heading>Prosjekt og aktivitet</template>
-
-            <s-grid>
-              <s-grid-item :span=&quot;12&quot;>
-                <s-drop-down
-                  :items=&quot;projects&quot;
-                  label=&quot;Prosjekt&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;9&quot;>
-                <s-text-field label=&quot;Underprosjekt&quot; />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                  v-model=&quot;pause&quot;
-                  label=&quot;Antall&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;6&quot;>
-                <s-text-field
-                  v-model=&quot;activity&quot;
-                  label=&quot;Aktivitet&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;6&quot;>
-                <s-text-field
-                  v-model=&quot;area&quot;
-                  label=&quot;Område&quot;
-                />
-              </s-grid-item>
-            </s-grid>
-          </s-accordion-item>
-
-          <s-accordion-item>
-            <template v-slot:heading>Lønn og tillegg</template>
-
-            <s-grid>
-              <s-grid-item :span=&quot;9&quot;>
-                <s-text-field
-                  v-model=&quot;wage&quot;
-                  label=&quot;Lønnsart&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item :span=&quot;3&quot;>
-                <s-text-field
-                  v-model=&quot;pause&quot;
-                  label=&quot;Antall&quot;
-                />
-              </s-grid-item>
-
-              <s-grid-item
-                v-for=&quot;(label, i) in additions&quot;
-                :key=&quot;i&quot;
-                :span=&quot;6&quot;
-              >
-                <s-text-field :label=&quot;label&quot; />
-              </s-grid-item>
-            </s-grid>
-          </s-accordion-item>
-
-          <s-accordion-item>
-            <template v-slot:heading>Maskintimer</template>
-
-            <p>
-              Maskintimer
-            </p>
-          </s-accordion-item>
-
-        </s-accordion>
-      </s-inspector-page>
-    </s-inspector>`"
-      :data="{ ...$data, required: 'required' }"
+      :code="code"
       max-width="16rem"
     />
 
@@ -194,34 +69,33 @@ export default Vue.extend({
 
   data() {
     return {
-      open: false,
-      from: '08:00',
-      to: '16:00',
-      pause: '30',
-      activity: 'Boring',
-      wage: '',
-      area: '',
+      code: `
+      <s-button @click="$root.showInspector = !$root.showInspector">
+        Toggle inspector
+      </s-button>
 
-      projects: [
-        { key: 1, label: 'Nybygg' },
-        { key: 2, label: 'Gammelbygg' },
-        { key: 3, label: 'Veiprosjekt' },
-        { key: 4, label: 'Graveprosjekt' },
-        { key: 5, label: 'Brøyteprosjekt' },
-      ],
+      <!-- Example code, see SInspectorExample for the source code for the actual demo -->
+      <div v-if="false">
+        <s-page-layout :show-inspector="showInspector">
+          Main page content
 
-      additions: [
-        'Nattillegg',
-        'Helgtillegg',
-        'Risikotillegg',
-        'Overtid 50%',
-        'Overtid 100%',
-        'Overtid 125%',
-        'Ustyrstillegg',
-        'Hjelmtillegg',
-        'Bråktillegg',
-        'Timetillegg',
-      ].concat([...Array(20).keys()].map(n => `Andre tillegg ${n + 1}`)),
+          <template v-slot:inspector>
+            <s-inspector-page @submit.prevent="">
+              <template v-slot:header>
+                Inspector header
+              </template>
+
+              <template v-slot:footer>
+                Inspector footer
+              </template>
+
+              Inspector main content
+
+            </s-inspector-page>
+          </template>
+        </s-page-layout>
+      </div>
+      `,
     };
   },
 });

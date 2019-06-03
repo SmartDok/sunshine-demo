@@ -24,10 +24,8 @@ const store = new Vuex.Store({
       },
       { label: 'Users', key: 'jsonplaceholder' },
       { label: 'Github', key: 'github' },
+      { label: 'Many rows', key: 'fake' },
       { label: 'Infinite rows', key: 'fakeinf' },
-      { label: '75 rows', key: 'fake75' },
-      { label: '999 rows', key: 'fake999' },
-      { label: '1000000 rows', key: 'fake1M' },
       (
         // Show "SmartDok" source only if Token exists
         localStorage.getItem('SmartApiToken') &&
@@ -45,10 +43,8 @@ const store = new Vuex.Store({
     jsonplaceholder,
     github,
 
+    fake: fake(2500),
     fakeinf: fake(),
-    fake75: fake(75),
-    fake999: fake(999),
-    fake1M: fake(100000),
 
     smartdok,
 

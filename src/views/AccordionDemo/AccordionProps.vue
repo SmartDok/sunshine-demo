@@ -31,6 +31,13 @@
       >
         Sets the item to start off in open state.
       </props-item>
+      <props-item
+        name="invalid"
+        type="Boolean"
+        default-value="false"
+      >
+        Indicates that there's a validation error in one of the items the accordion item contains.
+      </props-item>
     </props-list>
   </div>
 </template>

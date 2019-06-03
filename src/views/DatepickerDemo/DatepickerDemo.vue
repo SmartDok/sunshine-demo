@@ -16,7 +16,7 @@
     localeString=&quot;nb&quot;
   />`"
       :data="{
-        period: { from: null, to: null, preset: null },
+        period: {},
       }"
       max-width="14rem"
     />

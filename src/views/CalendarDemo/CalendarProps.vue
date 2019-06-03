@@ -2,7 +2,7 @@
   <props-list>
     <props-item
       name="date"
-      type="moment.Moment"
+      type="DateTime"
     >
       Sets the calendar date.
     </props-item>

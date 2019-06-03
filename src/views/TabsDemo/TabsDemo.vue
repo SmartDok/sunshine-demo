@@ -17,6 +17,13 @@
       </p>
     </div>
 
+    <router-link
+      to="examples?1"
+      class="s-link"
+    >
+      View more examples
+    </router-link>
+
     <h1>API</h1>
     <example
       :code="standard"

@@ -13,6 +13,12 @@
     >
       The package where the icon is to be found.
     </props-item>
+    <props-item
+      name="rotate"
+      type="Number"
+    >
+      Rotates the icon the given degrees.
+    </props-item>
   </props-list>
 </template>
 

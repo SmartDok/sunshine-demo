@@ -48,30 +48,30 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
+import { DateTime } from 'luxon';
 
 export default Vue.extend({
   name: 'CalenderDemo',
 
   data() {
-    let today = moment().startOf('day');
+    let today = DateTime.local().startOf('day');
     return {
       date: today,
-      today: today.format('LL'),
+      today: today.toLocaleString(DateTime.DATE_FULL),
     };
   },
 
   methods: {
     onPrevClick() {
-      this.date = moment(this.date).subtract(1, 'month');
+      this.date = this.date.minus({ month: 1 });
     },
 
     onNextClick() {
-      this.date = moment(this.date).add(1, 'month');
+      this.date = this.date.plus({ month: 1 });
     },
 
     onTodayClick() {
-      let today = moment().startOf('day');
+      let today = DateTime.local().startOf('day');
       this.date = today;
     },
   },
