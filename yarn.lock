@@ -7225,7 +7225,6 @@ pn@^1.1.0:
 popper.js@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
-  integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
 
 portfinder@^1.0.20, portfinder@^1.0.9:
   version "1.0.20"
@@ -8371,9 +8370,9 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smartdok-sunshine@smartdok/sunshine#v0.15.0:
-  version "0.15.0"
-  resolved "https://codeload.github.com/smartdok/sunshine/tar.gz/911c7d89f3badfe332a925244c69026a37250235"
+smartdok-sunshine@smartdok/sunshine#v0.16.0:
+  version "0.16.0"
+  resolved "https://codeload.github.com/smartdok/sunshine/tar.gz/1d2b28dab6f01dd879dec3a1369cd129794dcf94"
   dependencies:
     debounce "^1.2.0"
     vue-global-events "^1.1.2"
@@ -9281,7 +9280,6 @@ uuid@^3.0.1, uuid@^3.3.2:
 v-tooltip@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-2.0.2.tgz#8610d9eece2cc44fd66c12ef2f12eec6435cab9b"
-  integrity sha512-xQ+qzOFfywkLdjHknRPgMMupQNS8yJtf9Utd5Dxiu/0n4HtrxqsgDtN2MLZ0LKbburtSAQgyypuE/snM8bBZhw==
   dependencies:
     lodash "^4.17.11"
     popper.js "^1.15.0"
@@ -9386,7 +9384,6 @@ vue-loader@^15.6.2:
 vue-resize@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"
-  integrity sha512-bhP7MlgJQ8TIkZJXAfDf78uJO+mEI3CaLABLjv0WNzr4CcGRGPIAItyWYnP6LsPA4Oq0WE+suidNs6dgpO4RHg==
 
 vue-router@^3.0.1:
   version "3.0.2"
