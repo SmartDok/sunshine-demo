@@ -17,6 +17,7 @@
     "locizer": "^1.3.0",
     "luxon": "^1.15.0",
     "smartdok-sunshine": "smartdok/sunshine#v0.15.0",
+    "v-tooltip": "2.0.2",
     "vee-validate": "^2.1.7",
     "vue": "^2.6.6",
     "vue-highlight-component": "^1.0.0",

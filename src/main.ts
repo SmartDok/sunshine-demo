@@ -3,6 +3,7 @@ import './demo.scss';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
+import { VTooltip, VPopover, VClosePopover } from 'v-tooltip';
 import Sunshine from 'smartdok-sunshine';
 import locizer from 'locizer';
 import locizeEditor from 'locize-editor';
@@ -16,7 +17,14 @@ import PropsItem from './components/PropsItem.vue';
 
 import store from './store';
 
+// Set the VTooltip scss
+VTooltip.options.defaultClass = 's-tooltip';
+VTooltip.options.popover.defaultBaseClass = 's-tooltip';
 Vue.config.productionTip = false;
+
+Vue.directive('tooltip', VTooltip);
+Vue.directive('close-popover', VClosePopover);
+Vue.component('v-popover', VPopover);
 
 Vue.use(VueI18n);
 Vue.use(VeeValidate, {

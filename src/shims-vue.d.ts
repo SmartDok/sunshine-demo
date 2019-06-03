@@ -8,3 +8,4 @@ declare module 'locize-editor';
 declare module 'locizer';
 declare module 'vue-highlight-component';
 declare module 'vue-global-events';
+declare module 'v-tooltip';
