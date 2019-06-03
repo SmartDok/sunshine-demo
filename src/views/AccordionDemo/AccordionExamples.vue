@@ -26,6 +26,12 @@
       :code="linked"
       max-width="28rem"
     />
+
+    <h2>Validation error</h2>
+    <example
+      :code="validation"
+      max-width="28rem"
+    />
   </div>
 </template>
 
@@ -92,6 +98,24 @@ export default Vue.extend({
 
       <s-accordion-item heading="Second">
         <s-alert warning>Second content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Third">
+        <s-alert error>Third content</s-alert>
+      </s-accordion-item>
+    </s-accordion>
+      `;
+    },
+
+    validation() {
+      return `\
+    <s-accordion linked>
+      <s-accordion-item heading="First">
+        <s-alert success>First content</s-alert>
+      </s-accordion-item>
+
+      <s-accordion-item heading="Second" :invalid="true">
+        <s-text-field label="Numbers only" value="Abc" error="Numbers only!"  readonly />
       </s-accordion-item>
 
       <s-accordion-item heading="Third">
