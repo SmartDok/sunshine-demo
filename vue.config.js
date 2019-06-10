@@ -8,6 +8,11 @@ module.exports = {
   runtimeCompiler: true,
 
   configureWebpack: {
+    devServer: {
+      watchOptions: {
+        aggregateTimeout: 500,
+      },
+    },
     resolve: {
       alias: {
         vue: path.resolve(__dirname, './node_modules/vue'),
