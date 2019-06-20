@@ -13,6 +13,11 @@
     <example
       :code="component"
     />
+
+    <h2>Buttons with dropdown</h2>
+    <example
+      :code="dropdown"
+    />
   </div>
 </template>
 
@@ -82,6 +87,32 @@ export default Vue.extend({
         </template>
     </v-popover>
 </div>`;
+    },
+
+    dropdown() {
+      return `
+<s-tool-menu-button
+  :tooltip="{ content: 'Tooltip should display when one hovers over the button, but not when one hovers over the dropdown menu' }"
+  :items="[
+    {
+      label: 'Option A',
+    },
+    {
+        label: 'Option B',
+    },
+  ]"
+/>
+<s-table-columns-menu
+  :tooltip="{ content: 'The tooltip over this button should behave as in the button above.' }"
+  :columns="[
+    {
+      title: 'Option A',
+    },
+    {
+      title: 'Option B',
+    },
+  ]"
+/>`;
     },
   },
 });
