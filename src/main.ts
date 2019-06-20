@@ -62,7 +62,7 @@ locizer.load(Namespace, (err: Error | undefined, translations: any, detectedLng:
   };
 
   // Luxon locale
-  Settings.defaultLocale = 'nb';
+  Settings.defaultLocale = detectedLng;
 
   locizeEditor.init({
     lng: detectedLng,
