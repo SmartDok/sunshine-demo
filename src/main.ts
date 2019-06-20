@@ -3,10 +3,10 @@ import './demo.scss';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import VeeValidate from 'vee-validate';
-import { VTooltip, VPopover, VClosePopover } from 'v-tooltip';
 import Sunshine from 'smartdok-sunshine';
 import locizer from 'locizer';
 import locizeEditor from 'locize-editor';
+import { Settings } from 'luxon';
 import App from './App.vue';
 import router from './router';
 import Example from './components/Example.vue';
@@ -14,18 +14,12 @@ import TodoList from './components/TodoList.vue';
 import TodoItem from './components/TodoItem.vue';
 import PropsList from './components/PropsList.vue';
 import PropsItem from './components/PropsItem.vue';
-
+import Tooltip from '@/plugins/tooltip';
 import store from './store';
 
-// Set the VTooltip scss
-VTooltip.options.defaultClass = 's-tooltip';
-VTooltip.options.popover.defaultBaseClass = 's-tooltip';
 Vue.config.productionTip = false;
 
-Vue.directive('tooltip', VTooltip);
-Vue.directive('close-popover', VClosePopover);
-Vue.component('v-popover', VPopover);
-
+Vue.use(Tooltip);
 Vue.use(VueI18n);
 Vue.use(VeeValidate, {
   // inject: false,
@@ -67,11 +61,15 @@ locizer.load(Namespace, (err: Error | undefined, translations: any, detectedLng:
     [detectedLng]: translations,
   };
 
+  // Luxon locale
+  Settings.defaultLocale = detectedLng;
+
   locizeEditor.init({
     lng: detectedLng,
     defaultNS: Namespace,
     referenceLng: ReferenceLng,
     projectId: ProjectId,
+    loadIfTranslatedOver: 0.01,
   });
 
   // Create VueI18n instance with options
