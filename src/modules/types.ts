@@ -7,7 +7,6 @@ import {
 
 export interface IDataModuleState {
   isLoading: boolean;
-  offset: number;
   sortingState: ISortingState;
   filter: any[], // TODO type
   items: { [key: string]: IItem[] };

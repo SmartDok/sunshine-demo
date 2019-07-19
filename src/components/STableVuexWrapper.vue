@@ -3,7 +3,6 @@
     class="flex-grow"
     :items="items"
     :total="total"
-    :offset="offset"
     :columns="columns"
     :checkable="checkable"
     :selection.sync="selection"
@@ -75,10 +74,6 @@ export default Vue.extend({
 
     items(): IItem[] {
       return this.getState('items');
-    },
-
-    offset(): number {
-      return this.getState('offset');
     },
 
     total(): number {
