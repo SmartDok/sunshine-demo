@@ -856,10 +856,6 @@
     "@types/d3-voronoi" "*"
     "@types/d3-zoom" "*"
 
-"@types/debounce@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/debounce/-/debounce-3.0.0.tgz#ea4290f6e2d7ab99464c93b4a69b843d0993b181"
-
 "@types/dom-inputevent@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@types/dom-inputevent/-/dom-inputevent-1.0.4.tgz#05bc0bbaed7006f74af6afa9fc897f402783ab42"
@@ -877,6 +873,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.6.tgz#ba4c8c7900ce098a82ca99293cbe4192bde4f355"
   dependencies:
     "@types/jest-diff" "*"
+
+"@types/lodash@^4.14.136":
+  version "4.14.136"
+  resolved "https://pkgs.dev.azure.com/VismaSmartDok/_packaging/sunshine/npm/registry/@types/lodash/-/lodash-4.14.136.tgz#413e85089046b865d960c9ff1d400e04c31ab60f"
 
 "@types/luxon@^1.13.0":
   version "1.13.0"
@@ -3136,10 +3136,6 @@ date-now@^0.1.4:
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
-
-debounce@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
 
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -6108,6 +6104,10 @@ lodash@4.x, lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lod
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
+lodash@^4.17.15:
+  version "4.17.15"
+  resolved "https://pkgs.dev.azure.com/VismaSmartDok/_packaging/sunshine/npm/registry/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+
 log-symbols@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-1.0.2.tgz#376ff7b58ea3086a0f09facc74617eca501e1a18"
@@ -8370,11 +8370,11 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smartdok-sunshine@smartdok/sunshine#v1.1.0:
-  version "1.1.0"
-  resolved "https://codeload.github.com/smartdok/sunshine/tar.gz/4beb391215ad5224c7887d9c4f5b05dabb587d13"
+smartdok-sunshine@^1.7.4:
+  version "1.7.4"
+  resolved "https://pkgs.dev.azure.com/VismaSmartDok/_packaging/sunshine/npm/registry/smartdok-sunshine/-/smartdok-sunshine-1.7.4.tgz#14f46f66721618f7f94ba12f0acb9c85717253ab"
   dependencies:
-    debounce "^1.2.0"
+    lodash "^4.17.15"
     vue-global-events "^1.1.2"
     vue-typed-mixins "^0.1.0"
 

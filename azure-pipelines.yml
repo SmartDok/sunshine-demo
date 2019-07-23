@@ -1,0 +1,34 @@
+trigger:
+  - master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: npmAuthenticate@0
+  inputs:
+    workingFile: '.npmrc'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    yarn install
+  displayName: 'Install dependencies'
+
+- script: |
+    yarn run lint
+  displayName: 'Run code checks'
+
+- script: |
+    yarn run build
+  displayName: 'Build'
+
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: 'SunshineAzure'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'yarn deploy'
+  displayName: "Deploy to Azure"
