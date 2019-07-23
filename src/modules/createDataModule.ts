@@ -86,7 +86,6 @@ const createDataModule = <ModuleState = {}, RootState = any>(
       const moduleState = options.state instanceof Function ? options.state() : options.state;
 
       return {
-        offset: 0,
         total: null,
         isLoading: false,
         items: { '': [] },
@@ -127,10 +126,6 @@ const createDataModule = <ModuleState = {}, RootState = any>(
         return state.items[''].filter(item => selected.includes(item.id) !== inverted);
       },
 
-      offset(state) {
-        return state.offset;
-      },
-
       total(state) {
         return state.total;
       },
@@ -167,12 +162,11 @@ const createDataModule = <ModuleState = {}, RootState = any>(
         state.isLoading = false;
       },
 
-      loadItemsComplete: (state, { items, offset, total }) => {
+      loadItemsComplete: (state, { items, total }) => {
         state.items = {
           ...state.items,
           '': items,
         };
-        state.offset = offset;
         state.total = total;
       },
 
@@ -230,14 +224,12 @@ const createDataModule = <ModuleState = {}, RootState = any>(
       },
 
       async _doRequestLoadItems({ state, commit, dispatch }, payload: IRequestLoadItemsPayload) {
-        type Range = [number, number];
-
         let items = payload.clear ? [] : state.items[''];
 
-        let has: Range = [state.offset, state.offset + items.length];
-        let needs: Range = [payload.firstRow, payload.lastRow + 1];
+        let has = items.length;
+        let needs = payload.lastRow;
 
-        if (has[0] <= needs[0] && has[1] >= needs[1]) {
+        if (has >= needs) {
           console.info('Loading not needed', payload);
           return;
         }
@@ -249,60 +241,21 @@ const createDataModule = <ModuleState = {}, RootState = any>(
 
         const chunkSize = 50;
 
-        let needChunks = [
-          Math.floor(needs[0] / chunkSize) * chunkSize,
-          Math.ceil(needs[1] / chunkSize) * chunkSize,
-        ];
-
-        let prepend: Range | null = null;
-        let append: Range | null = null;
-        if (needs[0] < has[0]) {
-          if (needChunks[1] < has[0]) {
-            items = [];
-            append = [needChunks[0], needChunks[1]];
-          } else {
-            prepend = [needChunks[0], has[0]];
-          }
-        }
-        if (needs[1] > has[1]) {
-          if (needChunks[0] > has[1]) {
-            items = [];
-            append = [needChunks[0], needChunks[1]];
-          } else {
-            append = [has[1], needChunks[1]];
-          }
-        }
-
-        // console.log('has', has[0], has[1]);
-        // console.log('needs', needs[0], needs[1]);
-        if (prepend !== null) console.log('prepend', prepend[0], prepend[1]);
-        if (append !== null) console.log('append', append[0], append[1]);
+        let needChunks = Math.ceil(needs / chunkSize) * chunkSize;
 
         commit('loadStart');
 
-        if (prepend !== null) {
-          let skip = prepend[0];
-          let take = prepend[1] - prepend[0];
+        try {
+          let skip = has;
+          let take = needChunks - skip;
           let result = await dispatch('loadItems', { skip, take });
-          let offset = skip;
-          items = result.items.concat(items);
-          commit('loadItemsComplete', { items, offset, total: result.total });
-        }
+          items = items.concat(result.items);
 
-        if (append !== null) {
-          try {
-            let skip = append[0];
-            let take = append[1] - append[0];
-            let result = await dispatch('loadItems', { skip, take });
-            let offset = skip - items.length;
-            items = items.concat(result.items);
+          // console.log(`got ${result.items.length} of ${result.total}`);
 
-            // console.log(`got ${result.items.length} of ${result.total}`);
-
-            commit('loadItemsComplete', { items, offset, total: result.total });
-          } catch (ex) {
-            console.error('loadItems failed', ex);
-          }
+          commit('loadItemsComplete', { items, total: result.total });
+        } catch (ex) {
+          console.error('loadItems failed', ex);
         }
 
         commit('loadEnd');
