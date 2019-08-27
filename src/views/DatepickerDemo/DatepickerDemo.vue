@@ -26,9 +26,9 @@
       :code="`\
   <s-date-single
     v-model=&quot;date&quot;
-    label=&quot;Dato&quot;
+    label=&quot;Date&quot;
   />`"
-      :data="{ date: {} }"
+      :data="{ date }"
       max-width="12rem"
     />
 
