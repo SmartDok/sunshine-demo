@@ -15,14 +15,17 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    set -e
     yarn install
   displayName: 'Install dependencies'
 
 - script: |
+    set -e
     yarn run lint
   displayName: 'Run code checks'
 
 - script: |
+    set -e
     yarn run build
   displayName: 'Build'
 
