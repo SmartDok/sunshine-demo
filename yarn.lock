@@ -8370,9 +8370,9 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smartdok-sunshine@^1.9.2:
-  version "1.9.2"
-  resolved "https://pkgs.dev.azure.com/VismaSmartDok/_packaging/sunshine/npm/registry/smartdok-sunshine/-/smartdok-sunshine-1.9.2.tgz#98f3591ea9afa6448db5150766c9109d8a0a5f75"
+smartdok-sunshine@^1.10.0:
+  version "1.10.0"
+  resolved "https://pkgs.dev.azure.com/VismaSmartDok/_packaging/sunshine/npm/registry/smartdok-sunshine/-/smartdok-sunshine-1.10.0.tgz#723d291ee7e02a2f505f9407e780f05a56c70ba4"
   dependencies:
     lodash "^4.17.15"
     vue-global-events "^1.1.2"
